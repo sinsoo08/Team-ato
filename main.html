@@ -3,296 +3,393 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>TEAM ATO</title>
+  <title>TEAM ATO — Minecraft Map Studio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+KR:wght@300;400;500;700&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="main.css"/>
 </head>
 <body>
 
-  <!-- ══ NAVBAR ══ -->
-  <nav>
-    <a href="#home" class="nav-logo">
-      <span class="dot"></span>
-      TEAM ATO
+  <canvas id="stars"></canvas>
+
+  <!-- ══ NAV ══ -->
+  <nav id="nav">
+    <a href="#home" class="logo">
+      <span class="logo-pick">⛏</span>
+      <span class="logo-text">TEAM<span class="logo-accent">ATO</span></span>
     </a>
-    <ul class="nav-links">
+    <ul class="nav-menu" id="nav-menu">
       <li><a href="#home">홈</a></li>
-      <li><a href="#download">맵 다운로드</a></li>
+      <li><a href="#maps">맵 다운로드</a></li>
       <li><a href="#notice">공지사항</a></li>
       <li><a href="#faq">고객지원</a></li>
       <li><a href="#team">팀 소개</a></li>
-      <li class="nav-cta"><a href="#donate">후원하기</a></li>
+      <li><a href="#donate" class="nav-btn">💎 후원하기</a></li>
     </ul>
-    <button class="nav-hamburger" id="hamburger" aria-label="메뉴">&#9776;</button>
+    <button class="burger" id="burger">&#9776;</button>
   </nav>
 
-  <!-- ══ HERO (dark) ══ -->
+  <!-- ══ HERO ══ -->
   <section id="home" class="hero">
-    <div class="glow-circle c1"></div>
-    <div class="glow-circle c2"></div>
-    <p class="hero-eyebrow">Welcome to TEAM ATO</p>
-    <h1 class="hero-title">TEAM <span>ATO</span>에<br/>오신 것을 환영합니다</h1>
-    <p class="hero-sub">고품질 마크맵을 무료로 제공합니다.<br/>지식을 시각화하고 학습의 효율을 높여보세요.</p>
-    <div class="hero-buttons">
-      <a href="#download" class="btn btn-primary">🗺️ 맵 둘러보기</a>
-      <a href="#download" class="btn btn-outline">⬇️ 다운로드</a>
+    <div class="hero-grid-bg"></div>
+
+    <div class="hero-left">
+      <div class="hero-badge">▶ TEAM ATO PRESENTS</div>
+      <h1 class="hero-h1">
+        <span class="line1">새로운 세계가</span>
+        <span class="line2">기다린다</span>
+      </h1>
+      <p class="hero-p">TEAM ATO가 직접 제작한 고퀄리티 마인크래프트 맵을 무료로 즐기세요. 어드벤처, PvP, 퍼즐, 서바이벌 — 모든 장르가 준비되어 있습니다.</p>
+      <div class="hero-btns">
+        <a href="#maps" class="btn-prim">🗺 맵 둘러보기</a>
+        <a href="#maps" class="btn-sec">⬇ 다운로드</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hs"><span class="hs-n" data-to="18">0</span><span class="hs-l">맵</span></div>
+        <div class="hs-div"></div>
+        <div class="hs"><span class="hs-n" data-to="12400">0</span><span class="hs-l">다운로드</span></div>
+        <div class="hs-div"></div>
+        <div class="hs"><span class="hs-n">FREE</span><span class="hs-l">모두 무료</span></div>
+      </div>
     </div>
-    <div class="hero-scroll-hint">
-      <span>스크롤</span>
-      <div class="scroll-arrow"></div>
+
+    <div class="hero-right">
+      <div class="mc-window">
+        <div class="mc-titlebar">
+          <span class="mc-dot r"></span><span class="mc-dot y"></span><span class="mc-dot g"></span>
+          <span class="mc-title">Minecraft — TEAM ATO World</span>
+        </div>
+        <div class="mc-viewport">
+          <div class="mc-sky"></div>
+          <div class="mc-mountains">
+            <div class="mtn mtn1"></div>
+            <div class="mtn mtn2"></div>
+            <div class="mtn mtn3"></div>
+          </div>
+          <div class="mc-sun">☀️</div>
+          <div class="mc-cloud cl1">&#9729;</div>
+          <div class="mc-cloud cl2">&#9729;</div>
+          <div class="mc-ground">
+            <div class="ground-top"></div>
+            <div class="ground-dirt"></div>
+            <div class="ground-stone"></div>
+          </div>
+          <div class="mc-trees">
+            <div class="tree t1"><div class="leaves"></div><div class="trunk"></div></div>
+            <div class="tree t2"><div class="leaves"></div><div class="trunk"></div></div>
+            <div class="tree t3"><div class="leaves sm"></div><div class="trunk"></div></div>
+          </div>
+          <div class="mc-char">
+            <div class="char-head"></div>
+            <div class="char-body"></div>
+            <div class="char-legs">
+              <div class="leg l"></div>
+              <div class="leg r"></div>
+            </div>
+          </div>
+          <div class="mc-hud">
+            <div class="hud-hearts">❤️❤️❤️❤️❤️</div>
+            <div class="hud-bar">
+              <div class="hud-fill"></div>
+            </div>
+          </div>
+        </div>
+        <div class="mc-hotbar">
+          <div class="hb-slot active">⛏</div>
+          <div class="hb-slot">🪵</div>
+          <div class="hb-slot">🍎</div>
+          <div class="hb-slot">⚔️</div>
+          <div class="hb-slot">🛡️</div>
+          <div class="hb-slot">🧱</div>
+          <div class="hb-slot">🔥</div>
+          <div class="hb-slot">💎</div>
+          <div class="hb-slot">🗺️</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-cue">
+      <div class="sc-line"></div>
+      <span class="sc-text">SCROLL</span>
     </div>
   </section>
 
-  <!-- ══ STATS BAND (light) ══ -->
-  <div class="stats-band">
-    <div class="stat-item reveal">
-      <div class="stat-value" data-count="24">0</div>
-      <div class="stat-label">맵 배포</div>
-    </div>
-    <div class="stat-divider"></div>
-    <div class="stat-item reveal">
-      <div class="stat-value" data-count="5000">0</div>
-      <div class="stat-label">누적 다운로드</div>
-    </div>
-    <div class="stat-divider"></div>
-    <div class="stat-item reveal">
-      <div class="stat-value" data-count="6">0</div>
-      <div class="stat-label">과목</div>
-    </div>
-    <div class="stat-divider"></div>
-    <div class="stat-item reveal">
-      <div class="stat-value">100%</div>
-      <div class="stat-label">무료 제공</div>
-    </div>
-  </div>
+  <!-- ══ MAPS (dark) ══ -->
+  <section id="maps" class="s-dark">
+    <div class="wrap">
+      <header class="s-head">
+        <span class="s-eye reveal">// LATEST DROPS</span>
+        <h2 class="s-title reveal">최신 맵 다운로드</h2>
+      </header>
 
-  <!-- ══ MAP DOWNLOAD (dark) ══ -->
-  <section id="download" class="section-dark">
-    <div class="section-inner">
-      <p class="section-label reveal">Latest Maps</p>
-      <h2 class="section-title reveal">최신 맵 다운로드</h2>
-      <div class="map-grid">
-        <div class="map-card reveal">
-          <div class="map-card-thumb">
-            <span class="map-icon">🧬</span>
-            <span class="map-badge">NEW</span>
+      <div class="filters reveal">
+        <button class="f-btn active" data-f="all">전체</button>
+        <button class="f-btn" data-f="adventure">🏔 어드벤처</button>
+        <button class="f-btn" data-f="pvp">⚔️ PvP</button>
+        <button class="f-btn" data-f="survival">🌋 서바이벌</button>
+        <button class="f-btn" data-f="puzzle">🧩 퍼즐</button>
+      </div>
+
+      <div class="map-grid" id="mapGrid">
+
+        <article class="map-card reveal" data-g="adventure">
+          <div class="card-top adventure">
+            <div class="card-biome-label">어드벤처</div>
+            <div class="card-icon">🏔️</div>
+            <div class="card-glow"></div>
+            <span class="card-new">NEW</span>
           </div>
-          <div class="map-card-body">
-            <div class="map-card-title">생명과학 전체 개념도</div>
-            <div class="map-card-desc">세포, 유전, 진화, 생태계까지 고등 생명과학 핵심 개념을 한눈에 정리</div>
-            <div class="map-card-footer">
-              <span class="map-card-meta">v2.1 · 2025.06</span>
-              <button class="btn-dl">다운로드</button>
+          <div class="card-body">
+            <h3>The Lost Kingdom</h3>
+            <p>고대 왕국의 비밀을 파헤치는 스토리 어드벤처. 10개 던전 + 보스 배틀.</p>
+            <div class="card-tags">
+              <span>👥 1~4인</span><span>⏱ 5~8h</span><span>📦 Java 1.20+</span>
+            </div>
+            <div class="card-foot">
+              <span class="card-ver">v2.1</span>
+              <button class="dl-btn">⬇ 다운로드</button>
             </div>
           </div>
-        </div>
-        <div class="map-card reveal">
-          <div class="map-card-thumb">
-            <span class="map-icon">⚗️</span>
-            <span class="map-badge">NEW</span>
+        </article>
+
+        <article class="map-card reveal" data-g="pvp">
+          <div class="card-top pvp">
+            <div class="card-biome-label">PvP</div>
+            <div class="card-icon">⚔️</div>
+            <div class="card-glow"></div>
+            <span class="card-new">NEW</span>
           </div>
-          <div class="map-card-body">
-            <div class="map-card-title">화학 I · II 통합 맵</div>
-            <div class="map-card-desc">원소 주기율, 결합, 반응, 산염기까지 화학의 흐름을 구조화</div>
-            <div class="map-card-footer">
-              <span class="map-card-meta">v1.8 · 2025.05</span>
-              <button class="btn-dl">다운로드</button>
+          <div class="card-body">
+            <h3>Sky Wars Arena</h3>
+            <p>하늘 위 16개 섬에서 펼쳐지는 치열한 서바이벌 배틀. 다양한 키트 지원.</p>
+            <div class="card-tags">
+              <span>👥 2~16인</span><span>⏱ 30min</span><span>📦 Java 1.20+</span>
+            </div>
+            <div class="card-foot">
+              <span class="card-ver">v3.0</span>
+              <button class="dl-btn">⬇ 다운로드</button>
             </div>
           </div>
-        </div>
-        <div class="map-card reveal">
-          <div class="map-card-thumb">
-            <span class="map-icon">📐</span>
+        </article>
+
+        <article class="map-card reveal" data-g="survival">
+          <div class="card-top survival">
+            <div class="card-biome-label">서바이벌</div>
+            <div class="card-icon">🌋</div>
+            <div class="card-glow"></div>
           </div>
-          <div class="map-card-body">
-            <div class="map-card-title">수학 개념 체계도</div>
-            <div class="map-card-desc">수Ⅰ·수Ⅱ·확통·기하 전 범위를 하나의 마크맵으로 시각화</div>
-            <div class="map-card-footer">
-              <span class="map-card-meta">v3.0 · 2025.04</span>
-              <button class="btn-dl">다운로드</button>
+          <div class="card-body">
+            <h3>Volcano Island</h3>
+            <p>활화산 섬에서 살아남기. 특수 이벤트와 생존 챌린지가 가득.</p>
+            <div class="card-tags">
+              <span>👥 1~2인</span><span>⏱ 자유</span><span>📦 Java 1.19+</span>
+            </div>
+            <div class="card-foot">
+              <span class="card-ver">v1.5</span>
+              <button class="dl-btn">⬇ 다운로드</button>
             </div>
           </div>
-        </div>
-        <div class="map-card reveal">
-          <div class="map-card-thumb">
-            <span class="map-icon">🌍</span>
+        </article>
+
+        <article class="map-card reveal" data-g="puzzle">
+          <div class="card-top puzzle">
+            <div class="card-biome-label">퍼즐</div>
+            <div class="card-icon">🧩</div>
+            <div class="card-glow"></div>
           </div>
-          <div class="map-card-body">
-            <div class="map-card-title">세계사 흐름 맵</div>
-            <div class="map-card-desc">고대부터 현대까지 세계사의 굵직한 사건과 흐름을 계층적으로 정리</div>
-            <div class="map-card-footer">
-              <span class="map-card-meta">v1.5 · 2025.03</span>
-              <button class="btn-dl">다운로드</button>
+          <div class="card-body">
+            <h3>Mind Block</h3>
+            <p>레드스톤 논리 퍼즐 30스테이지. 두뇌를 자극하는 고난이도 맵.</p>
+            <div class="card-tags">
+              <span>👥 1인</span><span>⏱ 3~6h</span><span>📦 Java 1.20+</span>
+            </div>
+            <div class="card-foot">
+              <span class="card-ver">v2.3</span>
+              <button class="dl-btn">⬇ 다운로드</button>
             </div>
           </div>
-        </div>
-        <div class="map-card reveal">
-          <div class="map-card-thumb">
-            <span class="map-icon">💻</span>
+        </article>
+
+        <article class="map-card reveal" data-g="adventure">
+          <div class="card-top adventure">
+            <div class="card-biome-label">어드벤처</div>
+            <div class="card-icon">🌊</div>
+            <div class="card-glow"></div>
           </div>
-          <div class="map-card-body">
-            <div class="map-card-title">정보과학 CS 맵</div>
-            <div class="map-card-desc">알고리즘, 자료구조, 운영체제, 네트워크 핵심 개념 정리</div>
-            <div class="map-card-footer">
-              <span class="map-card-meta">v2.3 · 2025.02</span>
-              <button class="btn-dl">다운로드</button>
+          <div class="card-body">
+            <h3>Deep Ocean Quest</h3>
+            <p>심해를 탐험하는 언더워터 어드벤처. 아름다운 수중 건축물과 퀘스트 시스템.</p>
+            <div class="card-tags">
+              <span>👥 1~3인</span><span>⏱ 4~6h</span><span>📦 Java 1.20+</span>
+            </div>
+            <div class="card-foot">
+              <span class="card-ver">v1.2</span>
+              <button class="dl-btn">⬇ 다운로드</button>
             </div>
           </div>
-        </div>
-        <div class="map-card reveal">
-          <div class="map-card-thumb">
-            <span class="map-icon">📖</span>
+        </article>
+
+        <article class="map-card reveal" data-g="pvp">
+          <div class="card-top pvp">
+            <div class="card-biome-label">PvP</div>
+            <div class="card-icon">🏹</div>
+            <div class="card-glow"></div>
           </div>
-          <div class="map-card-body">
-            <div class="map-card-title">국어 문학 개념 맵</div>
-            <div class="map-card-desc">현대시, 현대소설, 고전문학 갈래와 개념을 체계적으로 구조화</div>
-            <div class="map-card-footer">
-              <span class="map-card-meta">v1.2 · 2025.01</span>
-              <button class="btn-dl">다운로드</button>
+          <div class="card-body">
+            <h3>Hunger Games</h3>
+            <p>24인 서바이벌 배틀 맵. 자동 게임 시스템으로 서버에서 즐기기 최적.</p>
+            <div class="card-tags">
+              <span>👥 4~24인</span><span>⏱ 1h</span><span>📦 Java 1.19+</span>
+            </div>
+            <div class="card-foot">
+              <span class="card-ver">v4.1</span>
+              <button class="dl-btn">⬇ 다운로드</button>
             </div>
           </div>
-        </div>
+        </article>
+
       </div>
     </div>
   </section>
 
   <!-- ══ NOTICE (light) ══ -->
-  <section id="notice" class="section-light">
-    <div class="section-inner">
-      <p class="section-label reveal">Announcements</p>
-      <h2 class="section-title dark-title reveal">공지사항</h2>
-      <div class="notice-list reveal">
-        <div class="notice-item">
-          <span class="notice-cat update">업데이트</span>
-          <span class="notice-title-text">생명과학 맵 v2.1 업데이트 — 2025 개정 교육과정 반영</span>
-          <span class="notice-date">2025.06.10</span>
+  <section id="notice" class="s-light">
+    <div class="wrap">
+      <header class="s-head">
+        <span class="s-eye s-eye-dk reveal">// ANNOUNCEMENTS</span>
+        <h2 class="s-title s-title-dk reveal">공지사항</h2>
+      </header>
+      <div class="notice-board reveal">
+        <div class="nb-row">
+          <span class="nb-tag t-update">업데이트</span>
+          <span class="nb-txt">The Lost Kingdom v2.1 — 새 던전 2개 추가 및 버그 수정</span>
+          <span class="nb-date">2025.06.10</span>
         </div>
-        <div class="notice-item">
-          <span class="notice-cat event">이벤트</span>
-          <span class="notice-title-text">여름방학 맵 패키지 무료 배포 이벤트 안내</span>
-          <span class="notice-date">2025.06.05</span>
+        <div class="nb-row">
+          <span class="nb-tag t-event">이벤트</span>
+          <span class="nb-txt">여름방학 맵 제작 공모전 — 우수작 사이트 등재</span>
+          <span class="nb-date">2025.06.05</span>
         </div>
-        <div class="notice-item">
-          <span class="notice-cat update">업데이트</span>
-          <span class="notice-title-text">화학 Ⅰ·Ⅱ 통합 맵 v1.8 — 오류 수정 및 내용 보완</span>
-          <span class="notice-date">2025.05.28</span>
+        <div class="nb-row">
+          <span class="nb-tag t-update">업데이트</span>
+          <span class="nb-txt">Sky Wars Arena v3.0 — 키트 시스템 전면 개편</span>
+          <span class="nb-date">2025.05.28</span>
         </div>
-        <div class="notice-item">
-          <span class="notice-cat general">일반</span>
-          <span class="notice-title-text">사이트 리뉴얼 오픈 안내</span>
-          <span class="notice-date">2025.05.15</span>
+        <div class="nb-row">
+          <span class="nb-tag t-notice">공지</span>
+          <span class="nb-txt">사이트 리뉴얼 오픈 안내</span>
+          <span class="nb-date">2025.05.15</span>
         </div>
-        <div class="notice-item">
-          <span class="notice-cat general">일반</span>
-          <span class="notice-title-text">TEAM ATO 후원 계좌 안내 및 운영 방침 공지</span>
-          <span class="notice-date">2025.05.01</span>
+        <div class="nb-row">
+          <span class="nb-tag t-notice">공지</span>
+          <span class="nb-txt">TEAM ATO 후원 계좌 안내 및 운영 방침 공지</span>
+          <span class="nb-date">2025.05.01</span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ══ FAQ (dark) ══ -->
-  <section id="faq" class="section-dark">
-    <div class="section-inner">
-      <p class="section-label reveal">Support</p>
-      <h2 class="section-title reveal">자주 묻는 질문</h2>
+  <section id="faq" class="s-dark">
+    <div class="wrap">
+      <header class="s-head">
+        <span class="s-eye reveal">// SUPPORT</span>
+        <h2 class="s-title reveal">자주 묻는 질문</h2>
+      </header>
       <div class="faq-list">
         <div class="faq-item reveal">
-          <div class="faq-question">
-            <span class="faq-q-text">마크맵 파일은 어떻게 사용하나요?</span>
-            <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">다운로드한 .md 파일을 markmap.js 공식 사이트(markmap.js.org)에 업로드하거나, VS Code의 Markmap 확장 프로그램을 통해 바로 열 수 있습니다. 별도 설치 없이 브라우저에서 바로 시각화됩니다.</div>
-          </div>
+          <button class="faq-q"><span class="fq-icon">Q</span><span>맵은 어떻게 설치하나요?</span><span class="fq-arr">▼</span></button>
+          <div class="faq-a"><p>다운로드한 .zip 파일을 압축 해제 후 마인크래프트 saves 폴더에 넣어주세요.<br><code>%appdata%\.minecraft\saves</code> (Windows 기준)<br>게임 실행 → 싱글플레이 → 맵 선택.</p></div>
         </div>
         <div class="faq-item reveal">
-          <div class="faq-question">
-            <span class="faq-q-text">맵은 무료로 사용 가능한가요?</span>
-            <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">네, TEAM ATO에서 제공하는 모든 맵은 개인 학습 목적으로 완전 무료입니다. 단, 상업적 재배포 및 무단 수정 배포는 금지됩니다.</div>
-          </div>
+          <button class="faq-q"><span class="fq-icon">Q</span><span>어떤 버전이 필요한가요?</span><span class="fq-arr">▼</span></button>
+          <div class="faq-a"><p>각 맵 카드에 권장 버전이 표시됩니다. 대부분 <strong>Java Edition 1.19 이상</strong>을 지원합니다. Bedrock Edition은 현재 미지원입니다.</p></div>
         </div>
         <div class="faq-item reveal">
-          <div class="faq-question">
-            <span class="faq-q-text">맵 내용에 오류가 있을 경우 어떻게 제보하나요?</span>
-            <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">고객지원 섹션의 문의 양식 또는 공식 오픈 채팅을 통해 제보해 주세요. 확인 후 빠르게 수정하여 재배포하겠습니다.</div>
-          </div>
+          <button class="faq-q"><span class="fq-icon">Q</span><span>맵은 무료인가요?</span><span class="fq-arr">▼</span></button>
+          <div class="faq-a"><p>네, 모든 맵은 <strong>완전 무료</strong>입니다. 영상 촬영 및 스트리밍도 자유롭게 허용됩니다. 단, 무단 재배포 및 상업적 사용은 금지됩니다.</p></div>
         </div>
         <div class="faq-item reveal">
-          <div class="faq-question">
-            <span class="faq-q-text">새로운 과목의 맵 제작 요청이 가능한가요?</span>
-            <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">공지사항 또는 문의 채널을 통해 제작 요청을 남겨 주세요. 팀 내 검토 후 제작 일정을 안내드리겠습니다. 후원자분들의 요청을 우선 반영합니다.</div>
-          </div>
+          <button class="faq-q"><span class="fq-icon">Q</span><span>버그를 발견했어요.</span><span class="fq-arr">▼</span></button>
+          <div class="faq-a"><p>공지사항 댓글 또는 팀 오픈채팅방을 통해 제보해 주세요. 맵 이름, 버전, 버그 내용을 알려주시면 빠르게 수정 후 재배포합니다.</p></div>
         </div>
         <div class="faq-item reveal">
-          <div class="faq-question">
-            <span class="faq-q-text">후원은 어떻게 하나요?</span>
-            <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">상단 내비게이션의 '후원하기' 버튼 또는 공지사항의 후원 계좌 안내 공지를 확인해 주세요. 후원금은 전액 맵 제작 및 서버 운영에 사용됩니다.</div>
-          </div>
+          <button class="faq-q"><span class="fq-icon">Q</span><span>맵 제작 요청이 가능한가요?</span><span class="fq-arr">▼</span></button>
+          <div class="faq-a"><p>문의 채널을 통해 요청을 남겨주세요. 후원자 요청을 우선 반영하며, 팀 일정에 따라 제작 여부를 안내드립니다.</p></div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ══ TEAM (light) ══ -->
-  <section id="team" class="section-light">
-    <div class="section-inner">
-      <p class="section-label reveal">About</p>
-      <h2 class="section-title dark-title reveal">팀 소개</h2>
-      <div class="team-intro reveal">
-        <div class="team-intro-header">
-          <div class="team-avatar-group">
-            <div class="team-avatar">👤</div>
-            <div class="team-avatar">👤</div>
-            <div class="team-avatar">👤</div>
+  <section id="team" class="s-light">
+    <div class="wrap">
+      <header class="s-head">
+        <span class="s-eye s-eye-dk reveal">// ABOUT US</span>
+        <h2 class="s-title s-title-dk reveal">팀 소개</h2>
+      </header>
+      <div class="team-wrap reveal">
+        <div class="team-left">
+          <div class="mc-face">
+            <div class="face-top"></div>
+            <div class="face-mid">
+              <span class="face-eye"></span>
+              <span class="face-eye"></span>
+            </div>
+            <div class="face-nose"></div>
+            <div class="face-mouth"></div>
           </div>
-          <div class="team-intro-meta">
-            <div class="team-intro-name">TEAM ATO</div>
-            <div class="team-intro-since">SINCE 2024</div>
+          <div class="team-name">TEAM ATO</div>
+          <div class="team-since">SINCE 2024</div>
+          <div class="team-skills">
+            <span>⛏ 맵 제작</span>
+            <span>🎨 빌딩</span>
+            <span>⚡ 레드스톤</span>
+            <span>📜 스토리</span>
+            <span>🧪 QA 테스트</span>
           </div>
         </div>
-        <p class="team-intro-text">
-          TEAM ATO는 공부하는 학생들을 위해 고품질 마크맵을 무료로 제작하고 배포하는 자발적 팀입니다.<br/><br/>
-          복잡한 개념을 한눈에 파악할 수 있도록 돕고자 시작한 작은 프로젝트가, 많은 분들의 성원 덕분에 지금의 TEAM ATO로 성장했습니다.<br/><br/>
-          저희는 지식의 시각화가 학습의 질을 높인다고 믿습니다. 앞으로도 꾸준히 양질의 맵을 제작하여 여러분의 공부에 실질적인 도움이 되겠습니다.
-        </p>
+        <div class="team-right">
+          <blockquote class="team-quote">"더 재미있는 마인크래프트 경험을 모두에게"</blockquote>
+          <p class="team-desc">TEAM ATO는 마인크래프트를 사랑하는 플레이어들이 모여 만든 맵 제작 팀입니다. 서바이벌, 어드벤처, PvP, 퍼즐까지 다양한 장르의 맵을 직접 기획하고 제작합니다.</p>
+          <p class="team-desc">모든 맵은 철저한 내부 테스트를 거쳐 배포되며, 플레이어 피드백을 반영해 꾸준히 업데이트합니다. 더 좋은 마인크래프트 경험을 무료로 제공하겠다는 약속은 변하지 않습니다.</p>
+          <div class="team-achievements">
+            <div class="ach"><div class="ach-n">18</div><div class="ach-l">맵 배포</div></div>
+            <div class="ach"><div class="ach-n">12,400+</div><div class="ach-l">누적 다운로드</div></div>
+            <div class="ach"><div class="ach-n">4</div><div class="ach-l">장르</div></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ══ DONATE CTA (blue) ══ -->
-  <section id="donate" class="section-blue">
-    <div class="section-inner cta-inner">
-      <h2 class="cta-title reveal">TEAM ATO를 응원해주세요</h2>
-      <p class="cta-sub reveal">후원금은 전액 맵 제작과 서버 운영에 사용됩니다.<br/>여러분의 작은 도움이 더 좋은 맵을 만드는 원동력입니다.</p>
-      <a href="#" class="btn btn-white reveal">💙 후원하기</a>
+  <!-- ══ DONATE (green) ══ -->
+  <section id="donate" class="s-green">
+    <div class="wrap">
+      <div class="cta-box reveal">
+        <div class="cta-deco">💎</div>
+        <h2 class="cta-h2">TEAM ATO를 후원해주세요</h2>
+        <p class="cta-p">후원금은 전액 맵 제작과 서버 운영에 사용됩니다.<br>여러분의 다이아몬드 하나가 더 좋은 세계를 만듭니다.</p>
+        <a href="#" class="btn-donate">💙 후원하기</a>
+      </div>
     </div>
   </section>
 
-  <!-- ══ FOOTER (dark) ══ -->
+  <!-- ══ FOOTER ══ -->
   <footer>
-    <div class="footer-inner">
-      <span class="footer-logo">TEAM ATO</span>
-      <ul class="footer-links">
+    <div class="wrap foot-inner">
+      <div>
+        <div class="foot-logo">⛏ TEAM ATO</div>
+        <div class="foot-sub">고퀄리티 마인크래프트 맵, 무료로.</div>
+      </div>
+      <ul class="foot-nav">
         <li><a href="#home">홈</a></li>
-        <li><a href="#download">다운로드</a></li>
+        <li><a href="#maps">맵 다운로드</a></li>
         <li><a href="#notice">공지사항</a></li>
         <li><a href="#faq">고객지원</a></li>
+        <li><a href="#team">팀 소개</a></li>
       </ul>
-      <span class="footer-copy">© 2025 TEAM ATO. All rights reserved.</span>
+      <p class="foot-copy">© 2025 TEAM ATO. All rights reserved.<br>MINECRAFT는 Mojang Studios의 상표입니다.</p>
     </div>
   </footer>
 
