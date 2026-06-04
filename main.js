@@ -8,6 +8,18 @@ window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 30);
 }, { passive: true });
 
+/* ─ 히어로 배경 패럴랙스 ─ */
+const heroBg = document.querySelector('.hero-bg-img');
+if (heroBg) {
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    const heroH   = document.getElementById('home').offsetHeight;
+    if (scrollY < heroH) {
+      heroBg.style.transform = `scale(1.06) translateY(${scrollY * 0.18}px)`;
+    }
+  }, { passive: true });
+}
+
 /* ─ 햄버거 ─ */
 const burger   = document.getElementById('burger');
 const navLinks = document.getElementById('navLinks');
@@ -21,7 +33,7 @@ const ro = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (!e.isIntersecting) return;
     const siblings = [...e.target.parentElement.querySelectorAll('.reveal:not(.vis)')];
-    siblings.forEach((el, i) => setTimeout(() => el.classList.add('vis'), i * 60));
+    siblings.forEach((el, i) => setTimeout(() => el.classList.add('vis'), i * 65));
     ro.unobserve(e.target);
   });
 }, { threshold: 0.08 });
@@ -57,23 +69,11 @@ document.querySelectorAll('.fq-q').forEach(btn => {
   });
 });
 
-/* ─ 핫바 슬롯 ─ */
-document.querySelectorAll('.hb-slot').forEach(slot => {
-  slot.addEventListener('click', () => {
-    document.querySelectorAll('.hb-slot').forEach(s => s.classList.remove('active'));
-    slot.classList.add('active');
-    const item = slot.querySelector('span')?.textContent || '';
-    const tooltip = document.querySelector('.mc-tooltip');
-    const labels = { '⛏':'나무 곡괭이','🪵':'나무 원목','🍎':'사과','⚔️':'철 검','💎':'다이아몬드','🛡️':'철 방패','🗺️':'빈 지도','🔥':'부싯돌과 부시','📜':'인챈트 책' };
-    if (tooltip) tooltip.textContent = labels[item] || '아이템';
-  });
-});
-
 /* ─ 다운로드 버튼 피드백 ─ */
 function dlFeedback(btn) {
   const orig = btn.textContent;
   btn.textContent = '✓ 완료!';
-  btn.style.background = 'var(--c, var(--blue-600))';
+  btn.style.background = '#1a7a3a';
   btn.style.color = '#fff';
   setTimeout(() => {
     btn.textContent = orig;
