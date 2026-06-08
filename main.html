@@ -11,12 +11,8 @@
 </head>
 <body>
 
-  <!-- NAV -->
   <nav id="nav">
-    <a href="#home" class="logo">
-      <span class="logo-icon">⛏</span>
-      <span>TEAM <b>아토</b></span>
-    </a>
+    <a href="#home" class="logo">⛏ TEAM <b>아토</b></a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#home">메인</a></li>
       <li class="has-drop">
@@ -34,233 +30,229 @@
       </li>
       <li><a href="#support">고객 지원</a></li>
       <li><a href="#team">팀원 소개</a></li>
-      <li><a href="https://www.patreon.com/c/teamato" target="_blank" class="nav-donate">♥ 후원하기</a></li>
+      <li><a href="https://www.patreon.com/c/teamato" target="_blank" class="nav-donate">후원하기</a></li>
     </ul>
     <button class="burger" id="burger">☰</button>
   </nav>
 
-  <!-- 전체 레이아웃: 광고 | 콘텐츠 | 광고 -->
   <div class="site-layout">
 
     <!-- 왼쪽 광고 -->
     <aside class="ad-sidebar ad-left">
       <div class="ad-sticky">
-        <div class="ad-label">Advertisement</div>
+        <div class="ad-label">AD</div>
         <div class="ad-slot ad-160x600">
-          <!-- Google AdSense 또는 다른 광고 코드를 여기에 삽입하세요 -->
           <div class="ad-placeholder">
-            <span class="ad-ph-icon">📢</span>
-            <span class="ad-ph-txt">광고 영역<br/>160×600</span>
+            <span>160×600</span>
           </div>
         </div>
       </div>
     </aside>
 
-    <!-- 메인 콘텐츠 -->
     <main class="site-main">
 
       <!-- HERO -->
       <section id="home" class="hero">
-        <!-- 배경 이미지 + 오버레이 레이어 -->
         <div class="hero-bg-img"></div>
-        <div class="hero-overlay-top"></div>
-        <div class="hero-overlay-bot"></div>
-        <div class="hero-vignette"></div>
-        <div class="hero-noise"></div>
-
-        <!-- 메인 콘텐츠 -->
+        <div class="hero-overlay"></div>
         <div class="hero-inner">
-
-          <!-- 위 장식 라인 -->
-          <div class="hero-deco-line">
-            <span class="deco-ornament">✦</span>
-            <span class="deco-rule"></span>
-            <span class="deco-text">SINCE 2020</span>
-            <span class="deco-rule"></span>
-            <span class="deco-ornament">✦</span>
-          </div>
-
-          <!-- 메인 팀명 -->
-          <div class="hero-team-name">
-            <span class="team-label">TEAM</span>
-            <span class="team-ato">아토</span>
-          </div>
-
-          <!-- 서브 텍스트 -->
-          <div class="hero-divider">
-            <span></span>
-            <span class="hero-div-txt">OFFICIAL</span>
-            <span></span>
-          </div>
-
-          <h1 class="hero-h1">마인크래프트에 <em>이야기</em>를 담다</h1>
-
-          <p class="hero-p">고퀄리티 스토리 맵을 무료로 즐기세요.<br/>직접 기획하고 제작한 어드벤처 맵들이 기다립니다.</p>
-
+          <p class="hero-sub">TEAM 아토 OFFICIAL</p>
+          <h1 class="hero-h1">
+            <span>TEAM</span>
+            <span class="h1-ato">아토</span>
+          </h1>
+          <p class="hero-desc">마인크래프트에 이야기를 담아 고퀄리티로 녹여내는 팀</p>
           <div class="hero-btns">
-            <a href="#maps" class="btn-primary">🗺 맵 다운로드</a>
-            <a href="https://discord.gg/2zyZtytDbK" target="_blank" class="btn-line">💬 커뮤니티</a>
-          </div>
-
-          <!-- 하단 칩 태그 -->
-          <div class="hero-chips">
-            <span class="hchip">⚔️ 어드벤처</span>
-            <span class="hchip">📖 스토리</span>
-            <span class="hchip">🎁 무료</span>
-            <span class="hchip">☕ Java Edition</span>
+            <a href="#maps" class="btn-primary">맵 다운로드</a>
+            <a href="https://discord.gg/2zyZtytDbK" target="_blank" class="btn-ghost">디스코드</a>
           </div>
         </div>
-
-        <div class="hero-scroll-cue"><div class="hsc-line"></div><span>SCROLL</span></div>
       </section>
-
-      <!-- STATS -->
-      <div class="stats-belt">
-        <div class="sb-item reveal"><span class="sb-n" data-to="9">0</span><span class="sb-l">제작 맵</span></div>
-        <div class="sb-sep"></div>
-        <div class="sb-item reveal"><span class="sb-n">2020</span><span class="sb-l">팀 창설</span></div>
-        <div class="sb-sep"></div>
-        <div class="sb-item reveal"><span class="sb-n">FREE</span><span class="sb-l">모든 맵 무료</span></div>
-        <div class="sb-sep"></div>
-        <div class="sb-item reveal"><span class="sb-n">Java</span><span class="sb-l">Java Edition 전용</span></div>
-      </div>
 
       <!-- MAPS -->
-      <section id="maps" class="sec-white">
+      <section id="maps" class="sec-maps">
         <div class="wrap">
-          <div class="sec-hd reveal">
-            <span class="sec-badge">MAP ARCHIVE</span>
-            <h2>제작 맵 목록</h2>
-            <p>TEAM 아토가 만든 모든 맵을 만나보세요</p>
-          </div>
+          <h2 class="sec-title">맵 목록</h2>
           <div class="map-grid">
-            <div class="mcard reveal" style="--c:#e85555">
-              <div class="mcard-img" style="background:linear-gradient(140deg,#2a0808,#5c1010)">
-                <div class="mcard-emoji">🎨</div><span class="mcard-tag">어드벤처</span>
+            <div class="mcard">
+              <div class="mcard-top" style="background:#1a0808">
+                <span class="mcard-tag">어드벤처</span>
+                
               </div>
-              <div class="mcard-body"><h3>COLOR JUMP</h3><p>색깔 블록을 이용한 독창적인 파쿠르 어드벤처. TEAM 아토의 첫 번째 작품.</p><div class="mcard-foot"><button class="btn-dl" onclick="dlFeedback(this)">⬇ 다운로드</button></div></div>
+              <div class="mcard-body">
+                <h3>COLOR JUMP</h3>
+                <p>색깔 블록을 이용한 파쿠르 어드벤처.</p>
+                <div class="mcard-meta">
+                  <span class="mcard-dl">⬇ 3,241회</span>
+                </div>
+                <button class="btn-dl" onclick="dlFeedback(this)">다운로드</button>
+              </div>
             </div>
-            <div class="mcard reveal" style="--c:#8b6fce">
-              <div class="mcard-img" style="background:linear-gradient(140deg,#10081e,#261444)">
-                <div class="mcard-emoji">👤</div><span class="mcard-tag">스토리</span>
+            <div class="mcard">
+              <div class="mcard-top" style="background:#0d0818">
+                <span class="mcard-tag">스토리</span>
+                
               </div>
-              <div class="mcard-body"><h3>LAIN</h3><p>깊은 서사와 분위기로 가득한 1인용 스토리 맵. 잊을 수 없는 경험을 선사합니다.</p><div class="mcard-foot"><button class="btn-dl" onclick="dlFeedback(this)">⬇ 다운로드</button></div></div>
+              <div class="mcard-body">
+                <h3>LAIN</h3>
+                <p>깊은 서사와 분위기의 1인용 스토리 맵.</p>
+                <div class="mcard-meta">
+                  <span class="mcard-dl">⬇ 2,887회</span>
+                </div>
+                <button class="btn-dl" onclick="dlFeedback(this)">다운로드</button>
+              </div>
             </div>
-            <div class="mcard reveal" style="--c:#3a9de8">
-              <div class="mcard-img" style="background:linear-gradient(140deg,#061422,#0d2a40)">
-                <div class="mcard-emoji">🔵</div><span class="mcard-tag">퍼즐</span>
+            <div class="mcard">
+              <div class="mcard-top" style="background:#040e1a">
+                <span class="mcard-tag">퍼즐</span>
+                
               </div>
-              <div class="mcard-body"><h3>MISSING COLOR 1</h3><p>색채를 잃은 세계에서 펼쳐지는 퍼즐 어드벤처. 숨겨진 색깔을 되찾아라.</p><div class="mcard-foot"><button class="btn-dl" onclick="dlFeedback(this)">⬇ 다운로드</button></div></div>
+              <div class="mcard-body">
+                <h3>MISSING COLOR 1</h3>
+                <p>색채를 잃은 세계에서 펼쳐지는 퍼즐 어드벤처.</p>
+                <div class="mcard-meta">
+                  <span class="mcard-dl">⬇ 4,102회</span>
+                </div>
+                <button class="btn-dl" onclick="dlFeedback(this)">다운로드</button>
+              </div>
             </div>
-            <div class="mcard reveal" style="--c:#34c99a">
-              <div class="mcard-img" style="background:linear-gradient(140deg,#061a12,#0d3022)">
-                <div class="mcard-emoji">🎭</div><span class="mcard-tag">퍼즐</span>
+            <div class="mcard">
+              <div class="mcard-top" style="background:#04100e">
+                <span class="mcard-tag">퍼즐</span>
+                
               </div>
-              <div class="mcard-body"><h3>MISSING COLOR 2</h3><p>더욱 깊어진 세계관과 스토리. 더 복잡한 퍼즐과 새로운 보스 배틀.</p><div class="mcard-foot"><button class="btn-dl" onclick="dlFeedback(this)">⬇ 다운로드</button></div></div>
+              <div class="mcard-body">
+                <h3>MISSING COLOR 2</h3>
+                <p>전작보다 깊어진 세계관과 새로운 보스.</p>
+                <div class="mcard-meta">
+                  <span class="mcard-dl">⬇ 3,560회</span>
+                </div>
+                <button class="btn-dl" onclick="dlFeedback(this)">다운로드</button>
+              </div>
             </div>
-            <div class="mcard reveal" style="--c:#f0a030">
-              <div class="mcard-img" style="background:linear-gradient(140deg,#1a1000,#302000)">
-                <div class="mcard-emoji">👮</div><span class="mcard-tag">스토리</span>
+            <div class="mcard">
+              <div class="mcard-top" style="background:#140e00">
+                <span class="mcard-tag">스토리</span>
+                
               </div>
-              <div class="mcard-body"><h3>귀담경찰</h3><p>귀신을 다루는 특수 경찰의 이야기. 공포와 미스터리가 공존하는 스토리 맵.</p><div class="mcard-foot"><button class="btn-dl" onclick="dlFeedback(this)">⬇ 다운로드</button></div></div>
+              <div class="mcard-body">
+                <h3>귀담경찰</h3>
+                <p>귀신을 다루는 특수 경찰의 이야기.</p>
+                <div class="mcard-meta">
+                  <span class="mcard-dl">⬇ 2,198회</span>
+                </div>
+                <button class="btn-dl" onclick="dlFeedback(this)">다운로드</button>
+              </div>
             </div>
-            <div class="mcard reveal" style="--c:#ff8c42">
-              <div class="mcard-img" style="background:linear-gradient(140deg,#1a0e04,#2e1a08)">
-                <div class="mcard-emoji">📮</div><span class="mcard-tag">어드벤처</span>
+            <div class="mcard">
+              <div class="mcard-top" style="background:#140800">
+                <span class="mcard-tag">어드벤처</span>
+                
               </div>
-              <div class="mcard-body"><h3>THE POST</h3><p>우편부가 되어 세계를 탐험하는 따뜻한 어드벤처 맵.</p><div class="mcard-foot"><button class="btn-dl" onclick="dlFeedback(this)">⬇ 다운로드</button></div></div>
+              <div class="mcard-body">
+                <h3>THE POST</h3>
+                <p>우편부가 되어 세계를 탐험하는 어드벤처.</p>
+                <div class="mcard-meta">
+                  <span class="mcard-dl">⬇ 1,834회</span>
+                </div>
+                <button class="btn-dl" onclick="dlFeedback(this)">다운로드</button>
+              </div>
             </div>
-            <div class="mcard reveal" style="--c:#ff8c42">
-              <div class="mcard-img" style="background:linear-gradient(140deg,#1a0e04,#2e1a08)">
-                <div class="mcard-emoji">✏️</div><span class="mcard-tag">2차 창작</span>
+            <div class="mcard">
+              <div class="mcard-top" style="background:#140800">
+                <span class="mcard-tag">2차 창작</span>
+                
               </div>
-              <div class="mcard-body"><h3>THE POST 2차 창작</h3><p>THE POST 세계관을 바탕으로 한 팬 창작 컬렉션.</p><div class="mcard-foot"><button class="btn-dl" onclick="dlFeedback(this)">⬇ 다운로드</button></div></div>
+              <div class="mcard-body">
+                <h3>THE POST 2차 창작</h3>
+                <p>THE POST 세계관을 바탕으로 한 팬 창작.</p>
+                <div class="mcard-meta">
+                  <span class="mcard-dl">⬇ 892회</span>
+                </div>
+                <button class="btn-dl" onclick="dlFeedback(this)">다운로드</button>
+              </div>
             </div>
-            <div class="mcard reveal" style="--c:#5ac86e">
-              <div class="mcard-img" style="background:linear-gradient(140deg,#081408,#102010)">
-                <div class="mcard-emoji">🤝</div><span class="mcard-tag">협동</span>
+            <div class="mcard">
+              <div class="mcard-top" style="background:#040e04">
+                <span class="mcard-tag">협동</span>
+                
               </div>
-              <div class="mcard-body"><h3>THE CO-OP</h3><p>2인 협동 전용 맵. 함께라야만 풀 수 있는 퍼즐과 스테이지.</p><div class="mcard-foot"><button class="btn-dl" onclick="dlFeedback(this)">⬇ 다운로드</button></div></div>
+              <div class="mcard-body">
+                <h3>THE CO-OP</h3>
+                <p>2인 협동 전용. 함께라야 풀 수 있는 맵.</p>
+                <div class="mcard-meta">
+                  <span class="mcard-dl">⬇ 1,455회</span>
+                </div>
+                <button class="btn-dl" onclick="dlFeedback(this)">다운로드</button>
+              </div>
             </div>
-            <div class="mcard reveal" style="--c:#f0a030">
-              <div class="mcard-img" style="background:linear-gradient(140deg,#1a1000,#302000)">
-                <div class="mcard-emoji">👻</div><span class="mcard-tag">스토리</span>
-                <span class="mcard-new">NEW</span>
+            <div class="mcard">
+              <div class="mcard-top" style="background:#140e00">
+                <span class="mcard-tag">스토리</span>
+                <span class="badge-new">NEW</span>
               </div>
-              <div class="mcard-body"><h3>귀담경찰 2</h3><p>더욱 깊어진 세계관과 새로운 사건. 귀담경찰 시리즈 두 번째 이야기.</p><div class="mcard-foot"><button class="btn-dl" onclick="dlFeedback(this)">⬇ 다운로드</button></div></div>
+              <div class="mcard-body">
+                <h3>귀담경찰 2</h3>
+                <p>귀담경찰 시리즈의 두 번째 이야기.</p>
+                <div class="mcard-meta">
+                  <span class="mcard-dl">⬇ 987회</span>
+                </div>
+                <button class="btn-dl" onclick="dlFeedback(this)">다운로드</button>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- SUPPORT : FAQ만 -->
-      <section id="support" class="sec-gray">
+      <!-- FAQ -->
+      <section id="support" class="sec-faq">
         <div class="wrap">
-          <div class="sec-hd reveal">
-            <span class="sec-badge">HELP CENTER</span>
-            <h2>고객 지원</h2>
-            <p>자주 묻는 질문을 확인하세요</p>
-          </div>
-          <div class="faq-wrap reveal">
-            <div class="faq-list">
-              <div class="fq-item">
-                <button class="fq-q">맵은 어떻게 설치하나요? <span class="fq-plus">＋</span></button>
-                <div class="fq-a">다운로드한 폴더를 <code>%appdata%\.minecraft\saves</code> 경로에 넣고, 게임 실행 후 싱글플레이에서 선택하세요.</div>
-              </div>
-              <div class="fq-item">
-                <button class="fq-q">어떤 버전을 사용해야 하나요? <span class="fq-plus">＋</span></button>
-                <div class="fq-a">맵마다 다릅니다. 각 맵 페이지에서 권장 버전을 확인하세요. 대부분 Java Edition 1.12~1.20 범위입니다.</div>
-              </div>
-              <div class="fq-item">
-                <button class="fq-q">방송/유튜브에 사용해도 되나요? <span class="fq-plus">＋</span></button>
-                <div class="fq-a">개인 방송 및 영상은 자유롭게 허용됩니다. 단, 무단 재배포 및 상업적 사용은 금지됩니다.</div>
-              </div>
-              <div class="fq-item">
-                <button class="fq-q">리소스팩을 꼭 써야 하나요? <span class="fq-plus">＋</span></button>
-                <div class="fq-a">일부 맵은 리소스팩 없이도 플레이 가능하지만, 더 나은 경험을 위해 권장 리소스팩 사용을 추천드립니다.</div>
-              </div>
-              <div class="fq-item">
-                <button class="fq-q">버그나 오류를 발견했어요. <span class="fq-plus">＋</span></button>
-                <div class="fq-a">디스코드 서버로 제보해 주세요. 맵 이름과 버전, 증상을 함께 알려주시면 빠르게 수정하겠습니다.</div>
-              </div>
-              <div class="fq-item">
-                <button class="fq-q">멀티플레이도 가능한가요? <span class="fq-plus">＋</span></button>
-                <div class="fq-a">THE CO-OP처럼 협동 맵으로 제작된 맵은 멀티플레이가 가능합니다. 각 맵 안내 페이지에서 플레이 인원을 확인해 주세요.</div>
-              </div>
+          <h2 class="sec-title">자주 묻는 질문</h2>
+          <div class="faq-list">
+            <div class="fq-item">
+              <button class="fq-q">맵은 어떻게 설치하나요? <span class="fq-plus">+</span></button>
+              <div class="fq-a">다운로드한 폴더를 <code>%appdata%\.minecraft\saves</code>에 넣고 싱글플레이에서 선택하세요.</div>
             </div>
-            <div class="faq-discord">
-              <span>해결되지 않는 문제가 있으신가요?</span>
-              <a href="https://discord.gg/2zyZtytDbK" target="_blank" class="faq-dc-btn">💬 디스코드 문의</a>
+            <div class="fq-item">
+              <button class="fq-q">어떤 버전을 써야 하나요? <span class="fq-plus">+</span></button>
+              <div class="fq-a">맵마다 다릅니다. 대부분 Java Edition 1.12~1.20 범위이며 각 맵 설명에서 확인하세요.</div>
+            </div>
+            <div class="fq-item">
+              <button class="fq-q">방송/유튜브에 써도 되나요? <span class="fq-plus">+</span></button>
+              <div class="fq-a">개인 방송·영상은 자유롭게 허용됩니다. 무단 재배포 및 상업적 사용은 금지됩니다.</div>
+            </div>
+            <div class="fq-item">
+              <button class="fq-q">버그를 발견했어요. <span class="fq-plus">+</span></button>
+              <div class="fq-a">디스코드로 맵 이름, 버전, 증상을 알려주시면 빠르게 수정하겠습니다.</div>
+            </div>
+            <div class="fq-item">
+              <button class="fq-q">멀티플레이도 되나요? <span class="fq-plus">+</span></button>
+              <div class="fq-a">THE CO-OP 등 협동 맵은 가능합니다. 각 맵 설명의 플레이 인원을 확인하세요.</div>
             </div>
           </div>
+          <a href="https://discord.gg/2zyZtytDbK" target="_blank" class="faq-dc">해결이 안 되면 디스코드로 문의해주세요 →</a>
         </div>
       </section>
 
       <!-- TEAM -->
-      <section id="team" class="sec-dark">
+      <section id="team" class="sec-team">
         <div class="wrap">
-          <div class="sec-hd reveal">
-            <span class="sec-badge light-badge">ABOUT US</span>
-            <h2 class="light-title">팀원 소개</h2>
-            <p class="light-sub">마인크래프트에 이야기를 담아 고퀄리티로 녹여내는 팀</p>
-          </div>
+          <h2 class="sec-title light">팀원 소개</h2>
           <div class="team-layout">
-            <div class="team-about reveal">
-              <div class="team-name-block">
-                <span class="tnb-icon">⛏</span>
-                <div><div class="tnb-name">TEAM 아토</div><div class="tnb-since">OFFICIAL · Since 2020</div></div>
-              </div>
-              <p class="team-about-txt">TEAM 아토는 마인크래프트 안에 깊은 이야기를 담아 고퀄리티 맵으로 구현하는 제작팀입니다. 2020년부터 꾸준히 스토리 중심의 어드벤처 맵을 무료로 배포해왔으며, 맵 하나하나에 진심을 담습니다.</p>
+            <div class="team-about">
+              <p class="team-since">Since 2020</p>
+              <h3 class="team-name">TEAM 아토</h3>
+              <p class="team-txt">마인크래프트 안에 깊은 이야기를 담는 맵 제작팀입니다. 스토리 중심의 어드벤처 맵을 꾸준히 무료 배포하고 있습니다.</p>
               <div class="team-btns">
-                <a href="https://discord.gg/2zyZtytDbK" target="_blank" class="tbtn tbtn-dc">💬 디스코드</a>
-                <a href="https://www.patreon.com/c/teamato" target="_blank" class="tbtn tbtn-pt">♥ 후원하기</a>
+                <a href="https://discord.gg/2zyZtytDbK" target="_blank" class="tbtn-dc">디스코드</a>
+                <a href="https://www.patreon.com/c/teamato" target="_blank" class="tbtn-pt">후원하기</a>
               </div>
             </div>
-            <div class="team-members reveal">
-              <div class="tmember"><div class="tmember-av" style="background:linear-gradient(135deg,#1a4fd6,#0d2d90)">🧑‍💻</div><div><div class="tmember-name">팀장</div><div class="tmember-role">기획 · 개발 · 총괄</div></div></div>
-              <div class="tmember"><div class="tmember-av" style="background:linear-gradient(135deg,#2563eb,#1e40af)">🎨</div><div><div class="tmember-name">빌더</div><div class="tmember-role">건축 · 맵 디자인</div></div></div>
-              <div class="tmember"><div class="tmember-av" style="background:linear-gradient(135deg,#c03030,#7a1414)">✍️</div><div><div class="tmember-name">시나리오</div><div class="tmember-role">스토리 · 대사 작성</div></div></div>
-              <div class="tmember"><div class="tmember-av" style="background:linear-gradient(135deg,#d46820,#8a3a10)">🔧</div><div><div class="tmember-name">레드스톤</div><div class="tmember-role">시스템 · 기술 구현</div></div></div>
+            <div class="team-members">
+              <div class="tmember"><b>팀장</b><span>기획 · 개발 · 총괄</span></div>
+              <div class="tmember"><b>빌더</b><span>건축 · 맵 디자인</span></div>
+              <div class="tmember"><b>시나리오</b><span>스토리 · 대사</span></div>
+              <div class="tmember"><b>레드스톤</b><span>시스템 · 기술</span></div>
             </div>
           </div>
         </div>
@@ -268,67 +260,47 @@
 
       <!-- DONATE -->
       <section id="donate" class="sec-donate">
-        <div class="wrap donate-inner">
-          <div class="donate-left reveal">
-            <h2>TEAM 아토를<br/>후원해주세요</h2>
-            <p>여러분의 후원이 더 좋은 맵을 만드는 원동력입니다.<br/>후원금은 서버 운영과 맵 제작에 전액 사용됩니다.</p>
-            <a href="https://www.patreon.com/c/teamato" target="_blank" class="btn-patreon">Patreon으로 후원하기 →</a>
-          </div>
-          <div class="donate-right reveal">
-            <div class="donate-card">
-              <div class="dc-gem">💎</div>
-              <strong>후원자 혜택</strong>
-              <ul>
-                <li>✓ 신작 맵 우선 체험</li>
-                <li>✓ 베타 테스트 참여 우선권</li>
-                <li>✓ 디스코드 후원자 전용 채널</li>
-                <li>✓ 제작 비하인드 공유</li>
-              </ul>
-            </div>
-          </div>
+        <div class="wrap">
+          <h2 class="sec-title">후원</h2>
+          <p class="donate-desc">후원금은 서버 운영과 맵 제작에 사용됩니다.</p>
+          <a href="https://www.patreon.com/c/teamato" target="_blank" class="btn-patreon">Patreon에서 후원하기</a>
         </div>
       </section>
 
-      <!-- FOOTER -->
       <footer>
         <div class="wrap foot-wrap">
-          <div class="foot-left">
-            <div class="foot-logo">⛏ TEAM 아토</div>
-            <p>마인크래프트에 이야기를 담아<br>고퀄리티로 녹여내는 팀</p>
-            <small>©2020 - 2025 by TEAM 아토 OFFICIAL</small>
+          <div>
+            <div class="foot-logo">TEAM 아토</div>
+            <small>©2020 - 2025 TEAM 아토 OFFICIAL</small>
           </div>
           <div class="foot-nav">
-            <strong>페이지</strong>
             <a href="#home">메인</a>
             <a href="#maps">맵 목록</a>
             <a href="#support">고객 지원</a>
             <a href="#team">팀원 소개</a>
           </div>
           <div class="foot-nav">
-            <strong>링크</strong>
-            <a href="https://discord.gg/2zyZtytDbK" target="_blank">💬 디스코드</a>
-            <a href="https://www.patreon.com/c/teamato" target="_blank">♥ Patreon 후원</a>
+            <a href="https://discord.gg/2zyZtytDbK" target="_blank">디스코드</a>
+            <a href="https://www.patreon.com/c/teamato" target="_blank">Patreon</a>
           </div>
         </div>
       </footer>
 
-    </main><!-- /site-main -->
+    </main>
 
     <!-- 오른쪽 광고 -->
     <aside class="ad-sidebar ad-right">
       <div class="ad-sticky">
-        <div class="ad-label">Advertisement</div>
+        <div class="ad-label">AD</div>
         <div class="ad-slot ad-160x600">
-          <!-- Google AdSense 또는 다른 광고 코드를 여기에 삽입하세요 -->
           <div class="ad-placeholder">
-            <span class="ad-ph-icon">📢</span>
-            <span class="ad-ph-txt">광고 영역<br/>160×600</span>
+            <span>160×600</span>
           </div>
         </div>
       </div>
     </aside>
 
-  </div><!-- /site-layout -->
+  </div>
 
   <script src="main.js"></script>
 </body>
