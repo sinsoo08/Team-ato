@@ -35,23 +35,7 @@
     <button class="burger" id="burger">☰</button>
   </nav>
 
-  <div class="site-layout">
-
-    <!-- 왼쪽 광고 -->
-    <aside class="ad-sidebar ad-left">
-      <div class="ad-sticky">
-        <div class="ad-label">AD</div>
-        <div class="ad-slot ad-160x600">
-          <div class="ad-placeholder">
-            <span>160×600</span>
-          </div>
-        </div>
-      </div>
-    </aside>
-
-    <main class="site-main">
-
-      <!-- HERO -->
+  <!-- HERO (full-width) -->
       <section id="home" class="hero">
         <div class="hero-bg-img"></div>
         <div class="hero-overlay"></div>
@@ -69,143 +53,120 @@
         </div>
       </section>
 
+  <!-- MAPS + 광고 레이아웃 -->
+  <div class="site-layout">
+    <aside class="ad-sidebar ad-left">
+      <div class="ad-sticky">
+        <div class="ad-label">AD</div>
+        <div class="ad-slot ad-160x600">
+          <div class="ad-placeholder"><span>160×600</span></div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="site-main">
       <!-- MAPS -->
       <section id="maps" class="sec-maps">
         <div class="wrap">
           <h2 class="sec-title">맵 목록</h2>
-          <div class="map-grid">
-            <div class="mcard">
-              <div class="mcard-top" style="background:#1a0808">
-                <span class="mcard-tag">어드벤처</span>
-                
-              </div>
-              <div class="mcard-body">
-                <h3>COLOR JUMP</h3>
-                <p>색깔 블록을 이용한 파쿠르 어드벤처.</p>
-                <div class="mcard-meta">
-                  <span class="mcard-dl">⬇ 3,241회</span>
-                </div>
-                <button class="btn-dl" onclick="dlFeedback(this)">다운로드</button>
-              </div>
-            </div>
-            <div class="mcard">
-              <div class="mcard-top" style="background:#0d0818">
-                <span class="mcard-tag">스토리</span>
-                
-              </div>
-              <div class="mcard-body">
-                <h3>LAIN</h3>
-                <p>깊은 서사와 분위기의 1인용 스토리 맵.</p>
-                <div class="mcard-meta">
-                  <span class="mcard-dl">⬇ 2,887회</span>
-                </div>
-                <button class="btn-dl" onclick="dlFeedback(this)">다운로드</button>
-              </div>
-            </div>
-            <div class="mcard">
-              <div class="mcard-top" style="background:#040e1a">
+                    <div class="map-grid">
+
+            <div class="mcard" style="--border-c:#3a9de8">
+              <div class="mcard-top" style="background:linear-gradient(160deg,#040e1a,#0d2a40)">
+                <div class="mcard-img-placeholder">🔵</div>
                 <span class="mcard-tag">퍼즐</span>
-                
               </div>
               <div class="mcard-body">
                 <h3>MISSING COLOR 1</h3>
-                <p>색채를 잃은 세계에서 펼쳐지는 퍼즐 어드벤처.</p>
-                <div class="mcard-meta">
-                  <span class="mcard-dl">⬇ 4,102회</span>
-                </div>
+                <p>색채를 잃은 세계에서 펼쳐지는 퍼즐 어드벤처. 숨겨진 색깔을 되찾아라.</p>
+                <div class="mcard-meta"><span class="mcard-dl">⬇ 4,102회</span></div>
                 <button class="btn-dl" onclick="dlFeedback(this)">다운로드</button>
               </div>
             </div>
-            <div class="mcard">
-              <div class="mcard-top" style="background:#04100e">
+
+            <div class="mcard" style="--border-c:#34c99a">
+              <div class="mcard-top" style="background:linear-gradient(160deg,#04100e,#0d3022)">
+                <div class="mcard-img-placeholder">🎭</div>
                 <span class="mcard-tag">퍼즐</span>
-                
               </div>
               <div class="mcard-body">
                 <h3>MISSING COLOR 2</h3>
-                <p>전작보다 깊어진 세계관과 새로운 보스.</p>
-                <div class="mcard-meta">
-                  <span class="mcard-dl">⬇ 3,560회</span>
-                </div>
+                <p>전작보다 깊어진 세계관과 새로운 보스. 더 복잡한 퍼즐이 기다린다.</p>
+                <div class="mcard-meta"><span class="mcard-dl">⬇ 3,560회</span></div>
                 <button class="btn-dl" onclick="dlFeedback(this)">다운로드</button>
               </div>
             </div>
-            <div class="mcard">
-              <div class="mcard-top" style="background:#140e00">
-                <span class="mcard-tag">스토리</span>
-                
-              </div>
-              <div class="mcard-body">
-                <h3>귀담경찰</h3>
-                <p>귀신을 다루는 특수 경찰의 이야기.</p>
-                <div class="mcard-meta">
-                  <span class="mcard-dl">⬇ 2,198회</span>
-                </div>
-                <button class="btn-dl" onclick="dlFeedback(this)">다운로드</button>
-              </div>
-            </div>
-            <div class="mcard">
-              <div class="mcard-top" style="background:#140800">
+
+            <div class="mcard" style="--border-c:#e85555">
+              <div class="mcard-top" style="background:linear-gradient(160deg,#1a0808,#5c1010)">
+                <div class="mcard-img-placeholder">🎨</div>
                 <span class="mcard-tag">어드벤처</span>
-                
               </div>
               <div class="mcard-body">
-                <h3>THE POST</h3>
-                <p>우편부가 되어 세계를 탐험하는 어드벤처.</p>
-                <div class="mcard-meta">
-                  <span class="mcard-dl">⬇ 1,834회</span>
-                </div>
+                <h3>COLOR JUMP</h3>
+                <p>색깔 블록을 이용한 독창적인 파쿠르 어드벤처. TEAM 아토의 첫 번째 작품.</p>
+                <div class="mcard-meta"><span class="mcard-dl">⬇ 3,241회</span></div>
                 <button class="btn-dl" onclick="dlFeedback(this)">다운로드</button>
               </div>
             </div>
-            <div class="mcard">
-              <div class="mcard-top" style="background:#140800">
-                <span class="mcard-tag">2차 창작</span>
-                
+
+            <div class="mcard" style="--border-c:#8b6fce">
+              <div class="mcard-top" style="background:linear-gradient(160deg,#0d0818,#261444)">
+                <div class="mcard-img-placeholder">👤</div>
+                <span class="mcard-tag">스토리</span>
               </div>
               <div class="mcard-body">
-                <h3>THE POST 2차 창작</h3>
-                <p>THE POST 세계관을 바탕으로 한 팬 창작.</p>
-                <div class="mcard-meta">
-                  <span class="mcard-dl">⬇ 892회</span>
-                </div>
+                <h3>LAIN</h3>
+                <p>깊은 서사와 분위기의 1인용 스토리 맵. 잊을 수 없는 경험을 선사한다.</p>
+                <div class="mcard-meta"><span class="mcard-dl">⬇ 2,887회</span></div>
                 <button class="btn-dl" onclick="dlFeedback(this)">다운로드</button>
               </div>
             </div>
-            <div class="mcard">
-              <div class="mcard-top" style="background:#040e04">
+
+            <div class="mcard" style="--border-c:#5ac86e">
+              <div class="mcard-top" style="background:linear-gradient(160deg,#040e04,#102010)">
+                <div class="mcard-img-placeholder">🤝</div>
                 <span class="mcard-tag">협동</span>
-                
               </div>
               <div class="mcard-body">
                 <h3>THE CO-OP</h3>
-                <p>2인 협동 전용. 함께라야 풀 수 있는 맵.</p>
-                <div class="mcard-meta">
-                  <span class="mcard-dl">⬇ 1,455회</span>
-                </div>
+                <p>2인 협동 전용. 함께라야만 풀 수 있는 퍼즐과 스테이지.</p>
+                <div class="mcard-meta"><span class="mcard-dl">⬇ 1,455회</span></div>
                 <button class="btn-dl" onclick="dlFeedback(this)">다운로드</button>
               </div>
             </div>
-            <div class="mcard">
-              <div class="mcard-top" style="background:#140e00">
+
+            <div class="mcard mcard-new" style="--border-c:#f0a030">
+              <div class="mcard-top" style="background:linear-gradient(160deg,#140e00,#302000)">
+                <div class="mcard-img-placeholder">👻</div>
                 <span class="mcard-tag">스토리</span>
                 <span class="badge-new">NEW</span>
               </div>
               <div class="mcard-body">
                 <h3>귀담경찰 2</h3>
-                <p>귀담경찰 시리즈의 두 번째 이야기.</p>
-                <div class="mcard-meta">
-                  <span class="mcard-dl">⬇ 987회</span>
-                </div>
+                <p>귀담경찰 시리즈의 두 번째 이야기. 더욱 깊어진 세계관과 새로운 사건.</p>
+                <div class="mcard-meta"><span class="mcard-dl">⬇ 987회</span></div>
                 <button class="btn-dl" onclick="dlFeedback(this)">다운로드</button>
               </div>
             </div>
+
           </div>
         </div>
       </section>
+    </main>
 
-      <!-- FAQ -->
-      <section id="support" class="sec-faq">
+    <aside class="ad-sidebar ad-right">
+      <div class="ad-sticky">
+        <div class="ad-label">AD</div>
+        <div class="ad-slot ad-160x600">
+          <div class="ad-placeholder"><span>160×600</span></div>
+        </div>
+      </div>
+    </aside>
+  </div><!-- /site-layout -->
+
+  <!-- FAQ (full-width) -->
+  <section id="support" class="sec-faq">
         <div class="wrap">
           <h2 class="sec-title">자주 묻는 질문</h2>
           <div class="faq-list">
@@ -234,8 +195,8 @@
         </div>
       </section>
 
-      <!-- TEAM -->
-      <section id="team" class="sec-team">
+  <!-- TEAM (full-width) -->
+  <section id="team" class="sec-team">
         <div class="wrap">
           <h2 class="sec-title light">팀원 소개</h2>
           <div class="team-layout">
@@ -256,10 +217,10 @@
             </div>
           </div>
         </div>
-      </section>
+  </section>
 
-      <!-- DONATE -->
-      <section id="donate" class="sec-donate">
+  <!-- DONATE (full-width) -->
+  <section id="donate" class="sec-donate">
         <div class="donate-bg-blur"></div>
         <div class="wrap donate-wrap">
           <div class="donate-left">
@@ -286,9 +247,10 @@
             </div>
           </div>
         </div>
-      </section>
+  </section>
 
-      <footer>
+  <!-- FOOTER (full-width) -->
+  <footer>
         <div class="wrap foot-wrap">
           <div>
             <div class="foot-logo">TEAM 아토</div>
@@ -307,21 +269,7 @@
         </div>
       </footer>
 
-    </main>
 
-    <!-- 오른쪽 광고 -->
-    <aside class="ad-sidebar ad-right">
-      <div class="ad-sticky">
-        <div class="ad-label">AD</div>
-        <div class="ad-slot ad-160x600">
-          <div class="ad-placeholder">
-            <span>160×600</span>
-          </div>
-        </div>
-      </div>
-    </aside>
-
-  </div>
 
   <script src="main.js"></script>
 </body>

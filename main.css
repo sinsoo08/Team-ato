@@ -176,6 +176,7 @@ a { text-decoration: none; color: inherit; }
   position: relative; z-index: 2;
   display: flex; flex-direction: column; align-items: center;
   max-width: 560px;
+  width: 100%;
 }
 
 .hero-sub {
@@ -232,8 +233,13 @@ a { text-decoration: none; color: inherit; }
 }
 .btn-ghost:hover { background: rgba(255,255,255,0.09); border-color: rgba(255,255,255,0.38); }
 
+
 /* ════════════ SECTION COMMON ════════════ */
-.wrap { padding: 0; } /* 너비는 site-layout grid이 담당 */
+.wrap {
+  max-width: var(--content-w);
+  margin: 0 auto;
+  width: 100%;
+}
 
 .sec-title {
   font-size: 18px; font-weight: 700; letter-spacing: -0.02em;
@@ -252,24 +258,31 @@ a { text-decoration: none; color: inherit; }
 
 .mcard {
   background: var(--white);
-  border: 1px solid var(--border);
+  border: 1.5px solid var(--border-c, var(--border));
   border-radius: 8px; overflow: hidden;
   display: flex; flex-direction: column;
-  /* 기본 그림자: 약간 짙게 */
   box-shadow: 0 2px 10px rgba(0,0,0,0.10), 0 1px 3px rgba(0,0,0,0.07);
-  transition: box-shadow 0.2s, transform 0.18s;
+  transition: box-shadow 0.2s, transform 0.18s, border-color 0.2s;
 }
 .mcard:hover {
-  /* 호버 그림자: 더더욱 짙게 */
   box-shadow: 0 12px 36px rgba(0,0,0,0.22), 0 4px 12px rgba(0,0,0,0.14);
+  border-color: var(--border-c, var(--blue));
   transform: translateY(-3px);
 }
 
 .mcard-top {
-  height: 72px;
-  display: flex; align-items: flex-end; justify-content: space-between;
-  padding: 8px 12px;
+  height: 160px;
+  display: flex; flex-direction: column;
+  align-items: flex-start; justify-content: space-between;
+  padding: 12px 14px;
   position: relative;
+}
+.mcard-img-placeholder {
+  font-size: 40px;
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -60%);
+  opacity: 0.7;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
 }
 .mcard-tag {
   font-size: 10px; font-weight: 600; letter-spacing: 0.06em;
@@ -304,7 +317,6 @@ a { text-decoration: none; color: inherit; }
 
 /* ════════════ FAQ ════════════ */
 .sec-faq { background: var(--gray); padding: 64px 0; }
-.sec-faq .wrap { padding-left: 48px; padding-right: 48px; }
 .faq-list { margin-bottom: 20px; }
 
 .fq-item { border-bottom: 1px solid var(--border); }
@@ -336,7 +348,6 @@ a { text-decoration: none; color: inherit; }
 
 /* ════════════ TEAM ════════════ */
 .sec-team { background: var(--dark); padding: 80px 0; }
-.sec-team .wrap { padding-left: 48px; padding-right: 48px; }
 .team-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
 
 .team-since { font-size: 12px; color: rgba(255,255,255,0.35); letter-spacing: 0.12em; margin-bottom: 8px; }
@@ -395,7 +406,6 @@ a { text-decoration: none; color: inherit; }
   position: relative; z-index: 1;
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 64px; align-items: center;
-  padding-left: 48px; padding-right: 48px;
 }
 
 /* 왼쪽 텍스트 */
@@ -464,8 +474,10 @@ a { text-decoration: none; color: inherit; }
 /* ════════════ FOOTER ════════════ */
 footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.05); }
 .foot-wrap {
+  max-width: var(--content-w);
+  margin: 0 auto;
   display: flex; justify-content: space-between; align-items: flex-start;
-  padding: 44px 48px; gap: 40px; flex-wrap: wrap;
+  padding: 44px 0; gap: 40px; flex-wrap: wrap;
 }
 .foot-logo { font-size: 15px; font-weight: 800; color: #fff; margin-bottom: 7px; }
 footer small { font-size: 12px; color: rgba(255,255,255,0.25); }
@@ -536,8 +548,7 @@ footer small { font-size: 12px; color: rgba(255,255,255,0.25); }
   .team-layout { grid-template-columns: 1fr; gap: 28px; }
   .sec-maps, .sec-faq, .sec-team, .sec-donate { padding: 44px 0; }
   .foot-wrap   { padding: 28px 20px; flex-direction: column; gap: 20px; }
-  .sec-faq .wrap, .sec-team .wrap { padding-left: 20px; padding-right: 20px; }
-  .donate-wrap { padding-left: 20px; padding-right: 20px; }
   .donate-title { font-size: 24px; }
+
   .hero-h1 span:first-child { letter-spacing: 0.4em; }
 }
