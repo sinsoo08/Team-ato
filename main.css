@@ -112,9 +112,11 @@ a { text-decoration: none; color: inherit; }
 /* ─ 광고 사이드바 ─ */
 .ad-sidebar {
   position: sticky; top: calc(var(--nav-h) + 14px);
-  height: calc(100vh - var(--nav-h) - 28px);
+  align-self: start;
+  height: auto;
   display: flex; justify-content: center; align-items: flex-start;
   padding-top: 14px;
+  z-index: 10;
 }
 .ad-sticky { display: flex; flex-direction: column; align-items: center; gap: 5px; }
 .ad-label { font-size: 9px; color: #c4c9d4; letter-spacing: 0.06em; text-transform: uppercase; }
@@ -316,7 +318,13 @@ a { text-decoration: none; color: inherit; }
 .btn-dl:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
 
 /* ════════════ FAQ ════════════ */
-.sec-faq { background: var(--gray); padding: 64px 0; }
+.sec-faq { background: var(--gray); padding: 64px 0;
+  /* site-main 컬럼 밖으로 배경 확장 */
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding-left: calc(50vw - 50%);
+  padding-right: calc(50vw - 50%);
+}
 .faq-list { margin-bottom: 20px; }
 
 .fq-item { border-bottom: 1px solid var(--border); }
@@ -347,7 +355,12 @@ a { text-decoration: none; color: inherit; }
 .faq-dc:hover { opacity: 0.65; }
 
 /* ════════════ TEAM ════════════ */
-.sec-team { background: var(--dark); padding: 80px 0; }
+.sec-team { background: var(--dark); padding: 80px 0;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding-left: calc(50vw - 50%);
+  padding-right: calc(50vw - 50%);
+}
 .team-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
 
 .team-since { font-size: 12px; color: rgba(255,255,255,0.35); letter-spacing: 0.12em; margin-bottom: 8px; }
@@ -381,6 +394,11 @@ a { text-decoration: none; color: inherit; }
   position: relative; overflow: hidden;
   background: linear-gradient(135deg, #0f2060 0%, #1740a8 45%, #1a3ab8 55%, #0d1a50 100%);
   padding: 96px 0;
+  /* site-main 컬럼 밖으로 배경 확장 */
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding-left: calc(50vw - 50%);
+  padding-right: calc(50vw - 50%);
 }
 
 /* 배경 장식 원 */
@@ -518,12 +536,24 @@ footer small { font-size: 12px; color: rgba(255,255,255,0.25); }
   }
   .ad-sidebar  { display: none; }
   .site-main   { padding: 0 36px; }
+  .sec-faq, .sec-donate, .sec-team {
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    padding-left: calc(50vw - 50%);
+    padding-right: calc(50vw - 50%);
+  }
   .map-grid    { grid-template-columns: repeat(3, 1fr); }
 }
 
 /* ── 960px: 패딩 줄이고 맵 2열 ── */
 @media (max-width: 960px) {
   .site-main   { padding: 0 24px; }
+  .sec-faq, .sec-donate, .sec-team {
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    padding-left: calc(50vw - 50%);
+    padding-right: calc(50vw - 50%);
+  }
   .map-grid    { grid-template-columns: repeat(2, 1fr); }
   .team-layout { gap: 40px; }
   .donate-wrap { grid-template-columns: 1fr; gap: 36px; }
@@ -544,6 +574,12 @@ footer small { font-size: 12px; color: rgba(255,255,255,0.25); }
   .nav-links.open .dropdown { display: none; }
   .burger      { display: block; }
   .site-main   { padding: 0 16px; }
+  .sec-faq, .sec-donate, .sec-team {
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    padding-left: calc(50vw - 50%);
+    padding-right: calc(50vw - 50%);
+  }
   .map-grid    { grid-template-columns: 1fr; }
   .team-layout { grid-template-columns: 1fr; gap: 28px; }
   .sec-maps, .sec-faq, .sec-team, .sec-donate { padding: 44px 0; }
