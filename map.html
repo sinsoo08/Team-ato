@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>맵 목록 — TEAM 아토 OFFICIAL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="main.css"/>
+  <link rel="stylesheet" href="map.css"/>
+</head>
+<body>
+
+  <!-- NAV (main과 동일) -->
+  <nav id="nav">
+    <a href="index.html" class="logo">⛏ TEAM <b>아토</b></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">메인</a></li>
+      <li class="has-drop">
+        <a href="map.html" class="nav-current">맵 <span class="arr">▾</span></a>
+        <ul class="dropdown">
+          <li><a href="#color-jump">COLOR JUMP</a></li>
+          <li><a href="#lain">LAIN</a></li>
+          <li><a href="#mc1">MISSING COLOR 1</a></li>
+          <li><a href="#mc2">MISSING COLOR 2</a></li>
+          <li><a href="#ghost1">귀담경찰</a></li>
+          <li><a href="#the-post">THE POST</a></li>
+          <li><a href="#the-coop">THE CO-OP</a></li>
+          <li><a href="#ghost2">귀담경찰 2</a></li>
+        </ul>
+      </li>
+      <li><a href="index.html#support">고객 지원</a></li>
+      <li><a href="index.html#team">팀원 소개</a></li>
+      <li><a href="https://www.patreon.com/c/teamato" target="_blank" class="nav-donate">후원하기</a></li>
+    </ul>
+    <button class="burger" id="burger">☰</button>
+  </nav>
+
+  <!-- 페이지 헤더 -->
+  <header class="map-hero">
+    <canvas id="heroCanvas"></canvas>
+    <div class="map-hero-inner">
+      <p class="map-hero-eyebrow">MAP ARCHIVE</p>
+      <h1 class="map-hero-title">전체 맵 목록</h1>
+      <p class="map-hero-desc">TEAM 아토의 모든 마인크래프트 맵을 만나보세요</p>
+    </div>
+  </header>
+
+  <!-- 통계 바 -->
+  <div class="map-stats-bar">
+    <div class="map-stats-inner">
+      <div class="stat-block">
+        <span class="stat-num" data-to="9">0</span>
+        <span class="stat-lbl">총 맵 수</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-block">
+        <span class="stat-num" id="stat-dl" data-to="19779">0</span>
+        <span class="stat-lbl">전체 다운로드</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-block">
+        <span class="stat-num" data-to="5">0</span>
+        <span class="stat-lbl">출시 연도 (years)</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-block">
+        <span class="stat-num stat-pct" data-to="100">0</span>
+        <span class="stat-lbl">무료 배포</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 메인 콘텐츠 -->
+  <main class="map-main">
+
+    <!-- 필터 + 정렬 -->
+    <div class="map-toolbar">
+      <div class="map-filters" id="filters">
+        <button class="flt active" data-filter="all">전체 <span class="flt-count">9</span></button>
+        <button class="flt" data-filter="퍼즐">퍼즐 <span class="flt-count">2</span></button>
+        <button class="flt" data-filter="스토리">스토리 <span class="flt-count">4</span></button>
+        <button class="flt" data-filter="어드벤처">어드벤처 <span class="flt-count">1</span></button>
+        <button class="flt" data-filter="협동">협동 <span class="flt-count">1</span></button>
+        <button class="flt" data-filter="복합">복합 <span class="flt-count">1</span></button>
+      </div>
+      <div class="map-sort">
+        <select id="sortSelect">
+          <option value="default">기본순</option>
+          <option value="dl-desc">다운로드 많은순</option>
+          <option value="dl-asc">다운로드 적은순</option>
+          <option value="new">최신순</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- 카드 그리드 -->
+    <div class="map-grid" id="mapGrid">
+
+      <article class="mc" id="mc1" data-tag="퍼즐" data-dl="4102" data-year="2022"
+               style="--bc:#3a9de8; --bg:linear-gradient(160deg,#040e1a,#0d2a40)">
+        <div class="mc-top">
+          <span class="mc-tag">퍼즐</span>
+          <div class="mc-thumb">🔵</div>
+          <div class="mc-badges"><span class="badge-hot">인기!</span></div>
+        </div>
+        <div class="mc-body">
+          <div class="mc-title-row">
+            <h3>MISSING COLOR 1</h3>
+            <span class="mc-year">2022</span>
+          </div>
+          <p>색채를 잃은 세계에서 펼쳐지는 퍼즐 어드벤처. 숨겨진 색깔을 되찾아라.</p>
+          <div class="mc-meta">
+            <span class="mc-dl-count">⬇ 4,102회</span>
+            <div class="mc-bar-wrap"><div class="mc-dl-bar" style="--pct:100%"></div></div>
+          </div>
+          <div class="mc-actions">
+            <button class="mc-btn-dl" onclick="dlFeedback(this)">다운로드</button>
+            <a href="#mc1" class="mc-btn-detail">상세 보기</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="mc" id="mc2" data-tag="퍼즐" data-dl="3560" data-year="2023"
+               style="--bc:#34c99a; --bg:linear-gradient(160deg,#04100e,#0d3022)">
+        <div class="mc-top">
+          <span class="mc-tag">퍼즐</span>
+          <div class="mc-thumb">🎭</div>
+          <div class="mc-badges"></div>
+        </div>
+        <div class="mc-body">
+          <div class="mc-title-row">
+            <h3>MISSING COLOR 2</h3>
+            <span class="mc-year">2023</span>
+          </div>
+          <p>전작보다 깊어진 세계관과 새로운 보스. 더 복잡한 퍼즐이 기다린다.</p>
+          <div class="mc-meta">
+            <span class="mc-dl-count">⬇ 3,560회</span>
+            <div class="mc-bar-wrap"><div class="mc-dl-bar" style="--pct:87%"></div></div>
+          </div>
+          <div class="mc-actions">
+            <button class="mc-btn-dl" onclick="dlFeedback(this)">다운로드</button>
+            <a href="#mc2" class="mc-btn-detail">상세 보기</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="mc" id="color-jump" data-tag="어드벤처" data-dl="3241" data-year="2020"
+               style="--bc:#e85555; --bg:linear-gradient(160deg,#1a0808,#5c1010)">
+        <div class="mc-top">
+          <span class="mc-tag">어드벤처</span>
+          <div class="mc-thumb">🎨</div>
+          <div class="mc-badges"><span class="badge-hot">인기!</span></div>
+        </div>
+        <div class="mc-body">
+          <div class="mc-title-row">
+            <h3>COLOR JUMP</h3>
+            <span class="mc-year">2020</span>
+          </div>
+          <p>색깔 블록을 이용한 독창적인 파쿠르 어드벤처. TEAM 아토의 첫 번째 작품.</p>
+          <div class="mc-meta">
+            <span class="mc-dl-count">⬇ 3,241회</span>
+            <div class="mc-bar-wrap"><div class="mc-dl-bar" style="--pct:79%"></div></div>
+          </div>
+          <div class="mc-actions">
+            <button class="mc-btn-dl" onclick="dlFeedback(this)">다운로드</button>
+            <a href="#color-jump" class="mc-btn-detail">상세 보기</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="mc" id="lain" data-tag="스토리" data-dl="2887" data-year="2021"
+               style="--bc:#8b6fce; --bg:linear-gradient(160deg,#0d0818,#261444)">
+        <div class="mc-top">
+          <span class="mc-tag">스토리</span>
+          <div class="mc-thumb">👤</div>
+          <div class="mc-badges"></div>
+        </div>
+        <div class="mc-body">
+          <div class="mc-title-row">
+            <h3>LAIN</h3>
+            <span class="mc-year">2021</span>
+          </div>
+          <p>깊은 서사와 분위기의 1인용 스토리 맵. 잊을 수 없는 경험을 선사한다.</p>
+          <div class="mc-meta">
+            <span class="mc-dl-count">⬇ 2,887회</span>
+            <div class="mc-bar-wrap"><div class="mc-dl-bar" style="--pct:70%"></div></div>
+          </div>
+          <div class="mc-actions">
+            <button class="mc-btn-dl" onclick="dlFeedback(this)">다운로드</button>
+            <a href="#lain" class="mc-btn-detail">상세 보기</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="mc" id="ghost1" data-tag="스토리" data-dl="2344" data-year="2022"
+               style="--bc:#b06fd4; --bg:linear-gradient(160deg,#110818,#2a1040)">
+        <div class="mc-top">
+          <span class="mc-tag">스토리</span>
+          <div class="mc-thumb">🚔</div>
+          <div class="mc-badges"></div>
+        </div>
+        <div class="mc-body">
+          <div class="mc-title-row">
+            <h3>귀담경찰</h3>
+            <span class="mc-year">2022</span>
+          </div>
+          <p>미스터리한 사건을 추적하는 수사 어드벤처. 긴장감 넘치는 서사.</p>
+          <div class="mc-meta">
+            <span class="mc-dl-count">⬇ 2,344회</span>
+            <div class="mc-bar-wrap"><div class="mc-dl-bar" style="--pct:57%"></div></div>
+          </div>
+          <div class="mc-actions">
+            <button class="mc-btn-dl" onclick="dlFeedback(this)">다운로드</button>
+            <a href="#ghost1" class="mc-btn-detail">상세 보기</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="mc" id="the-coop" data-tag="협동" data-dl="1455" data-year="2023"
+               style="--bc:#5ac86e; --bg:linear-gradient(160deg,#040e04,#102010)">
+        <div class="mc-top">
+          <span class="mc-tag">협동</span>
+          <div class="mc-thumb">🤝</div>
+          <div class="mc-badges"></div>
+        </div>
+        <div class="mc-body">
+          <div class="mc-title-row">
+            <h3>THE CO-OP</h3>
+            <span class="mc-year">2023</span>
+          </div>
+          <p>2인 협동 전용. 함께라야만 풀 수 있는 퍼즐과 스테이지.</p>
+          <div class="mc-meta">
+            <span class="mc-dl-count">⬇ 1,455회</span>
+            <div class="mc-bar-wrap"><div class="mc-dl-bar" style="--pct:35%"></div></div>
+          </div>
+          <div class="mc-actions">
+            <button class="mc-btn-dl" onclick="dlFeedback(this)">다운로드</button>
+            <a href="#the-coop" class="mc-btn-detail">상세 보기</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="mc" id="the-post" data-tag="스토리" data-dl="1203" data-year="2023"
+               style="--bc:#c0a060; --bg:linear-gradient(160deg,#100e04,#2a2410)">
+        <div class="mc-top">
+          <span class="mc-tag">스토리</span>
+          <div class="mc-thumb">📮</div>
+          <div class="mc-badges"></div>
+        </div>
+        <div class="mc-body">
+          <div class="mc-title-row">
+            <h3>THE POST</h3>
+            <span class="mc-year">2023</span>
+          </div>
+          <p>편지와 기억으로 이어지는 서정적인 스토리 맵. 잔잔하고 깊은 감동.</p>
+          <div class="mc-meta">
+            <span class="mc-dl-count">⬇ 1,203회</span>
+            <div class="mc-bar-wrap"><div class="mc-dl-bar" style="--pct:29%"></div></div>
+          </div>
+          <div class="mc-actions">
+            <button class="mc-btn-dl" onclick="dlFeedback(this)">다운로드</button>
+            <a href="#the-post" class="mc-btn-detail">상세 보기</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="mc" id="ghost2" data-tag="스토리" data-dl="987" data-year="2024"
+               style="--bc:#f0a030; --bg:linear-gradient(160deg,#140e00,#302000)">
+        <div class="mc-top">
+          <span class="mc-tag">스토리</span>
+          <div class="mc-thumb">👻</div>
+          <div class="mc-badges"><span class="badge-new">NEW!</span></div>
+        </div>
+        <div class="mc-body">
+          <div class="mc-title-row">
+            <h3>귀담경찰 2</h3>
+            <span class="mc-year">2024</span>
+          </div>
+          <p>귀담경찰 시리즈의 두 번째 이야기. 더욱 깊어진 세계관과 새로운 사건.</p>
+          <div class="mc-meta">
+            <span class="mc-dl-count">⬇ 987회</span>
+            <div class="mc-bar-wrap"><div class="mc-dl-bar" style="--pct:24%"></div></div>
+          </div>
+          <div class="mc-actions">
+            <button class="mc-btn-dl" onclick="dlFeedback(this)">다운로드</button>
+            <a href="#ghost2" class="mc-btn-detail">상세 보기</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="mc" data-tag="복합" data-dl="0" data-year="0"
+               style="--bc:#444c5e; --bg:linear-gradient(160deg,#0e1015,#1a1e28)">
+        <div class="mc-top">
+          <span class="mc-tag">복합</span>
+          <div class="mc-thumb">📦</div>
+          <div class="mc-badges"></div>
+        </div>
+        <div class="mc-body">
+          <div class="mc-title-row">
+            <h3>???</h3>
+            <span class="mc-year mc-year-tba">TBA</span>
+          </div>
+          <p>현재 제작 중인 다음 작품. 아직 공개되지 않은 비밀 프로젝트.</p>
+          <div class="mc-meta">
+            <span class="mc-dl-count mc-tba">준비 중</span>
+            <div class="mc-bar-wrap"><div class="mc-dl-bar" style="--pct:0%"></div></div>
+          </div>
+          <div class="mc-actions">
+            <button class="mc-btn-dl mc-btn-soon" disabled>출시 예정</button>
+            <a href="https://discord.gg/2zyZtytDbK" target="_blank" class="mc-btn-detail">디스코드</a>
+          </div>
+        </div>
+      </article>
+
+    </div><!-- /map-grid -->
+
+    <!-- 빈 결과 -->
+    <div class="map-empty" id="mapEmpty">
+      <span>🔍</span>
+      <p>해당 장르의 맵이 없습니다.</p>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap foot-wrap">
+      <div>
+        <div class="foot-logo">TEAM 아토</div>
+        <small>©2020 - 2025 TEAM 아토 OFFICIAL</small>
+      </div>
+      <div class="foot-nav">
+        <a href="index.html">메인</a>
+        <a href="map.html">맵 목록</a>
+        <a href="index.html#support">고객 지원</a>
+        <a href="index.html#team">팀원 소개</a>
+      </div>
+      <div class="foot-nav">
+        <a href="https://discord.gg/2zyZtytDbK" target="_blank">디스코드</a>
+        <a href="https://www.patreon.com/c/teamato" target="_blank">Patreon</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="map.js"></script>
+</body>
+</html>
