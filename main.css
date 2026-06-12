@@ -290,12 +290,32 @@ a { text-decoration: none; color: inherit; }
   color: rgba(255,255,255,0.55);
   text-transform: uppercase;
 }
-.badge-new {
-  font-size: 8px; font-weight: 700;
-  background: var(--blue); color: #fff;
-  padding: 2px 6px; border-radius: 3px;
+.mcard-badges {
+  display: flex; gap: 5px; align-items: center; flex-wrap: wrap;
+}
+.badge-new, .badge-hot {
+  font-size: 9px; font-weight: 700;
+  padding: 2px 7px; border-radius: 3px;
   letter-spacing: 0.05em;
 }
+.badge-new {
+  background: var(--blue); color: #fff;
+}
+.badge-hot {
+  background: #059669; color: #fff;
+}
+
+.mcard-actions {
+  display: flex; gap: 6px; align-items: center; margin-top: 8px; flex-wrap: wrap;
+}
+.btn-map {
+  font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 4px;
+  background: transparent; color: #6b7280;
+  border: 1px solid #e5e7eb; cursor: pointer;
+  transition: background 0.13s, color 0.13s, border-color 0.13s;
+  font-family: var(--font); text-decoration: none;
+}
+.btn-map:hover { background: #f3f4f6; color: var(--text); border-color: #d1d5db; }
 
 .mcard-body { padding: 12px 14px 14px; flex: 1; display: flex; flex-direction: column; gap: 4px; }
 .mcard-body h3 { font-size: 15px; font-weight: 700; color: var(--text); }
@@ -307,7 +327,6 @@ a { text-decoration: none; color: inherit; }
 }
 
 .btn-dl {
-  align-self: flex-start; margin-top: 8px;
   font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 4px;
   background: transparent; color: var(--blue);
   border: 1px solid #bfdbfe; cursor: pointer;
