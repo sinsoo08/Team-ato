@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>고객 지원 — TEAM 아토 OFFICIAL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="main.css"/>
+  <link rel="stylesheet" href="support.css"/>
+</head>
+<body>
+
+  <nav id="nav">
+    <a href="index.html" class="logo">⛏ TEAM <b>아토</b></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">메인</a></li>
+      <li class="has-drop">
+        <a href="map.html">맵 <span class="arr">▾</span></a>
+        <ul class="dropdown">
+          <li><a href="map.html#color-jump">COLOR JUMP</a></li>
+          <li><a href="map.html#lain">LAIN</a></li>
+          <li><a href="map.html#mc1">MISSING COLOR 1</a></li>
+          <li><a href="map.html#mc2">MISSING COLOR 2</a></li>
+          <li><a href="map.html#ghost1">귀담경찰</a></li>
+          <li><a href="map.html#the-post">THE POST</a></li>
+          <li><a href="map.html#the-coop">THE CO-OP</a></li>
+          <li><a href="map.html#ghost2">귀담경찰 2</a></li>
+        </ul>
+      </li>
+      <li><a href="support.html" class="nav-current">고객 지원</a></li>
+      <li><a href="index.html#team">팀원 소개</a></li>
+      <li><a href="https://www.patreon.com/c/teamato" target="_blank" class="nav-donate">후원하기</a></li>
+    </ul>
+    <button class="burger" id="burger">☰</button>
+  </nav>
+
+  <!-- ── 히어로 검색 영역 ── -->
+  <header class="sp-hero">
+    <canvas id="spCanvas"></canvas>
+    <div class="sp-hero-inner">
+      <p class="sp-eyebrow">SUPPORT CENTER</p>
+      <h1 class="sp-title">무엇을 도와드릴까요?</h1>
+      <p class="sp-desc">설치, 버그, 이용 규정 등 궁금한 점을 검색하거나 카테고리를 선택하세요.</p>
+      <div class="sp-search-wrap">
+        <div class="sp-search-box" id="searchBox">
+          <span class="sp-search-icon">🔍</span>
+          <input type="text" id="searchInput" placeholder="예: 맵 설치 방법, 버그 제보, 멀티플레이" autocomplete="off"/>
+          <button class="sp-search-clear" id="searchClear" aria-label="지우기">✕</button>
+        </div>
+        <div class="sp-suggestions" id="suggestions"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── 카테고리 카드 ── -->
+  <section class="sp-cats">
+    <div class="sp-wrap">
+      <div class="sp-cat-grid">
+
+        <button class="sp-cat" data-cat="install">
+          <span class="sp-cat-icon">📦</span>
+          <span class="sp-cat-name">설치 & 실행</span>
+          <span class="sp-cat-count">5개 항목</span>
+        </button>
+
+        <button class="sp-cat" data-cat="bug">
+          <span class="sp-cat-icon">🐛</span>
+          <span class="sp-cat-name">버그 & 오류</span>
+          <span class="sp-cat-count">4개 항목</span>
+        </button>
+
+        <button class="sp-cat" data-cat="policy">
+          <span class="sp-cat-icon">📋</span>
+          <span class="sp-cat-name">이용 규정</span>
+          <span class="sp-cat-count">3개 항목</span>
+        </button>
+
+        <button class="sp-cat" data-cat="multi">
+          <span class="sp-cat-icon">🎮</span>
+          <span class="sp-cat-name">멀티플레이</span>
+          <span class="sp-cat-count">3개 항목</span>
+        </button>
+
+        <button class="sp-cat" data-cat="donate">
+          <span class="sp-cat-icon">💎</span>
+          <span class="sp-cat-name">후원 & Patreon</span>
+          <span class="sp-cat-count">3개 항목</span>
+        </button>
+
+        <button class="sp-cat" data-cat="etc">
+          <span class="sp-cat-icon">💬</span>
+          <span class="sp-cat-name">기타 문의</span>
+          <span class="sp-cat-count">3개 항목</span>
+        </button>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ 본문 ── -->
+  <section class="sp-faq-section">
+    <div class="sp-wrap sp-faq-layout">
+
+      <!-- 사이드 목차 -->
+      <nav class="sp-toc" id="spToc">
+        <p class="sp-toc-title">카테고리</p>
+        <ul>
+          <li><a href="#cat-install"  class="sp-toc-link active">설치 &amp; 실행</a></li>
+          <li><a href="#cat-bug"      class="sp-toc-link">버그 &amp; 오류</a></li>
+          <li><a href="#cat-policy"   class="sp-toc-link">이용 규정</a></li>
+          <li><a href="#cat-multi"    class="sp-toc-link">멀티플레이</a></li>
+          <li><a href="#cat-donate"   class="sp-toc-link">후원 &amp; Patreon</a></li>
+          <li><a href="#cat-etc"      class="sp-toc-link">기타 문의</a></li>
+        </ul>
+      </nav>
+
+      <!-- FAQ 목록 -->
+      <div class="sp-faq-body" id="faqBody">
+
+        <!-- 검색 결과 영역 (기본 숨김) -->
+        <div class="sp-search-results" id="searchResults"></div>
+
+        <!-- 설치 & 실행 -->
+        <div class="sp-group" id="cat-install" data-cat="install">
+          <h2 class="sp-group-title">
+            <span class="sp-group-icon">📦</span> 설치 &amp; 실행
+          </h2>
+          <div class="sp-items">
+
+            <div class="sp-item" data-keywords="설치 방법 minecraft saves 폴더">
+              <button class="sp-q">
+                맵은 어떻게 설치하나요?
+                <span class="sp-arr">›</span>
+              </button>
+              <div class="sp-a">
+                <div class="sp-a-inner">
+                  다운로드한 압축 파일을 해제한 뒤, 생성된 폴더를
+                  <code>%appdata%\.minecraft\saves</code> 경로에 넣어주세요.
+                  그 후 마인크래프트를 실행해 싱글플레이 → 세계 선택에서 확인하실 수 있습니다.
+                  <div class="sp-tip">💡 폴더가 아닌 파일(.zip)을 그대로 넣으면 맵이 인식되지 않습니다.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sp-item" data-keywords="버전 java edition 1.12 1.20">
+              <button class="sp-q">
+                어떤 마인크래프트 버전을 사용해야 하나요?
+                <span class="sp-arr">›</span>
+              </button>
+              <div class="sp-a">
+                <div class="sp-a-inner">
+                  맵마다 권장 버전이 다릅니다. 대부분 <strong>Java Edition 1.12 ~ 1.20</strong> 범위 내에서 동작하며,
+                  각 맵 다운로드 페이지의 상세 정보에서 정확한 버전을 확인해 주세요.
+                  잘못된 버전으로 실행 시 커맨드 블록 오작동이나 텍스처 깨짐 현상이 발생할 수 있습니다.
+                </div>
+              </div>
+            </div>
+
+            <div class="sp-item" data-keywords="실행 안됨 오류 로딩 세계">
+              <button class="sp-q">
+                맵을 선택하면 바로 튕기거나 로딩이 안 됩니다.
+                <span class="sp-arr">›</span>
+              </button>
+              <div class="sp-a">
+                <div class="sp-a-inner">
+                  아래 항목을 순서대로 확인해 주세요.<br/><br/>
+                  1. 권장 버전과 실제 버전이 일치하는지 확인<br/>
+                  2. <code>saves</code> 폴더 내 맵 폴더가 이중으로 감싸져 있지 않은지 확인<br/>
+                  3. Java 최신 버전으로 업데이트<br/>
+                  4. Optifine 등 모드가 충돌하는지 바닐라 버전으로 재시도<br/><br/>
+                  그래도 해결되지 않으면 디스코드로 문의 주세요.
+                </div>
+              </div>
+            </div>
+
+            <div class="sp-item" data-keywords="리소스팩 텍스처 설치">
+              <button class="sp-q">
+                리소스팩이나 텍스처팩이 필요한가요?
+                <span class="sp-arr">›</span>
+              </button>
+              <div class="sp-a">
+                <div class="sp-a-inner">
+                  일부 맵(LAIN, 귀담경찰 시리즈 등)은 전용 리소스팩이 포함되어 있습니다.
+                  맵 폴더 내 <code>resources.zip</code> 또는 <code>리소스팩</code> 폴더가 있다면
+                  마인크래프트의 리소스팩 설정에서 활성화해 주세요.
+                  활성화하지 않으면 일부 텍스처와 폰트가 정상 표시되지 않습니다.
+                </div>
+              </div>
+            </div>
+
+            <div class="sp-item" data-keywords="맥 mac osx 설치 경로">
+              <button class="sp-q">
+                Mac에서는 어떤 경로에 설치하나요?
+                <span class="sp-arr">›</span>
+              </button>
+              <div class="sp-a">
+                <div class="sp-a-inner">
+                  Mac에서는 <code>~/Library/Application Support/minecraft/saves</code> 경로에 넣어주세요.
+                  Finder에서 <strong>이동 → 폴더로 이동</strong>을 클릭하고 위 경로를 붙여넣으면 빠르게 접근할 수 있습니다.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 버그 & 오류 -->
+        <div class="sp-group" id="cat-bug" data-cat="bug">
+          <h2 class="sp-group-title">
+            <span class="sp-group-icon">🐛</span> 버그 &amp; 오류
+          </h2>
+          <div class="sp-items">
+
+            <div class="sp-item" data-keywords="버그 신고 제보 방법">
+              <button class="sp-q">
+                버그를 발견했어요. 어떻게 신고하나요?
+                <span class="sp-arr">›</span>
+              </button>
+              <div class="sp-a">
+                <div class="sp-a-inner">
+                  디스코드 서버의 <strong>#버그제보</strong> 채널에 아래 정보를 포함해서 올려주세요.<br/><br/>
+                  • 맵 이름 및 버전<br/>
+                  • 마인크래프트 버전<br/>
+                  • 증상 설명 (어느 구간, 어떤 상황)<br/>
+                  • 가능하다면 스크린샷 또는 영상<br/><br/>
+                  신고해주신 내용은 최대한 빠르게 검토해 패치에 반영하겠습니다.
+                  <a href="https://discord.gg/2zyZtytDbK" target="_blank" class="sp-a-link">→ 디스코드 바로가기</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="sp-item" data-keywords="커맨드 블록 오작동 문이 안열려 진행 불가">
+              <button class="sp-q">
+                특정 구간에서 진행이 막히거나 문이 안 열려요.
+                <span class="sp-arr">›</span>
+              </button>
+              <div class="sp-a">
+                <div class="sp-a-inner">
+                  커맨드 블록 관련 버그일 수 있습니다. 다음을 시도해 보세요.<br/><br/>
+                  1. 마인크래프트를 완전히 종료 후 재실행<br/>
+                  2. 싱글플레이로 재접속<br/>
+                  3. 설정에서 치트 허용이 되어 있는지 확인 (일부 맵은 필수)<br/><br/>
+                  그래도 해결되지 않으면 해당 구간 스크린샷과 함께 디스코드로 문의해 주세요.
+                </div>
+              </div>
+            </div>
+
+            <div class="sp-item" data-keywords="텍스처 깨짐 표시 안됨 리소스팩">
+              <button class="sp-q">
+                텍스처가 깨지거나 이상하게 표시돼요.
+                <span class="sp-arr">›</span>
+              </button>
+              <div class="sp-a">
+                <div class="sp-a-inner">
+                  리소스팩이 활성화되어 있지 않은 경우가 대부분입니다.
+                  맵과 함께 제공된 리소스팩을 활성화했는지 확인해 주세요.
+                  또한 다른 리소스팩이 충돌할 수 있으므로, 전용 리소스팩만 단독으로 활성화한 뒤 테스트해 보세요.
+                </div>
+              </div>
+            </div>
+
+            <div class="sp-item" data-keywords="소리 음악 bgm 재생 안됨">
+              <button class="sp-q">
+                BGM이나 사운드가 재생되지 않아요.
+                <span class="sp-arr">›</span>
+              </button>
+              <div class="sp-a">
+                <div class="sp-a-inner">
+                  마인크래프트 설정 → 음악 및 소리에서 볼륨이 꺼져 있지 않은지 확인해 주세요.
+                  특히 <strong>녹음/음악</strong> 항목이 0으로 설정되어 있는 경우 BGM이 재생되지 않습니다.
+                  일부 맵은 리소스팩 내 커스텀 사운드를 사용하므로 리소스팩 활성화 여부도 함께 확인해 주세요.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 이용 규정 -->
+        <div class="sp-group" id="cat-policy" data-cat="policy">
+          <h2 class="sp-group-title">
+            <span class="sp-group-icon">📋</span> 이용 규정
+          </h2>
+          <div class="sp-items">
+
+            <div class="sp-item" data-keywords="방송 유튜브 영상 허용 저작권">
+              <button class="sp-q">
+                방송이나 유튜브 영상에 사용해도 되나요?
+                <span class="sp-arr">›</span>
+              </button>
+              <div class="sp-a">
+                <div class="sp-a-inner">
+                  개인 방송 및 비상업적 유튜브 영상은 <strong>자유롭게 허용</strong>됩니다.
+                  영상 설명란에 TEAM 아토 공식 사이트 또는 디스코드 링크를 남겨주시면 감사하겠습니다.<br/><br/>
+                  단, 아래 행위는 금지됩니다.<br/>
+                  • 맵 파일의 무단 재배포<br/>
+                  • 맵을 활용한 상업적 목적의 콘텐츠 판매<br/>
+                  • 원작자 표기 없이 맵을 자신의 창작물로 주장하는 행위
+                </div>
+              </div>
+            </div>
+
+            <div class="sp-item" data-keywords="재배포 수정 편집 배포 금지">
+              <button class="sp-q">
+                맵을 수정하거나 재배포할 수 있나요?
+                <span class="sp-arr">›</span>
+              </button>
+              <div class="sp-a">
+                <div class="sp-a-inner">
+                  맵의 무단 수정 및 재배포는 금지되어 있습니다.
+                  개인 플레이 목적의 가벼운 수정(편의성 등)은 괜찮지만,
+                  수정된 버전을 공개적으로 배포하거나 공유하는 것은 허용되지 않습니다.
+                  콜라보 또는 특별한 목적이 있다면 디스코드로 먼저 문의해 주세요.
+                </div>
+              </div>
+            </div>
+
+            <div class="sp-item" data-keywords="팬아트 2차창작 허용">
+              <button class="sp-q">
+                팬아트나 2차 창작은 허용되나요?
+                <span class="sp-arr">›</span>
+              </button>
+              <div class="sp-a">
+                <div class="sp-a-inner">
+                  팬아트 및 비상업적 2차 창작은 환영합니다! 😊<br/>
+                  디스코드의 <strong>#팬아트</strong> 채널에 자유롭게 공유해 주세요.
+                  상업적 목적의 2차 창작(굿즈 판매 등)은 사전에 별도 문의가 필요합니다.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 멀티플레이 -->
+        <div class="sp-group" id="cat-multi" data-cat="multi">
+          <h2 class="sp-group-title">
+            <span class="sp-group-icon">🎮</span> 멀티플레이
+          </h2>
+          <div class="sp-items">
+
+            <div class="sp-item" data-keywords="멀티 같이 하기 서버 친구">
+              <button class="sp-q">
+                친구와 함께 플레이할 수 있나요?
+                <span class="sp-arr">›</span>
+              </button>
+              <div class="sp-a">
+                <div class="sp-a-inner">
+                  맵마다 권장 플레이 인원이 다릅니다.<br/><br/>
+                  • <strong>THE CO-OP</strong> — 2인 협동 전용<br/>
+                  • <strong>MISSING COLOR, LAIN, COLOR JUMP</strong> — 1인 권장 (멀티 가능하나 밸런스 미지원)<br/>
+                  • <strong>귀담경찰 시리즈</strong> — 1~2인 권장<br/><br/>
+                  멀티플레이는 호스트가 LAN 개방 또는 Aternos 같은 무료 서버를 통해 진행하는 것을 추천합니다.
+                </div>
+              </div>
+            </div>
+
+            <div class="sp-item" data-keywords="lan 개방 로컬 네트워크 서버">
+              <button class="sp-q">
+                LAN 개방으로 같이 하려면 어떻게 하나요?
+                <span class="sp-arr">›</span>
+              </button>
+              <div class="sp-a">
+                <div class="sp-a-inner">
+                  호스트(맵을 가진 플레이어)가 싱글플레이로 맵을 열고,
+                  <strong>ESC → 랜(LAN)에 공개</strong>를 클릭하면 같은 와이파이에 연결된 친구가 멀티플레이어 탭에서 접속할 수 있습니다.
+                  치트 허용 여부는 맵에 따라 필요할 수 있으니 각 맵 설명을 확인해 주세요.
+                </div>
+              </div>
+            </div>
+
+            <div class="sp-item" data-keywords="커맨드 오작동 멀티 동기화">
+              <button class="sp-q">
+                멀티플레이 중 커맨드가 오작동해요.
+                <span class="sp-arr">›</span>
+              </button>
+              <div class="sp-a">
+                <div class="sp-a-inner">
+                  1인 권장 맵을 멀티로 플레이할 경우 커맨드 블록의 트리거가 중복으로 작동하는 문제가 발생할 수 있습니다.
+                  가급적 권장 인원에 맞게 플레이해 주시고, 버그가 재현된다면 디스코드로 제보해 주세요.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 후원 & Patreon -->
+        <div class="sp-group" id="cat-donate" data-cat="donate">
+          <h2 class="sp-group-title">
+            <span class="sp-group-icon">💎</span> 후원 &amp; Patreon
+          </h2>
+          <div class="sp-items">
+
+            <div class="sp-item" data-keywords="후원 방법 patreon 결제">
+              <button class="sp-q">
+                후원은 어떻게 하나요?
+                <span class="sp-arr">›</span>
+              </button>
+              <div class="sp-a">
+                <div class="sp-a-inner">
+                  <a href="https://www.patreon.com/c/teamato" target="_blank" class="sp-a-link">Patreon 페이지</a>에서 원하는 티어를 선택해 후원하실 수 있습니다.
+                  후원금은 전액 맵 제작 및 서버 운영에 사용됩니다.
+                  Patreon 계정이 없다면 간단히 회원가입 후 이용할 수 있습니다.
+                </div>
+              </div>
+            </div>
+
+            <div class="sp-item" data-keywords="후원 혜택 patreon 특전 디스코드">
+              <button class="sp-q">
+                후원하면 어떤 혜택이 있나요?
+                <span class="sp-arr">›</span>
+              </button>
+              <div class="sp-a">
+                <div class="sp-a-inner">
+                  후원자 혜택은 다음과 같습니다.<br/><br/>
+                  ✓ 신작 맵 우선 체험<br/>
+                  ✓ 베타 테스트 참여 우선권<br/>
+                  ✓ 디스코드 후원자 전용 채널 접근<br/>
+                  ✓ 제작 비하인드 공유<br/><br/>
+                  혜택은 추후 업데이트될 수 있습니다.
+                </div>
+              </div>
+            </div>
+
+            <div class="sp-item" data-keywords="후원 취소 환불 patreon">
+              <button class="sp-q">
+                후원을 취소하거나 환불할 수 있나요?
+                <span class="sp-arr">›</span>
+              </button>
+              <div class="sp-a">
+                <div class="sp-a-inner">
+                  후원 취소는 Patreon 계정 설정에서 언제든지 자유롭게 하실 수 있습니다.
+                  환불과 관련된 정책은 Patreon 공식 환불 정책을 따르며, 문제가 있을 경우 디스코드로 문의해 주세요.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 기타 문의 -->
+        <div class="sp-group" id="cat-etc" data-cat="etc">
+          <h2 class="sp-group-title">
+            <span class="sp-group-icon">💬</span> 기타 문의
+          </h2>
+          <div class="sp-items">
+
+            <div class="sp-item" data-keywords="팀 합류 지원 팀원">
+              <button class="sp-q">
+                팀원으로 합류하고 싶어요.
+                <span class="sp-arr">›</span>
+              </button>
+              <div class="sp-a">
+                <div class="sp-a-inner">
+                  TEAM 아토는 현재 소규모로 운영 중이며, 필요 시 공개 모집을 진행합니다.
+                  모집 공고는 디스코드 서버에서 가장 먼저 확인하실 수 있습니다.
+                  <a href="https://discord.gg/2zyZtytDbK" target="_blank" class="sp-a-link">→ 디스코드 참여하기</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="sp-item" data-keywords="다음 맵 신작 출시 예정">
+              <button class="sp-q">
+                다음 맵은 언제 출시되나요?
+                <span class="sp-arr">›</span>
+              </button>
+              <div class="sp-a">
+                <div class="sp-a-inner">
+                  신작 출시 일정은 공식적으로 공개하지 않습니다.
+                  제작 현황이나 비하인드는 디스코드 서버 및 Patreon을 통해 먼저 공개됩니다.
+                  알림을 받고 싶으시다면 디스코드 서버에 참여해 주세요!
+                </div>
+              </div>
+            </div>
+
+            <div class="sp-item" data-keywords="연락처 이메일 문의 직접">
+              <button class="sp-q">
+                직접 문의하고 싶어요.
+                <span class="sp-arr">›</span>
+              </button>
+              <div class="sp-a">
+                <div class="sp-a-inner">
+                  현재 가장 빠른 문의 방법은 <strong>디스코드</strong>입니다.
+                  공식 이메일 문의는 준비 중이며, 디스코드의 <strong>#문의</strong> 채널을 이용해 주세요.
+                  <a href="https://discord.gg/2zyZtytDbK" target="_blank" class="sp-a-link">→ 디스코드 바로가기</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div><!-- /faqBody -->
+    </div><!-- /sp-wrap -->
+  </section>
+
+  <!-- ── 문의 CTA ── -->
+  <section class="sp-cta">
+    <div class="sp-wrap sp-cta-inner">
+      <div class="sp-cta-text">
+        <h2>원하는 답을 찾지 못하셨나요?</h2>
+        <p>디스코드 서버에서 팀원에게 직접 문의하시면 빠르게 도와드리겠습니다.</p>
+      </div>
+      <div class="sp-cta-btns">
+        <a href="https://discord.gg/2zyZtytDbK" target="_blank" class="sp-btn-dc">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/>
+          </svg>
+          디스코드로 문의하기
+        </a>
+        <a href="map.html" class="sp-btn-maps">맵 목록 보기</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap foot-wrap">
+      <div>
+        <div class="foot-logo">TEAM 아토</div>
+        <small>©2020 - 2025 TEAM 아토 OFFICIAL</small>
+      </div>
+      <div class="foot-nav">
+        <a href="index.html">메인</a>
+        <a href="map.html">맵 목록</a>
+        <a href="support.html">고객 지원</a>
+        <a href="index.html#team">팀원 소개</a>
+      </div>
+      <div class="foot-nav">
+        <a href="https://discord.gg/2zyZtytDbK" target="_blank">디스코드</a>
+        <a href="https://www.patreon.com/c/teamato" target="_blank">Patreon</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="support.js"></script>
+</body>
+</html>
