@@ -1,0 +1,474 @@
+/* ══════════════════════════════════
+   TEAM 아토 — team.css
+══════════════════════════════════ */
+
+.nav-current {
+  color: var(--blue) !important;
+  font-weight: 700 !important;
+}
+
+/* ════════ 히어로 ════════ */
+.tm-hero {
+  position: relative;
+  background: var(--dark);
+  padding: calc(var(--nav-h) + 80px) 24px 88px;
+  text-align: center;
+  overflow: hidden;
+}
+
+#tmCanvas {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  opacity: 0.45;
+}
+
+.tm-hero-inner { position: relative; z-index: 2; }
+
+.tm-eyebrow {
+  font-family: var(--pixel);
+  font-size: 10px;
+  color: var(--blue-l);
+  letter-spacing: 0.2em;
+  margin-bottom: 18px;
+  opacity: 0;
+  animation: tmUp 0.7s 0.1s ease forwards;
+}
+
+.tm-title {
+  font-size: clamp(32px, 5vw, 58px);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.03em;
+  margin-bottom: 14px;
+  opacity: 0;
+  animation: tmUp 0.7s 0.22s ease forwards;
+  text-shadow: 0 2px 28px rgba(37,99,235,0.4);
+}
+
+.tm-desc {
+  font-size: 16px;
+  color: rgba(255,255,255,0.42);
+  margin-bottom: 44px;
+  opacity: 0;
+  animation: tmUp 0.7s 0.34s ease forwards;
+}
+
+/* 히어로 통계 */
+.tm-hero-stats {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px;
+  padding: 18px 32px;
+  backdrop-filter: blur(12px);
+  opacity: 0;
+  animation: tmUp 0.7s 0.46s ease forwards;
+}
+
+.tm-hstat {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 3px;
+  padding: 0 28px;
+}
+.tm-hstat-div {
+  width: 1px; height: 36px;
+  background: rgba(255,255,255,0.12);
+}
+.tm-hnum {
+  font-size: 26px; font-weight: 800; color: #fff;
+  letter-spacing: -0.04em;
+}
+.tm-hlbl {
+  font-size: 12px; color: rgba(255,255,255,0.35);
+}
+
+@keyframes tmUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ════════ 소개 배너 ════════ */
+.tm-about-bar {
+  background: #0d1117;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding: 32px 0;
+}
+
+.tm-wrap {
+  max-width: var(--content-w);
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.tm-about-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.tm-about-txt {
+  font-size: 14px;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.85;
+  flex: 1;
+}
+
+.tm-about-links { display: flex; gap: 10px; flex-shrink: 0; }
+
+.tm-lnk-dc {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 13px; font-weight: 700;
+  padding: 9px 16px; border-radius: 7px;
+  background: #5865f2; color: #fff;
+  transition: opacity 0.14s, transform 0.12s;
+}
+.tm-lnk-dc:hover { opacity: 0.85; transform: translateY(-1px); }
+
+.tm-lnk-pt {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 13px; font-weight: 700;
+  padding: 9px 16px; border-radius: 7px;
+  background: rgba(255,255,255,0.07);
+  color: rgba(255,255,255,0.65);
+  border: 1px solid rgba(255,255,255,0.12);
+  transition: background 0.14s;
+}
+.tm-lnk-pt:hover { background: rgba(255,255,255,0.13); }
+
+/* ════════ 필터 탭 ════════ */
+.tm-filter-wrap {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: var(--nav-h);
+  z-index: 100;
+}
+
+.tm-filters {
+  display: flex;
+  gap: 4px;
+  padding: 12px 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.tm-filters::-webkit-scrollbar { display: none; }
+
+.tm-flt {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 600;
+  padding: 7px 16px; border-radius: 20px;
+  border: 1.5px solid transparent;
+  background: none; color: var(--muted);
+  cursor: pointer; font-family: var(--font);
+  white-space: nowrap;
+  transition: all 0.14s;
+}
+.tm-flt:hover { color: var(--text); background: var(--gray); }
+.tm-flt.active {
+  background: var(--blue); color: #fff;
+  border-color: var(--blue);
+}
+.tm-flt-n {
+  font-size: 11px; font-weight: 700;
+  background: rgba(0,0,0,0.1);
+  padding: 1px 6px; border-radius: 10px;
+}
+.tm-flt.active .tm-flt-n { background: rgba(255,255,255,0.22); }
+
+/* ════════ 메인 그리드 ════════ */
+.tm-main {
+  padding: 64px 0 80px;
+  background: var(--gray);
+}
+
+/* 섹션 */
+.tm-section {
+  margin-bottom: 60px;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.tm-section.visible { opacity: 1; transform: none; }
+.tm-section:last-child { margin-bottom: 0; }
+
+.tm-section-label {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 13px; font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.1em;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.tm-sec-icon { font-size: 18px; }
+
+/* 카드 그리드 */
+.tm-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.tm-grid-leader {
+  grid-template-columns: repeat(1, 280px);
+}
+
+/* ── 팀원 카드 ── */
+.tm-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  transition: box-shadow 0.2s, transform 0.18s, border-color 0.18s;
+  opacity: 0;
+  transform: translateY(14px) scale(0.98);
+}
+.tm-card.visible {
+  opacity: 1; transform: none;
+  transition: opacity 0.4s ease, transform 0.4s ease,
+              box-shadow 0.2s, border-color 0.18s;
+}
+.tm-card:hover {
+  box-shadow: 0 12px 36px rgba(0,0,0,0.12);
+  transform: translateY(-4px);
+  border-color: #c7d8fd;
+}
+.tm-card-leader {
+  flex-direction: row;
+  align-items: center;
+  border-color: #bfdbfe;
+  background: linear-gradient(135deg, #eff6ff 0%, #fff 60%);
+}
+.tm-card-leader:hover { border-color: var(--blue); }
+
+/* 카드 상단 */
+.tm-card-top {
+  position: relative;
+  background: linear-gradient(160deg, #0f1929, #1a2d50);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 28px 20px 20px;
+  gap: 10px;
+}
+.tm-card-leader .tm-card-top {
+  background: linear-gradient(160deg, #1e3a8a, #2563eb);
+  min-width: 130px; min-height: 130px;
+  padding: 24px;
+  border-radius: 0;
+}
+
+/* 아바타 */
+.tm-avatar {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px; font-weight: 800; color: #fff;
+  box-shadow: 0 4px 16px rgba(37,99,235,0.35);
+  border: 3px solid rgba(255,255,255,0.15);
+  flex-shrink: 0;
+  letter-spacing: -0.02em;
+}
+.tm-avatar-leader {
+  width: 84px; height: 84px;
+  font-size: 30px;
+  background: linear-gradient(135deg, #fff 0%, #dbeafe 100%);
+  color: var(--blue);
+  box-shadow: 0 4px 20px rgba(255,255,255,0.3);
+  border-color: rgba(255,255,255,0.5);
+}
+
+/* 역할 배지 */
+.tm-role-badge {
+  font-size: 9px; font-weight: 800;
+  padding: 3px 9px; border-radius: 10px;
+  letter-spacing: 0.08em;
+}
+.tm-badge-leader { background: rgba(255,255,255,0.18); color: rgba(255,255,255,0.9); }
+.tm-badge-build  { background: rgba(90,200,110,0.18); color: #5ac86e; }
+.tm-badge-prog   { background: rgba(139,111,206,0.18); color: #8b6fce; }
+.tm-badge-art    { background: rgba(232,85,85,0.18); color: #e85555; }
+
+/* 카드 바디 */
+.tm-card-body {
+  padding: 16px 18px 20px;
+  flex: 1;
+  display: flex; flex-direction: column;
+  align-items: center; text-align: center;
+  gap: 4px;
+}
+.tm-card-leader .tm-card-body {
+  align-items: flex-start; text-align: left;
+  padding: 22px 22px 22px 24px;
+}
+
+.tm-name {
+  font-size: 16px; font-weight: 700; color: var(--text);
+}
+.tm-card-leader .tm-name {
+  font-size: 20px;
+  color: var(--blue);
+}
+
+.tm-id {
+  font-size: 12px; color: #9ca3af;
+  font-family: monospace;
+  letter-spacing: 0.04em;
+}
+
+.tm-mbti {
+  display: inline-block;
+  font-size: 10px; font-weight: 700;
+  background: #f0f4ff; color: var(--blue);
+  padding: 2px 9px; border-radius: 10px;
+  letter-spacing: 0.05em;
+  margin: 2px 0;
+}
+
+.tm-quote {
+  font-size: 12px; color: var(--muted);
+  line-height: 1.6;
+  font-style: italic;
+  margin-top: 4px;
+  border-left: none;
+}
+.tm-card-leader .tm-quote {
+  font-size: 14px;
+  color: var(--muted);
+  font-style: italic;
+  border-left: 2px solid #bfdbfe;
+  padding-left: 10px;
+  margin-top: 8px;
+}
+
+/* 팀장 라벨 */
+.tm-card-leader .tm-card-body::before {
+  content: '팀장 · TEAM 아토';
+  font-size: 11px; font-weight: 700;
+  color: var(--blue); letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* ════════ 하단 CTA ════════ */
+.tm-cta {
+  background: var(--dark);
+  padding: 64px 0;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.tm-cta-inner {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  gap: 32px; flex-wrap: wrap;
+}
+.tm-cta-text h2 {
+  font-size: 22px; font-weight: 800; color: #fff;
+  margin-bottom: 8px; letter-spacing: -0.02em;
+}
+.tm-cta-text p { font-size: 15px; color: rgba(255,255,255,0.42); }
+.tm-cta-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+
+.tm-btn-pt {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 700;
+  padding: 13px 22px; border-radius: 8px;
+  background: #f0a030; color: #fff;
+  box-shadow: 0 2px 12px rgba(240,160,48,0.3);
+  transition: opacity 0.14s, transform 0.12s;
+}
+.tm-btn-pt:hover { opacity: 0.88; transform: translateY(-1px); }
+
+.tm-btn-dc {
+  display: inline-flex; align-items: center;
+  font-size: 14px; font-weight: 600;
+  padding: 13px 22px; border-radius: 8px;
+  background: rgba(255,255,255,0.07);
+  color: rgba(255,255,255,0.7);
+  border: 1px solid rgba(255,255,255,0.12);
+  transition: background 0.14s;
+}
+.tm-btn-dc:hover { background: rgba(255,255,255,0.12); }
+
+/* ════════ 반응형 ════════ */
+@media (max-width: 1100px) {
+  .tm-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 780px) {
+  .tm-grid { grid-template-columns: repeat(2, 1fr); }
+  .tm-grid-leader { grid-template-columns: 1fr; }
+  .tm-card-leader { flex-direction: column; }
+  .tm-card-leader .tm-card-top { min-width: 100%; min-height: 120px; }
+  .tm-card-leader .tm-card-body { align-items: center; text-align: center; }
+  .tm-card-leader .tm-quote { border-left: none; padding-left: 0; }
+}
+@media (max-width: 520px) {
+  .tm-grid { grid-template-columns: 1fr; }
+  .tm-hero-stats { flex-direction: column; gap: 16px; }
+  .tm-hstat-div { width: 60px; height: 1px; }
+  .tm-about-inner { flex-direction: column; }
+  .tm-cta-inner { flex-direction: column; align-items: flex-start; }
+}
+
+/* ════════════ 광고 레이아웃 ════════════ */
+.tm-content-layout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.tm-ad-sidebar {
+  width: 160px;
+  flex-shrink: 0;
+  position: sticky;
+  top: calc(var(--nav-h) + 16px);
+  align-self: flex-start;
+  display: flex;
+  justify-content: center;
+  padding-top: 64px;
+  z-index: 10;
+}
+
+.tm-ad-sticky {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.tm-ad-label {
+  font-size: 9px;
+  color: #c4c9d4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tm-ad-slot {
+  width: 160px;
+  height: 600px;
+}
+
+.tm-ad-placeholder {
+  width: 100%; height: 100%;
+  background: #f0f2f5;
+  border: 1px dashed #dde0e6;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: #c4c9d4;
+}
+
+/* tm-main이 flex item이 되도록 */
+.tm-main { flex: 1; min-width: 0; }
+
+@media (max-width: 1200px) {
+  .tm-ad-sidebar { display: none; }
+}

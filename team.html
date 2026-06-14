@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>팀원 소개 — TEAM 아토 OFFICIAL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="main.css"/>
+  <link rel="stylesheet" href="team.css"/>
+</head>
+<body>
+
+  <nav id="nav">
+    <a href="index.html" class="logo">⛏ TEAM <b>아토</b></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">메인</a></li>
+      <li class="has-drop">
+        <a href="map.html">맵 <span class="arr">▾</span></a>
+        <ul class="dropdown">
+          <li><a href="map.html#color-jump">COLOR JUMP</a></li>
+          <li><a href="map.html#lain">LAIN</a></li>
+          <li><a href="map.html#mc1">MISSING COLOR 1</a></li>
+          <li><a href="map.html#mc2">MISSING COLOR 2</a></li>
+          <li><a href="map.html#ghost1">귀담경찰</a></li>
+          <li><a href="map.html#the-post">THE POST</a></li>
+          <li><a href="map.html#the-coop">THE CO-OP</a></li>
+          <li><a href="map.html#ghost2">귀담경찰 2</a></li>
+        </ul>
+      </li>
+      <li><a href="support.html">고객 지원</a></li>
+      <li><a href="team.html" class="nav-current">팀원 소개</a></li>
+      <li><a href="https://www.patreon.com/c/teamato" target="_blank" class="nav-donate">후원하기</a></li>
+    </ul>
+    <button class="burger" id="burger">☰</button>
+  </nav>
+
+  <!-- ── 히어로 ── -->
+  <header class="tm-hero">
+    <canvas id="tmCanvas"></canvas>
+    <div class="tm-hero-inner">
+      <p class="tm-eyebrow">MEET THE TEAM</p>
+      <h1 class="tm-title">팀원 소개</h1>
+      <p class="tm-desc">마인크래프트에 이야기를 담는 사람들, TEAM 아토를 소개합니다.</p>
+      <div class="tm-hero-stats">
+        <div class="tm-hstat"><span class="tm-hnum">15</span><span class="tm-hlbl">팀원</span></div>
+        <div class="tm-hstat-div"></div>
+        <div class="tm-hstat"><span class="tm-hnum">4</span><span class="tm-hlbl">팀</span></div>
+        <div class="tm-hstat-div"></div>
+        <div class="tm-hstat"><span class="tm-hnum">2020</span><span class="tm-hlbl">창단</span></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── 팀 소개 배너 ── -->
+  <div class="tm-about-bar">
+    <div class="tm-wrap tm-about-inner">
+      <p class="tm-about-txt">
+        TEAM 아토는 2020년부터 활동을 시작한 마인크래프트 어드벤처 맵 제작팀입니다.<br/>
+        건축·프로그래밍·아트 분야의 팀원들이 협력하여 스토리 중심의 고퀄리티 맵을 무료로 배포하고 있습니다.
+      </p>
+      <div class="tm-about-links">
+        <a href="https://discord.gg/2zyZtytDbK" target="_blank" class="tm-lnk-dc">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+          디스코드
+        </a>
+        <a href="https://www.patreon.com/c/teamato" target="_blank" class="tm-lnk-pt">♥ 후원하기</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 팀 필터 탭 ── -->
+  <div class="tm-filter-wrap">
+    <div class="tm-wrap">
+      <div class="tm-filters" id="tmFilters">
+        <button class="tm-flt active" data-filter="all">전체 <span class="tm-flt-n">15</span></button>
+        <button class="tm-flt" data-filter="팀장">팀장 <span class="tm-flt-n">1</span></button>
+        <button class="tm-flt" data-filter="건축팀">건축팀 <span class="tm-flt-n">3</span></button>
+        <button class="tm-flt" data-filter="프로그래밍팀">프로그래밍팀 <span class="tm-flt-n">6</span></button>
+        <button class="tm-flt" data-filter="아트팀">아트팀 <span class="tm-flt-n">5</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 팀원 그리드 ── -->
+  <div class="tm-content-layout">
+
+    <aside class="tm-ad-sidebar tm-ad-left">
+      <div class="tm-ad-sticky">
+        <div class="tm-ad-label">AD</div>
+        <div class="tm-ad-slot"><div class="tm-ad-placeholder"><span>160×600</span></div></div>
+      </div>
+    </aside>
+
+  <main class="tm-main">
+    <div class="tm-wrap">
+
+      <!-- 팀장 -->
+      <div class="tm-section" id="sec-팀장">
+        <div class="tm-section-label">
+          <span class="tm-sec-icon">👑</span>
+          <span>팀장</span>
+        </div>
+        <div class="tm-grid tm-grid-leader">
+
+          <div class="tm-card tm-card-leader" data-team="팀장">
+            <div class="tm-card-top">
+              <div class="tm-avatar tm-avatar-leader">이</div>
+              <span class="tm-role-badge tm-badge-leader">팀장</span>
+            </div>
+            <div class="tm-card-body">
+              <h3 class="tm-name">이즈냥</h3>
+              <p class="tm-id">Ys_Nyang</p>
+              <span class="tm-mbti">INFJ-A</span>
+              <p class="tm-quote">"귀담 2 언제 다 만들어요?"</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 건축팀 -->
+      <div class="tm-section" id="sec-건축팀">
+        <div class="tm-section-label">
+          <span class="tm-sec-icon">🏗️</span>
+          <span>건축팀</span>
+        </div>
+        <div class="tm-grid">
+
+          <div class="tm-card" data-team="건축팀">
+            <div class="tm-card-top">
+              <div class="tm-avatar">하</div>
+              <span class="tm-role-badge tm-badge-build">건축</span>
+            </div>
+            <div class="tm-card-body">
+              <h3 class="tm-name">하이구 두야</h3>
+              <p class="tm-id">Haigu_Dooya</p>
+              <span class="tm-mbti">INFP</span>
+              <p class="tm-quote">"내가 바로 노동이다"</p>
+            </div>
+          </div>
+
+          <div class="tm-card" data-team="건축팀">
+            <div class="tm-card-top">
+              <div class="tm-avatar">노</div>
+              <span class="tm-role-badge tm-badge-build">건축</span>
+            </div>
+            <div class="tm-card-body">
+              <h3 class="tm-name">노네임</h3>
+              <p class="tm-id">No_name110</p>
+              <span class="tm-mbti">INFP-?</span>
+              <p class="tm-quote">"죽어가는 건축가.."</p>
+            </div>
+          </div>
+
+          <div class="tm-card" data-team="건축팀">
+            <div class="tm-card-top">
+              <div class="tm-avatar">헤</div>
+              <span class="tm-role-badge tm-badge-build">건축</span>
+            </div>
+            <div class="tm-card-body">
+              <h3 class="tm-name">헤테</h3>
+              <p class="tm-id">Haetae</p>
+              <span class="tm-mbti">ISTP-T</span>
+              <p class="tm-quote">"그냥 평범하게 건축 좀 하는 사람"</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 프로그래밍팀 -->
+      <div class="tm-section" id="sec-프로그래밍팀">
+        <div class="tm-section-label">
+          <span class="tm-sec-icon">⚙️</span>
+          <span>프로그래밍팀</span>
+        </div>
+        <div class="tm-grid">
+
+          <div class="tm-card" data-team="프로그래밍팀">
+            <div class="tm-card-top">
+              <div class="tm-avatar">린</div>
+              <span class="tm-role-badge tm-badge-prog">프로그래밍</span>
+            </div>
+            <div class="tm-card-body">
+              <h3 class="tm-name">린도</h3>
+              <p class="tm-id">Lindo</p>
+              <span class="tm-mbti">INTJ-T</span>
+              <p class="tm-quote">"피곤하다"</p>
+            </div>
+          </div>
+
+          <div class="tm-card" data-team="프로그래밍팀">
+            <div class="tm-card-top">
+              <div class="tm-avatar">하</div>
+              <span class="tm-role-badge tm-badge-prog">프로그래밍</span>
+            </div>
+            <div class="tm-card-body">
+              <h3 class="tm-name">하늘바람</h3>
+              <p class="tm-id">변경 예정</p>
+              <span class="tm-mbti">NO DATA</span>
+              <p class="tm-quote">"변경 예정"</p>
+            </div>
+          </div>
+
+          <div class="tm-card" data-team="프로그래밍팀">
+            <div class="tm-card-top">
+              <div class="tm-avatar">가</div>
+              <span class="tm-role-badge tm-badge-prog">프로그래밍</span>
+            </div>
+            <div class="tm-card-body">
+              <h3 class="tm-name">가방새</h3>
+              <p class="tm-id">GabangSae</p>
+              <span class="tm-mbti">ISFP-?</span>
+              <p class="tm-quote">"팀 아토 막내임."</p>
+            </div>
+          </div>
+
+          <div class="tm-card" data-team="프로그래밍팀">
+            <div class="tm-card-top">
+              <div class="tm-avatar">레</div>
+              <span class="tm-role-badge tm-badge-prog">프로그래밍</span>
+            </div>
+            <div class="tm-card-body">
+              <h3 class="tm-name">레우</h3>
+              <p class="tm-id">GMDoDShiP</p>
+              <span class="tm-mbti">a?f</span>
+              <p class="tm-quote">"게임 개발자로 전직 중"</p>
+            </div>
+          </div>
+
+          <div class="tm-card" data-team="프로그래밍팀">
+            <div class="tm-card-top">
+              <div class="tm-avatar">디</div>
+              <span class="tm-role-badge tm-badge-prog">프로그래밍</span>
+            </div>
+            <div class="tm-card-body">
+              <h3 class="tm-name">디그</h3>
+              <p class="tm-id">digsteel</p>
+              <span class="tm-mbti">INFJ</span>
+              <p class="tm-quote">"No_data"</p>
+            </div>
+          </div>
+
+          <div class="tm-card" data-team="프로그래밍팀">
+            <div class="tm-card-top">
+              <div class="tm-avatar">소</div>
+              <span class="tm-role-badge tm-badge-prog">프로그래밍</span>
+            </div>
+            <div class="tm-card-body">
+              <h3 class="tm-name">소울나이</h3>
+              <p class="tm-id">soulnie</p>
+              <span class="tm-mbti">INFP-T</span>
+              <p class="tm-quote">"평범하게 리제로만을 파는 영혼"</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 아트팀 -->
+      <div class="tm-section" id="sec-아트팀">
+        <div class="tm-section-label">
+          <span class="tm-sec-icon">🎨</span>
+          <span>아트팀</span>
+        </div>
+        <div class="tm-grid">
+
+          <div class="tm-card" data-team="아트팀">
+            <div class="tm-card-top">
+              <div class="tm-avatar">김</div>
+              <span class="tm-role-badge tm-badge-art">아트</span>
+            </div>
+            <div class="tm-card-body">
+              <h3 class="tm-name">김은세</h3>
+              <p class="tm-id">Eunse Kim</p>
+              <span class="tm-mbti">INTP</span>
+              <p class="tm-quote">"2025년 5월 5일 전역"</p>
+            </div>
+          </div>
+
+          <div class="tm-card" data-team="아트팀">
+            <div class="tm-card-top">
+              <div class="tm-avatar">이</div>
+              <span class="tm-role-badge tm-badge-art">아트</span>
+            </div>
+            <div class="tm-card-body">
+              <h3 class="tm-name">이유랑</h3>
+              <p class="tm-id">Iyurang</p>
+              <span class="tm-mbti">INTJ-T</span>
+              <p class="tm-quote">"다디달고 다디단 연양갱"</p>
+            </div>
+          </div>
+
+          <div class="tm-card" data-team="아트팀">
+            <div class="tm-card-top">
+              <div class="tm-avatar">에</div>
+              <span class="tm-role-badge tm-badge-art">아트</span>
+            </div>
+            <div class="tm-card-body">
+              <h3 class="tm-name">에이오우</h3>
+              <p class="tm-id">Ay_Oh</p>
+              <span class="tm-mbti">ENTJ</span>
+              <p class="tm-quote">"퇴근시켜주세요 퇴근시켜주세요"</p>
+            </div>
+          </div>
+
+          <div class="tm-card" data-team="아트팀">
+            <div class="tm-card-top">
+              <div class="tm-avatar">윈</div>
+              <span class="tm-role-badge tm-badge-art">아트</span>
+            </div>
+            <div class="tm-card-body">
+              <h3 class="tm-name">윈도</h3>
+              <p class="tm-id">windo_</p>
+              <span class="tm-mbti">ENFP-?</span>
+              <p class="tm-quote">"귀찮다"</p>
+            </div>
+          </div>
+
+          <div class="tm-card" data-team="아트팀">
+            <div class="tm-card-top">
+              <div class="tm-avatar">롤</div>
+              <span class="tm-role-badge tm-badge-art">아트</span>
+            </div>
+            <div class="tm-card-body">
+              <h3 class="tm-name">롤라드</h3>
+              <p class="tm-id">Lollard</p>
+              <span class="tm-mbti">ISFP</span>
+              <p class="tm-quote">"My Profile : litt.ly/music_"</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div><!-- /tm-wrap -->
+  </main>
+
+    <aside class="tm-ad-sidebar tm-ad-right">
+      <div class="tm-ad-sticky">
+        <div class="tm-ad-label">AD</div>
+        <div class="tm-ad-slot"><div class="tm-ad-placeholder"><span>160×600</span></div></div>
+      </div>
+    </aside>
+
+  </div><!-- /tm-content-layout -->
+
+  <!-- ── 하단 CTA ── -->
+  <section class="tm-cta">
+    <div class="tm-wrap tm-cta-inner">
+      <div class="tm-cta-text">
+        <h2>TEAM 아토를 응원해주세요</h2>
+        <p>후원은 더 좋은 맵을 만드는 원동력이 됩니다.</p>
+      </div>
+      <div class="tm-cta-btns">
+        <a href="https://www.patreon.com/c/teamato" target="_blank" class="tm-btn-pt">♥ Patreon 후원하기</a>
+        <a href="https://discord.gg/2zyZtytDbK" target="_blank" class="tm-btn-dc">디스코드 참여</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap foot-wrap">
+      <div>
+        <div class="foot-logo">TEAM 아토</div>
+        <small>©2020 - 2025 TEAM 아토 OFFICIAL</small>
+      </div>
+      <div class="foot-nav">
+        <a href="index.html">메인</a>
+        <a href="map.html">맵 목록</a>
+        <a href="support.html">고객 지원</a>
+        <a href="team.html">팀원 소개</a>
+      </div>
+      <div class="foot-nav">
+        <a href="https://discord.gg/2zyZtytDbK" target="_blank">디스코드</a>
+        <a href="https://www.patreon.com/c/teamato" target="_blank">Patreon</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="team.js"></script>
+</body>
+</html>

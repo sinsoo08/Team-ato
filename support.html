@@ -100,6 +100,22 @@
   </section>
 
   <!-- ── FAQ 본문 ── -->
+  <!-- ── FAQ + 게시판 + 광고 wrapper ── -->
+  <div class="sp-content-layout">
+
+    <!-- 왼쪽 광고 -->
+    <aside class="sp-ad-sidebar sp-ad-left">
+      <div class="sp-ad-sticky">
+        <div class="sp-ad-label">AD</div>
+        <div class="sp-ad-slot">
+          <div class="sp-ad-placeholder"><span>160×600</span></div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- 중앙 콘텐츠 -->
+    <div class="sp-center-col">
+
   <section class="sp-faq-section">
     <div class="sp-wrap sp-faq-layout">
 
@@ -496,6 +512,107 @@
       </div><!-- /faqBody -->
     </div><!-- /sp-wrap -->
   </section>
+
+  <!-- ── 질문 게시판 ── -->
+  <section class="sp-board-section">
+    <div class="sp-wrap">
+
+      <!-- 헤더 -->
+      <div class="sp-board-header">
+        <div>
+          <h2 class="sp-board-title">커뮤니티 질문</h2>
+          <p class="sp-board-desc">FAQ에서 찾지 못한 내용을 자유롭게 질문해 주세요.</p>
+        </div>
+        <button class="sp-board-write-btn" id="openPostModal">✏️ 질문 작성하기</button>
+      </div>
+
+      <!-- 필터 탭 -->
+      <div class="sp-board-tabs">
+        <button class="sp-btab active" data-tab="all">전체</button>
+        <button class="sp-btab" data-tab="unanswered">미답변</button>
+        <button class="sp-btab" data-tab="answered">답변 완료</button>
+      </div>
+
+      <!-- 게시글 목록 -->
+      <div class="sp-post-list" id="postList">
+        <!-- JS로 렌더링 -->
+      </div>
+
+      <div class="sp-board-empty" id="boardEmpty" style="display:none">
+        <span>📭</span>
+        <p>아직 질문이 없습니다. 첫 번째 질문을 남겨보세요!</p>
+      </div>
+
+    </div>
+  </section>
+
+    </div><!-- /sp-center-col -->
+
+    <!-- 오른쪽 광고 -->
+    <aside class="sp-ad-sidebar sp-ad-right">
+      <div class="sp-ad-sticky">
+        <div class="sp-ad-label">AD</div>
+        <div class="sp-ad-slot">
+          <div class="sp-ad-placeholder"><span>160×600</span></div>
+        </div>
+      </div>
+    </aside>
+
+  </div><!-- /sp-content-layout -->
+
+  <!-- ── 질문 작성 모달 ── -->
+  <div class="sp-modal-overlay" id="postModal">
+    <div class="sp-modal">
+      <div class="sp-modal-head">
+        <h3>질문 작성하기</h3>
+        <button class="sp-modal-close" id="closePostModal">✕</button>
+      </div>
+      <div class="sp-modal-body">
+        <div class="sp-field">
+          <label for="postName">닉네임 <span class="sp-req">*</span></label>
+          <input type="text" id="postName" placeholder="닉네임을 입력하세요" maxlength="20"/>
+        </div>
+        <div class="sp-field">
+          <label for="postCat">카테고리 <span class="sp-req">*</span></label>
+          <select id="postCat">
+            <option value="">카테고리 선택</option>
+            <option value="설치 & 실행">설치 &amp; 실행</option>
+            <option value="버그 & 오류">버그 &amp; 오류</option>
+            <option value="이용 규정">이용 규정</option>
+            <option value="멀티플레이">멀티플레이</option>
+            <option value="후원 & Patreon">후원 &amp; Patreon</option>
+            <option value="기타 문의">기타 문의</option>
+          </select>
+        </div>
+        <div class="sp-field">
+          <label for="postTitle">제목 <span class="sp-req">*</span></label>
+          <input type="text" id="postTitle" placeholder="질문 제목을 입력하세요" maxlength="60"/>
+          <span class="sp-field-hint" id="titleCount">0 / 60</span>
+        </div>
+        <div class="sp-field">
+          <label for="postBody">내용 <span class="sp-req">*</span></label>
+          <textarea id="postBody" placeholder="맵 이름, 버전, 증상 등 자세히 적어주시면 더 빨리 도움을 드릴 수 있습니다." maxlength="1000" rows="5"></textarea>
+          <span class="sp-field-hint" id="bodyCount">0 / 1000</span>
+        </div>
+        <p class="sp-modal-notice">⚠️ 개인정보는 입력하지 마세요. 게시글은 누구나 볼 수 있습니다.</p>
+      </div>
+      <div class="sp-modal-foot">
+        <button class="sp-modal-cancel" id="cancelPost">취소</button>
+        <button class="sp-modal-submit" id="submitPost">질문 등록</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 게시글 상세 모달 ── -->
+  <div class="sp-modal-overlay" id="detailModal">
+    <div class="sp-modal sp-modal-detail">
+      <div class="sp-modal-head">
+        <div class="sp-detail-meta" id="detailMeta"></div>
+        <button class="sp-modal-close" id="closeDetailModal">✕</button>
+      </div>
+      <div class="sp-modal-body" id="detailBody"></div>
+    </div>
+  </div>
 
   <!-- ── 문의 CTA ── -->
   <section class="sp-cta">
