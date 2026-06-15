@@ -427,3 +427,12 @@
   .map-toolbar    { flex-direction: column; align-items: flex-start; }
   .map-sort select { width: 100%; }
 }
+
+/* ════════════ 광고 레이아웃 ════════════ */
+/* site-layout, ad-sidebar, ad-sticky 등은 main.css에서 담당 */
+/* map-main을 그리드 중앙 컬럼으로 */
+.map-main {
+  max-width: var(--content-w);
+  width: 100%;
+  min-width: 0;
+}

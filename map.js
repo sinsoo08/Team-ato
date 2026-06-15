@@ -21,37 +21,45 @@
   const particles = Array.from({ length: 60 }, () => makeParticle());
 
   function makeParticle(fromBottom = false) {
+    const size = Math.random() * 7 + 3;
     return {
-      x: Math.random() * canvas.width,
-      y: fromBottom ? canvas.height + 10 : Math.random() * canvas.height,
-      r: Math.random() * 2.2 + 0.4,
+      x:    Math.random() * canvas.width,
+      y:    fromBottom ? canvas.height + 12 : Math.random() * canvas.height,
+      size,
+      rot:  Math.random() * Math.PI * 2,
+      rotV: (Math.random() - 0.5) * 0.004,
       color: COLORS[Math.floor(Math.random() * COLORS.length)],
-      vx: (Math.random() - 0.5) * 0.4,
-      vy: -(Math.random() * 0.6 + 0.2),
-      alpha: Math.random() * 0.5 + 0.1,
-      life: Math.random(),
+      vx:   (Math.random() - 0.5) * 0.25,
+      vy:   -(Math.random() * 0.3 + 0.08),
+      life: fromBottom ? 0 : Math.random() * 0.6,
+      maxAlpha: Math.random() * 0.35 + 0.08,
     };
   }
 
   function drawParticles() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     particles.forEach((p, i) => {
-      p.x += p.vx;
-      p.y += p.vy;
-      p.life += 0.003;
+      p.x    += p.vx;
+      p.y    += p.vy;
+      p.rot  += p.rotV;
+      p.life += 0.0018;
 
-      // 페이드 인/아웃
-      const fade = Math.sin(p.life * Math.PI);
+      // 부드러운 페이드인 → 유지 → 페이드아웃
+      let alpha;
+      if (p.life < 0.15)      alpha = (p.life / 0.15) * p.maxAlpha;
+      else if (p.life < 0.75) alpha = p.maxAlpha;
+      else                    alpha = ((1 - p.life) / 0.25) * p.maxAlpha;
+
+      const h = p.size / 2;
       ctx.save();
-      ctx.globalAlpha = fade * p.alpha;
-      ctx.fillStyle = p.color;
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fill();
+      ctx.globalAlpha = Math.max(0, alpha);
+      ctx.fillStyle   = p.color;
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.fillRect(-h, -h, p.size, p.size);
       ctx.restore();
 
-      // 수명 끝나면 재생성
-      if (p.life >= 1 || p.y < -10) {
+      if (p.life >= 1 || p.y < -12) {
         particles[i] = makeParticle(true);
       }
     });

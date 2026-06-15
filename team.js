@@ -20,31 +20,44 @@
   const dots   = Array.from({ length: 55 }, () => mkDot());
 
   function mkDot(fromBottom = false) {
+    const size = Math.random() * 7 + 3;
     return {
       x:     Math.random() * canvas.width,
-      y:     fromBottom ? canvas.height + 8 : Math.random() * canvas.height,
-      r:     Math.random() * 2.2 + 0.4,
+      y:     fromBottom ? canvas.height + 12 : Math.random() * canvas.height,
+      size,
+      rot:   Math.random() * Math.PI * 2,
+      rotV:  (Math.random() - 0.5) * 0.004,
       color: COLORS[Math.floor(Math.random() * COLORS.length)],
-      vx:    (Math.random() - 0.5) * 0.35,
-      vy:    -(Math.random() * 0.55 + 0.18),
-      life:  Math.random(),
-      alpha: Math.random() * 0.5 + 0.08,
+      vx:    (Math.random() - 0.5) * 0.25,
+      vy:    -(Math.random() * 0.3 + 0.08),
+      life:  fromBottom ? 0 : Math.random() * 0.6,
+      maxAlpha: Math.random() * 0.35 + 0.08,
     };
   }
 
   (function frame() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     dots.forEach((d, i) => {
-      d.x += d.vx; d.y += d.vy; d.life += 0.0028;
-      const fade = Math.sin(d.life * Math.PI);
+      d.x    += d.vx;
+      d.y    += d.vy;
+      d.rot  += d.rotV;
+      d.life += 0.0018;
+
+      let alpha;
+      if (d.life < 0.15)       alpha = (d.life / 0.15) * d.maxAlpha;
+      else if (d.life < 0.75)  alpha = d.maxAlpha;
+      else                     alpha = ((1 - d.life) / 0.25) * d.maxAlpha;
+
+      const h = d.size / 2;
       ctx.save();
-      ctx.globalAlpha = fade * d.alpha;
+      ctx.globalAlpha = Math.max(0, alpha);
       ctx.fillStyle   = d.color;
-      ctx.beginPath();
-      ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
-      ctx.fill();
+      ctx.translate(d.x, d.y);
+      ctx.rotate(d.rot);
+      ctx.fillRect(-h, -h, d.size, d.size);
       ctx.restore();
-      if (d.life >= 1 || d.y < -8) dots[i] = mkDot(true);
+
+      if (d.life >= 1 || d.y < -12) dots[i] = mkDot(true);
     });
     requestAnimationFrame(frame);
   })();
