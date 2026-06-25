@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MISSING COLOR 1 — TEAM 아토 OFFICIAL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="main.css"/>
+  <link rel="stylesheet" href="missing-color-1.css"/>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="main.html" class="logo">⛏ TEAM <b>아토</b></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="main.html">메인</a></li>
+      <li class="has-drop">
+        <a href="map.html" class="nav-current">맵 <span class="arr">▾</span></a>
+        <ul class="dropdown">
+          <li><a href="missing-color-1.html">MISSING COLOR 1</a></li>
+          <li><a href="map.html#mc2">MISSING COLOR 2</a></li>
+          <li><a href="map.html#color-jump">COLOR JUMP</a></li>
+          <li><a href="map.html#lain">LAIN</a></li>
+          <li><a href="map.html#ghost1">귀담경찰</a></li>
+          <li><a href="map.html#the-post">THE POST</a></li>
+          <li><a href="map.html#the-coop">THE CO-OP</a></li>
+          <li><a href="map.html#ghost2">귀담경찰 2</a></li>
+        </ul>
+      </li>
+      <li><a href="support.html">고객 지원</a></li>
+      <li><a href="team.html">팀원 소개</a></li>
+      <li><a href="https://www.patreon.com/c/teamato" target="_blank" class="nav-donate">후원하기</a></li>
+    </ul>
+    <button class="burger" id="burger">☰</button>
+  </nav>
+
+  <!-- 브레드크럼 바 -->
+  <div class="back-bar">
+    <div class="back-bar-inner">
+      <a href="map.html" class="back-link">← 맵 목록</a>
+      <span class="back-sep">/</span>
+      <span class="back-current">MISSING COLOR 1</span>
+    </div>
+  </div>
+
+  <!-- 히어로 -->
+  <section class="detail-hero">
+    <canvas id="heroCanvas"></canvas>
+    <div class="detail-hero-inner">
+
+      <div class="detail-hero-left">
+        <p class="detail-eyebrow">PUZZLE · ADVENTURE · 2022</p>
+        <h1 class="detail-title">MISSING<br/>COLOR 1</h1>
+        <p class="detail-title-sub">미싱 컬러 시즌 1</p>
+        <p class="detail-desc">
+          색채가 사라진 세계. 잃어버린 빛을 되찾기 위한 여정이 시작됩니다.
+          세계관과 퍼즐이 하나로 얽힌 마인크래프트 어드벤처 맵.
+        </p>
+        <div class="detail-tags">
+          <span class="dtag">#1.12.2</span>
+          <span class="dtag">#멀티 가능</span>
+          <span class="dtag">#2~3인</span>
+          <span class="dtag dtag-genre">퍼즐</span>
+          <span class="dtag dtag-genre">현대 판타지</span>
+        </div>
+        <div class="detail-hero-btns">
+          <a href="https://drive.google.com/file/d/1YgQjCN1-O6QOafBM0pHOGi0jELkEghOf/view?usp=sharing"
+             target="_blank" class="btn-dl-main">
+            ↓ 맵 다운로드
+          </a>
+          <a href="#resources" class="btn-dl-res">
+            리소스팩 / 쉐이더
+          </a>
+        </div>
+      </div>
+
+      <div class="detail-hero-cover">
+        <div class="detail-cover-img">
+          🔵
+          <span class="cover-badge">인기!</span>
+          <span class="cover-dl-count">⬇ 4,102회</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 정보 바 -->
+  <div class="info-bar">
+    <div class="info-bar-inner">
+      <div class="info-block">
+        <span class="info-lbl">버전</span>
+        <span class="info-val">Java Edition 1.12.2</span>
+      </div>
+      <div class="info-block">
+        <span class="info-lbl">플레이 인원</span>
+        <span class="info-val">2 ~ 3인</span>
+        <span class="info-val-sm">싱글 · LAN · 버킷 모두 가능</span>
+      </div>
+      <div class="info-block">
+        <span class="info-lbl">리소스팩</span>
+        <span class="info-val">
+          <span class="info-dot required"></span>필수
+        </span>
+      </div>
+      <div class="info-block">
+        <span class="info-lbl">옵티파인</span>
+        <span class="info-val">
+          <span class="info-dot optional"></span>자유
+        </span>
+      </div>
+      <div class="info-block">
+        <span class="info-lbl">쉐이더</span>
+        <span class="info-val">
+          <span class="info-dot recommended"></span>권장
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 본문 -->
+  <div class="detail-body">
+
+    <!-- 왼쪽 메인 -->
+    <div class="detail-main">
+
+      <!-- 스토리 -->
+      <div>
+        <p class="section-label">STORY</p>
+        <h2 class="detail-story-title">색이 사라진 세상을<br/>원래대로 돌리기 위한 모험을 떠나보세요</h2>
+        <p class="detail-story-text">
+          어느 날 갑자기 세상의 모든 색채가 사라졌습니다. 회색빛으로 뒤덮인 도시, 빛을 잃은 하늘.
+          원인을 알 수 없는 이 재앙 앞에서, 당신은 잃어버린 색깔의 조각들을 찾아 세계 곳곳을 탐험해야 합니다.
+        </p>
+        <p class="detail-story-text">
+          각 스테이지마다 숨겨진 색깔의 단서를 찾아내고, 독창적인 퍼즐을 풀어나가세요.
+          현대 판타지 세계관 속에서 펼쳐지는 TEAM 아토의 메인 시리즈 첫 번째 작품입니다.
+        </p>
+      </div>
+
+      <!-- 갤러리 -->
+      <div class="gallery-section">
+        <p class="section-label">SCREENSHOTS</p>
+        <div class="gallery-grid">
+          <div class="gallery-item large">
+            <span class="gallery-placeholder">스크린샷 준비 중</span>
+          </div>
+          <div class="gallery-item">
+            <span class="gallery-placeholder">스크린샷</span>
+          </div>
+          <div class="gallery-item">
+            <span class="gallery-placeholder">스크린샷</span>
+          </div>
+          <div class="gallery-item">
+            <span class="gallery-placeholder">스크린샷</span>
+          </div>
+          <div class="gallery-item">
+            <span class="gallery-placeholder">스크린샷</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 시스템 요구사항 -->
+      <div class="req-section" id="resources">
+        <p class="section-label">REQUIREMENTS</p>
+        <div class="req-grid">
+          <div class="req-row">
+            <span class="req-key">마인크래프트</span>
+            <span class="req-val">Java Edition 1.12.2</span>
+            <span class="req-badge must">필수</span>
+          </div>
+          <div class="req-row">
+            <span class="req-key">리소스팩</span>
+            <span class="req-val">전용 리소스팩 (하단 다운로드)</span>
+            <span class="req-badge must">필수</span>
+          </div>
+          <div class="req-row">
+            <span class="req-key">옵티파인</span>
+            <span class="req-val">1.12.2 최신 버전</span>
+            <span class="req-badge free">자유</span>
+          </div>
+          <div class="req-row">
+            <span class="req-key">쉐이더</span>
+            <span class="req-val">BSL / Complementary 권장</span>
+            <span class="req-badge rec">권장</span>
+          </div>
+          <div class="req-row">
+            <span class="req-key">플레이 인원</span>
+            <span class="req-val">2~3인 (싱글 플레이 · LAN · 버킷 가능)</span>
+            <span class="req-badge free">자유</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 오른쪽 사이드바 -->
+    <div class="detail-sidebar">
+
+      <!-- 다운로드 카드 -->
+      <div class="sidebar-card">
+        <p class="sidebar-dl-title">다운로드</p>
+        <a href="https://drive.google.com/file/d/1YgQjCN1-O6QOafBM0pHOGi0jELkEghOf/view?usp=sharing"
+           target="_blank" class="sidebar-dl-btn primary">
+          맵 다운로드 (Google Drive)
+          <span>↗</span>
+        </a>
+        <button class="sidebar-dl-btn secondary"
+                onclick="this.textContent='준비 중...'">
+          리소스팩 / 쉐이더 다운로드
+          <span>↗</span>
+        </button>
+        <a href="map.html" class="sidebar-dl-btn secondary">
+          다른 맵 보러 가기
+          <span>→</span>
+        </a>
+        <p class="sidebar-note">
+          맵 설치 방법: 다운로드한 폴더를
+          <code>%appdata%\.minecraft\saves</code>에 넣고 싱글플레이에서 선택하세요.
+          문제가 생기면 <a href="https://discord.gg/2zyZtytDbK" target="_blank">디스코드</a>로 문의해주세요.
+        </p>
+      </div>
+
+      <!-- 관련 맵 -->
+      <div class="sidebar-card">
+        <p class="sidebar-dl-title">다음 시리즈</p>
+        <a href="map.html#mc2" class="rel-card">
+          <div class="rel-thumb" style="background:linear-gradient(160deg,#04100e,#0d3022)">🎭</div>
+          <div class="rel-info">
+            <p class="rel-name">MISSING COLOR 2</p>
+            <p class="rel-meta">퍼즐 · 2023 · ⬇ 3,560회</p>
+          </div>
+          <span class="rel-arrow">→</span>
+        </a>
+        <a href="map.html#lain" class="rel-card">
+          <div class="rel-thumb" style="background:linear-gradient(160deg,#0d0818,#261444)">👤</div>
+          <div class="rel-info">
+            <p class="rel-name">LAIN</p>
+            <p class="rel-meta">스토리 · 2021 · ⬇ 2,887회</p>
+          </div>
+          <span class="rel-arrow">→</span>
+        </a>
+      </div>
+
+      <!-- 후원 카드 -->
+      <div class="patron-card">
+        <p class="patron-card-title">TEAM 아토를 후원해주세요</p>
+        <p class="patron-card-desc">후원금은 전액 맵 제작과 서버 운영에 사용됩니다. 더 좋은 맵으로 보답할게요.</p>
+        <a href="https://www.patreon.com/c/teamato" target="_blank" class="patron-card-btn">
+          ♥ Patreon에서 후원하기
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap foot-wrap">
+      <div>
+        <div class="foot-logo">TEAM 아토</div>
+        <small>©2020 - 2025 TEAM 아토 OFFICIAL</small>
+      </div>
+      <div class="foot-nav">
+        <a href="main.html">메인</a>
+        <a href="map.html">맵 목록</a>
+        <a href="support.html">고객 지원</a>
+        <a href="team.html">팀원 소개</a>
+      </div>
+      <div class="foot-nav">
+        <a href="https://discord.gg/2zyZtytDbK" target="_blank">디스코드</a>
+        <a href="https://www.patreon.com/c/teamato" target="_blank">Patreon</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="missing-color-1.js"></script>
+</body>
+</html>
