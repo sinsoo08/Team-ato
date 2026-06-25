@@ -71,13 +71,5 @@ document.querySelectorAll('.fq-q').forEach(btn => {
 
 /* ─ 다운로드 버튼 피드백 ─ */
 function dlFeedback(btn) {
-  const orig = btn.textContent;
-  btn.textContent = '✓ 완료!';
-  btn.style.background = '#1a7a3a';
-  btn.style.color = '#fff';
-  setTimeout(() => {
-    btn.textContent = orig;
-    btn.style.background = '';
-    btn.style.color = '';
-  }, 2000);
+  window.location.href = 'map.html';
 }
