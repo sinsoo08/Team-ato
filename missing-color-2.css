@@ -304,9 +304,7 @@
 
 /* ── 본문 레이아웃 ── */
 .detail-body {
-  max-width: var(--content-w);
-  margin: 0 auto;
-  padding: 64px 20px 100px;
+  padding: 64px 0 100px;
   display: grid;
   grid-template-columns: 1fr 320px;
   gap: 56px;
@@ -590,7 +588,7 @@
 
 @media (max-width: 680px) {
   .detail-hero-inner               { padding: 0 16px; }
-  .detail-body                     { padding: 36px 16px 60px; }
+  .detail-body                     { padding: 36px 0 60px; }
   .info-bar-inner                  { flex-wrap: wrap; }
   .info-block                      { flex: 0 0 50%; border-bottom: 1px solid rgba(255,255,255,0.06); }
   .info-block:nth-child(even)      { border-right: none; }
