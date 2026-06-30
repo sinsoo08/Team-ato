@@ -1,0 +1,15 @@
+{
+  "name": "team-ato-backend",
+  "version": "1.0.0",
+  "description": "TEAM 아토 웹사이트 통계(방문수/다운로드수) 백엔드 API",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  }
+}

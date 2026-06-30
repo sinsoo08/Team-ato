@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>고객 지원 — TEAM 아토 OFFICIAL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="main.css"/>
+  <link rel="stylesheet" href="support.css"/>
+</head>
+<body>
+
+  <nav id="nav">
+    <a href="main.html" class="logo">⛏ TEAM <b>아토</b></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="main.html">메인</a></li>
+      <li class="has-drop">
+        <a href="map.html">맵 <span class="arr">▾</span></a>
+        <ul class="dropdown">
+          <li><a href="guidam-police-1.html">귀담경찰 1</a></li>
+          <li><a href="guidam-police-2.html">귀담경찰 2</a></li>
+          <li><a href="missing-color-1.html">MISSING COLOR 1</a></li>
+          <li><a href="missing-color-2.html">MISSING COLOR 2</a></li>
+          <li><a href="color-jump.html">COLOR JUMP</a></li>
+          <li><a href="lain.html">LAIN</a></li>
+          <li><a href="the-post.html">THE POST</a></li>
+          <li><a href="the-coop.html">THE CO-OP</a></li>
+        </ul>
+      </li>
+      <li><a href="support.html" class="nav-current">고객 지원</a></li>
+      <li><a href="team.html">팀원 소개</a></li>
+      <li><a href="https://www.patreon.com/c/teamato" target="_blank" class="nav-donate">후원하기</a></li>
+    </ul>
+    <button class="burger" id="burger">☰</button>
+  </nav>
+
+  <!-- ── 히어로 검색 영역 ── -->
+  <header class="sp-hero">
+    <canvas id="spCanvas"></canvas>
+    <div class="sp-hero-inner">
+      <p class="sp-eyebrow">SUPPORT CENTER</p>
+      <h1 class="sp-title">무엇을 도와드릴까요?</h1>
+      <p class="sp-desc">설치, 버그, 이용 규정 등 궁금한 점을 검색하거나 카테고리를 선택하세요.</p>
+      <div class="sp-search-wrap">
+        <div class="sp-search-box" id="searchBox">
+          <span class="sp-search-icon">🔍</span>
+          <input type="text" id="searchInput" placeholder="예: 맵 설치 방법, 버그 제보, 멀티플레이" autocomplete="off"/>
+          <button class="sp-search-clear" id="searchClear" aria-label="지우기">✕</button>
+        </div>
+        <div class="sp-suggestions" id="suggestions"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── 카테고리 카드 (JS로 자동 생성, 개수도 자동 계산) ── -->
+  <section class="sp-cats">
+    <div class="sp-wrap">
+      <div class="sp-cat-grid" id="catGrid"></div>
+    </div>
+  </section>
+
+  <!-- ── FAQ 본문 ── -->
+  <!-- ── FAQ + 게시판 + 광고 wrapper ── -->
+  <div class="sp-content-layout">
+
+    <!-- 왼쪽 광고 -->
+    <aside class="sp-ad-sidebar sp-ad-left">
+      <div class="sp-ad-sticky">
+        <div class="sp-ad-label">AD</div>
+        <div class="sp-ad-slot">
+          <div class="sp-ad-placeholder"><span>160×600</span></div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- 중앙 콘텐츠 -->
+    <div class="sp-center-col">
+
+  <section class="sp-faq-section">
+    <div class="sp-wrap sp-faq-layout">
+
+      <!-- 사이드 목차 (JS로 자동 생성) -->
+      <nav class="sp-toc" id="spToc">
+        <p class="sp-toc-title">카테고리</p>
+        <ul id="tocList"></ul>
+      </nav>
+
+      <!-- FAQ 목록 (JS로 자동 생성, FAQ_DATA 는 support.js 상단 참고) -->
+      <div class="sp-faq-body" id="faqBody">
+        <div class="sp-search-results" id="searchResults"></div>
+        <div id="faqGroups"></div>
+      </div><!-- /faqBody -->
+    </div><!-- /sp-wrap -->
+  </section>
+
+    </div><!-- /sp-center-col -->
+
+    <!-- 오른쪽 광고 -->
+    <aside class="sp-ad-sidebar sp-ad-right">
+      <div class="sp-ad-sticky">
+        <div class="sp-ad-label">AD</div>
+        <div class="sp-ad-slot">
+          <div class="sp-ad-placeholder"><span>160×600</span></div>
+        </div>
+      </div>
+    </aside>
+
+  </div><!-- /sp-content-layout -->
+
+  <!-- ── 문의 CTA ── -->
+  <section class="sp-cta">
+    <div class="sp-wrap sp-cta-inner">
+      <div class="sp-cta-text">
+        <h2>원하는 답을 찾지 못하셨나요?</h2>
+        <p>디스코드 서버에서 팀원에게 직접 문의하시면 빠르게 도와드리겠습니다.</p>
+      </div>
+      <div class="sp-cta-btns">
+        <a href="https://discord.gg/2zyZtytDbK" target="_blank" class="sp-btn-dc">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/>
+          </svg>
+          디스코드로 문의하기
+        </a>
+        <a href="map.html" class="sp-btn-maps">맵 목록 보기</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap foot-wrap">
+      <div>
+        <div class="foot-logo">TEAM 아토</div>
+        <small>©2020 - 2025 TEAM 아토 OFFICIAL</small>
+      </div>
+      <div class="foot-nav">
+        <a href="index.html">메인</a>
+        <a href="map.html">맵 목록</a>
+        <a href="support.html">고객 지원</a>
+        <a href="index.html#team">팀원 소개</a>
+      </div>
+      <div class="foot-nav">
+        <a href="https://discord.gg/2zyZtytDbK" target="_blank">디스코드</a>
+        <a href="https://www.patreon.com/c/teamato" target="_blank">Patreon</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="support.js"></script>
+  <script src="analytics.js" data-page="support"></script>
+</body>
+</html>
