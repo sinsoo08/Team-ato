@@ -17,7 +17,7 @@ navLinks.querySelectorAll('a').forEach(a =>
   a.addEventListener('click', () => navLinks.classList.remove('open'))
 );
 
-/* ── 히어로 파티클 캔버스 (무지개 계열) ── */
+/* ── 히어로 파티클 캔버스 (핑크/마젠타 계열) ── */
 (function () {
   const canvas = document.getElementById('heroCanvas');
   if (!canvas) return;
@@ -30,25 +30,21 @@ navLinks.querySelectorAll('a').forEach(a =>
   resize();
   window.addEventListener('resize', resize);
 
-  /* COLOR JUMP = 7가지 무지개 파티클 */
-  const COLORS = [
-    '#e85555', '#e8a035', '#e8d435',
-    '#55c85a', '#3a9de8', '#8b5ce8', '#e855c8'
-  ];
-  const particles = Array.from({ length: 65 }, () => makeParticle());
+  const COLORS = ['#e855c8', '#f48fde', '#f9c3ec', '#b91c8f', '#ffffff'];
+  const particles = Array.from({ length: 55 }, () => makeParticle());
 
   function makeParticle(fromBottom = false) {
     return {
       x:        Math.random() * canvas.width,
       y:        fromBottom ? canvas.height + 12 : Math.random() * canvas.height,
-      size:     Math.random() * 7 + 2,
+      size:     Math.random() * 6 + 2,
       rot:      Math.random() * Math.PI * 2,
-      rotV:     (Math.random() - 0.5) * 0.005,
+      rotV:     (Math.random() - 0.5) * 0.004,
       color:    COLORS[Math.floor(Math.random() * COLORS.length)],
-      vx:       (Math.random() - 0.5) * 0.25,
-      vy:       -(Math.random() * 0.3 + 0.08),
+      vx:       (Math.random() - 0.5) * 0.22,
+      vy:       -(Math.random() * 0.28 + 0.07),
       life:     fromBottom ? 0 : Math.random() * 0.6,
-      maxAlpha: Math.random() * 0.32 + 0.08,
+      maxAlpha: Math.random() * 0.3 + 0.07,
     };
   }
 
@@ -58,7 +54,7 @@ navLinks.querySelectorAll('a').forEach(a =>
       p.x    += p.vx;
       p.y    += p.vy;
       p.rot  += p.rotV;
-      p.life += 0.0017;
+      p.life += 0.0016;
 
       let alpha;
       if      (p.life < 0.15) alpha = (p.life / 0.15) * p.maxAlpha;
