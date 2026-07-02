@@ -116,10 +116,10 @@
       if (mapId && stats.mapDownloads[mapId] !== undefined) {
         animateNumber(el, stats.mapDownloads[mapId], 900);
 
-        // map.html 카드 정렬(다운로드 많은순)이 실제 값을 기준으로 동작하도록
-        // 카드(article)의 data-dl 속성도 같이 갱신
+        // map.html 카드(article.mc) / main.html 카드(div.mcard-body)의
+        // data-dl 속성도 실제 값으로 갱신 (다운로드순 정렬 기준 동기화)
         const card = el.closest("[data-map-id]");
-        if (card && card.classList.contains("mc")) {
+        if (card) {
           card.setAttribute("data-dl", stats.mapDownloads[mapId]);
         }
       }
@@ -151,6 +151,12 @@
     // 곧바로 한 번 더 동기화 (포커스 복귀 시 즉시 반영)
     document.addEventListener("visibilitychange", function () {
       if (document.visibilityState === "visible") pollStats();
+    });
+
+    // 브라우저 뒤로가기/앞으로가기 시 bfcache에서 복원될 때
+    // analytics.js가 재실행되지 않으므로 pageshow로 즉시 한 번 더 polling
+    window.addEventListener("pageshow", function (e) {
+      if (e.persisted) pollStats();
     });
   }
 
