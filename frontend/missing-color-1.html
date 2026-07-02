@@ -185,7 +185,12 @@
           </div>
           <div class="req-row">
             <span class="req-key">리소스팩</span>
-            <span class="req-val">전용 리소스팩 (하단 다운로드)</span>
+            <span class="req-val">전용 리소스팩 v2.0</span>
+            <a href="http://localhost:3000/api/resource/download"
+               target="_blank" class="req-dl-btn">
+              ⬇ 다운로드
+            </a>
+
             <span class="req-badge must">필수</span>
           </div>
           <div class="req-row">
@@ -219,25 +224,24 @@
           맵 다운로드 (Google Drive)
           <span>↗</span>
         </a>
-        <button class="sidebar-dl-btn secondary"
-                onclick="this.textContent='준비 중...'">
-          리소스팩 / 쉐이더 다운로드
+        <a href="#" target="_blank" class="sidebar-dl-btn secondary">
+          쉐이더 다운로드
           <span>↗</span>
-        </button>
-        <a href="map.html" class="sidebar-dl-btn secondary">
-          다른 맵 보러 가기
-          <span>→</span>
         </a>
         <p class="sidebar-note">
           맵 설치 방법: 다운로드한 폴더를
           <code>%appdata%\.minecraft\saves</code>에 넣고 싱글플레이에서 선택하세요.
           문제가 생기면 <a href="https://discord.gg/2zyZtytDbK" target="_blank">디스코드</a>로 문의해주세요.
         </p>
-      </div>
+</div>
 
       <!-- 관련 맵 -->
       <div class="sidebar-card">
         <p class="sidebar-dl-title">다음 시리즈</p>
+        <a href="map.html" class="sidebar-dl-btn secondary">
+          다른 시리즈 보러가기
+          <span>→</span>
+        </a>
         <a href="map.html#mc2" class="rel-card">
           <div class="rel-thumb" style="background:linear-gradient(160deg,#04100e,#0d3022)">🎭</div>
           <div class="rel-info">

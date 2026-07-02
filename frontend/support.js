@@ -23,6 +23,7 @@ const CATEGORIES = [
   { id: 'bug',     icon: '🐛', name: '버그 & 오류' },
   { id: 'policy',  icon: '📋', name: '이용 규정' },
   { id: 'multi',   icon: '🎮', name: '멀티플레이' },
+  { id: 'bucket',  icon: '🖥️', name: '버킷 서버 제작' },
   { id: 'donate',  icon: '💎', name: '후원 & Patreon' },
   { id: 'etc',     icon: '💬', name: '기타 문의' },
   // 새 카테고리 예시:
@@ -226,6 +227,63 @@ const FAQ_DATA = [
     a: `현재 가장 빠른 문의 방법은 <strong>디스코드</strong>입니다.
         공식 이메일 문의는 준비 중이며, 디스코드의 <strong>#문의</strong> 채널을 이용해 주세요.
         <a href="https://discord.gg/2zyZtytDbK" target="_blank" class="sp-a-link">→ 디스코드 바로가기</a>`,
+  },
+
+  /* ── 버킷 서버 제작 ── */
+  {
+    cat: 'bucket',
+    q: '버킷 서버란 무엇인가요?',
+    keywords: '버킷 서버 bukkit spigot 멀티 귀담경찰 the-coop',
+    a: `버킷(Bukkit / Spigot) 서버는 마인크래프트 Java Edition 전용 멀티플레이 서버입니다.<br/><br/>
+귀담경찰 시리즈와 THE CO-OP처럼 커맨드 블록 기반으로 동작하는 맵은 LAN 개방만으로는 멀티 플레이가 불안정할 수 있기 때문에,
+전용 버킷 서버를 통해 안정적으로 플레이하는 것을 권장합니다.`,
+  },
+  {
+    cat: 'bucket',
+    q: '버킷 서버 파일은 어디서 받나요?',
+    keywords: '서버 파일 다운로드 버킷 bukkit spigot jar',
+    a: `맵 다운로드 ZIP 파일 안에 서버 파일이 포함되어 있습니다.<br/><br/>
+ZIP 압축을 해제하면 <code>server/</code> 폴더 안에 <code>start.bat</code> 파일과 서버 JAR, 맵 파일이 함께 들어 있습니다.
+별도로 서버 소프트웨어를 다운받을 필요 없이 포함된 파일 그대로 사용하시면 됩니다.`,
+    tip: '💡 압축 해제 경로에 한글이나 특수문자가 포함되면 서버가 실행되지 않을 수 있습니다. 영문 경로에 압축을 해제하세요.',
+  },
+  {
+    cat: 'bucket',
+    q: '서버를 어떻게 실행하나요?',
+    keywords: '서버 실행 start.bat 배치 파일 java',
+    a: `<strong>1단계</strong> — 맵 ZIP 파일을 영문 경로에 압축 해제합니다. (예: <code>C:\\TeamAto\\</code>)<br/><br/>
+<strong>2단계</strong> — 압축 해제한 폴더 안의 <code>start.bat</code>을 더블클릭해 서버를 실행합니다.<br/><br/>
+<strong>3단계</strong> — 검은 창(서버 콘솔)이 열리고 "Done" 메시지가 나타나면 서버 준비 완료입니다.<br/><br/>
+<strong>4단계</strong> — 마인크래프트를 열고 <strong>멀티플레이 → 서버 추가</strong>에서 주소 <code>localhost</code>를 입력해 접속합니다.<br/><br/>
+같은 와이파이의 친구는 호스트의 로컬 IP(예: <code>192.168.0.X</code>)로 접속하면 됩니다.`,
+    tip: '💡 Java가 설치되어 있어야 서버가 실행됩니다. Java 21 이상(최신 버전)을 권장합니다.',
+  },
+  {
+    cat: 'bucket',
+    q: '서버 실행 시 "Java를 찾을 수 없습니다" 오류가 나요.',
+    keywords: 'java 오류 실행 안됨 jdk jre',
+    a: `Java가 설치되어 있지 않거나 환경 변수에 등록되지 않은 경우입니다.<br/><br/>
+<a href="https://adoptium.net" target="_blank" class="sp-a-link">Adoptium (Eclipse Temurin)</a>에서 Java 21을 다운로드해 설치한 뒤 다시 시도해 주세요.<br/><br/>
+설치 중 <strong>"Add to PATH"</strong> 옵션을 반드시 체크해주세요.`,
+  },
+  {
+    cat: 'bucket',
+    q: '외부(원격) 친구도 접속할 수 있나요?',
+    keywords: '외부 접속 포트 포워딩 공유기 원격 친구',
+    a: `같은 와이파이가 아닌 원격 친구가 접속하려면 <strong>포트 포워딩</strong>이 필요합니다.<br/><br/>
+공유기 관리 페이지에서 TCP <strong>25565</strong> 포트를 호스트 PC의 내부 IP로 포워딩하면 됩니다.<br/><br/>
+포트 포워딩이 어렵다면 <strong>Radmin VPN</strong> 또는 <strong>Hamachi</strong> 같은 가상 LAN 툴을 이용하거나,
+<a href="https://aternos.org" target="_blank" class="sp-a-link">Aternos</a> 같은 무료 서버 호스팅 서비스를 이용하는 것도 방법입니다.`,
+    tip: '💡 포트 포워딩 방법은 공유기 제조사(ipTime, TP-Link 등)마다 다릅니다. 공유기 모델명 + "포트포워딩"으로 검색해보세요.',
+  },
+  {
+    cat: 'bucket',
+    q: '서버에서 커맨드가 작동하지 않아요.',
+    keywords: '커맨드 명령어 오류 op 권한 서버',
+    a: `서버에서 커맨드 블록이 동작하려면 <code>server.properties</code> 파일에서
+<code>enable-command-block=true</code>로 설정되어 있어야 합니다.<br/><br/>
+포함된 서버 파일에는 이미 설정이 되어 있지만, 직접 서버를 구성하는 경우 확인이 필요합니다.<br/><br/>
+또한 접속한 플레이어에게 OP 권한이 필요한 경우, 서버 콘솔에서 <code>op 플레이어명</code>을 입력해 권한을 부여하세요.`,
   },
 
   // ↓↓↓ 새 QnA 추가 예시 (복사해서 cat / q / keywords / a 만 바꾸면 됩니다) ↓↓↓

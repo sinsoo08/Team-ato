@@ -459,6 +459,24 @@
 .req-badge.free { background: #f3f4f6; color: #6b7280; }
 .req-badge.rec  { background: #fef3c7; color: #92400e; }
 
+/* ── 리소스팩 다운로드 버튼 (REQUIREMENTS 행 내) ── */
+.req-dl-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 11px;
+  border-radius: 5px;
+  background: #e85555;
+  color: #fff;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: opacity .15s;
+}
+.req-dl-btn:hover { opacity: .8; }
+
 /* ── 주의사항 ── */
 .notice-section { margin-top: 52px; }
 .notice-list {

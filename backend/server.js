@@ -144,6 +144,25 @@ app.get("/api/stats/page/:page", (req, res) => {
 });
 
 // ───────────────────────────────────────────────
+// 리소스팩 파일 다운로드
+// backend/uploads/resources/ 폴더 안의 파일을 서빙합니다.
+// ───────────────────────────────────────────────
+const RESOURCE_DIR = path.join(__dirname, "uploads", "resources");
+
+app.get("/api/resource/download", (req, res) => {
+  const fs = require("fs");
+  if (!fs.existsSync(RESOURCE_DIR)) {
+    return res.status(404).json({ error: "리소스 폴더가 없습니다. backend/uploads/resources/ 에 파일을 넣어주세요." });
+  }
+  const files = fs.readdirSync(RESOURCE_DIR).filter(f => !f.startsWith("."));
+  if (files.length === 0) {
+    return res.status(404).json({ error: "리소스 파일이 없습니다." });
+  }
+  const filePath = path.join(RESOURCE_DIR, files[0]);
+  res.download(filePath, files[0]);
+});
+
+// ───────────────────────────────────────────────
 // 정적 파일(프론트) 서빙 — 선택 사항
 // 백엔드와 프론트를 같은 서버에서 같이 띄우고 싶을 때 사용합니다.
 // /mnt 구조와 동일하게 frontend 폴더를 만들어 html/css/js를 넣으면
