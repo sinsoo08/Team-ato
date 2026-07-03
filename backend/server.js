@@ -1,156 +1,122 @@
-// server.js
-// TEAM 아토 사이트 통계(방문수 / 다운로드수) 백엔드 API 서버
-//
-// 실행 방법
-//   1) npm install
-//   2) npm start   (기본 포트 3000, PORT 환경변수로 변경 가능)
-//
-// 제공 API
-//   POST /api/visit/:page         해당 페이지 방문수 +1, 사이트 전체 방문수 +1
-//   POST /api/download/:mapId     해당 맵 다운로드수 +1
-//   GET  /api/stats               전체 통계 (총 방문수, 총 다운로드수, 페이지별/맵별 상세)
-//   GET  /api/stats/map/:mapId    특정 맵의 다운로드수만 조회
+// server.js — TEAM 아토 백엔드
+// Node.js + Express | DDoS 방어: helmet + express-rate-limit
 
-const express = require("express");
-const cors = require("cors");
-const path = require("path");
+const express    = require("express");
+const cors       = require("cors");
+const helmet     = require("helmet");
+const rateLimit  = require("express-rate-limit");
+const path       = require("path");
+const fs         = require("fs");
 const { readDb, writeDb } = require("./data/db");
 
-const app = express();
+const app  = express();
 const PORT = process.env.PORT || 3000;
 
-// 프론트가 다른 도메인/포트에서 fetch 요청을 보낼 수도 있으므로 CORS 허용
-// 배포 시에는 origin을 실제 프론트 주소로 좁혀주는 것을 권장합니다.
-app.use(cors());
+// ══════════════════════════════════════════════
+// 1. 보안 헤더 (helmet)
+//    XSS, clickjacking, MIME sniffing 등 기본 공격 차단
+// ══════════════════════════════════════════════
+app.use(helmet());
+
+// ══════════════════════════════════════════════
+// 2. Render 등 리버스 프록시 환경에서 실제 IP 신뢰
+//    (rate limit이 프록시 IP가 아닌 클라이언트 IP 기준으로 동작하게)
+// ══════════════════════════════════════════════
+app.set("trust proxy", 1);
+
+// ══════════════════════════════════════════════
+// 3. Rate Limiting
+// ══════════════════════════════════════════════
+
+// ── 전체 앱 공통: IP당 1분에 100회 초과 시 차단
+//    DDoS처럼 동시에 수백~수천 요청을 퍼붓는 것을 막는 1차 방어선
+const limiter = rateLimit({
+  windowMs: 60 * 1000,   // 1분
+  max: 100,              // IP당 최대 100회
+  standardHeaders: true, // 응답 헤더에 남은 횟수 표시 (RateLimit-*)
+  legacyHeaders: false,
+  message: { error: "요청이 너무 많습니다. 잠시 후 다시 시도해주세요." },
+});
+
+app.use(limiter); // 모든 요청에 적용
+
+// ── 파일 다운로드 전용: IP당 10분에 10회 (맵 ZIP은 용량이 커서 더 타이트하게)
+const downloadLimiter = rateLimit({
+  windowMs: 10 * 60 * 1000, // 10분
+  max: 10,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: "다운로드 요청이 너무 많습니다. 10분 후 다시 시도해주세요." },
+});
+
+// ══════════════════════════════════════════════
+// 4. CORS / JSON 파싱
+// ══════════════════════════════════════════════
+// 배포 후 FRONT_ORIGIN 환경변수에 실제 프론트 주소를 넣어주세요.
+// 예: FRONT_ORIGIN=https://teamato.onrender.com
+const FRONT_ORIGIN = process.env.FRONT_ORIGIN || "*";
+app.use(cors({ origin: FRONT_ORIGIN }));
 app.use(express.json());
 
-// 알려진 페이지/맵 id 목록 (프론트 파일명과 1:1로 매칭)
+// ══════════════════════════════════════════════
+// 5. 알려진 페이지/맵 ID
+// ══════════════════════════════════════════════
 const KNOWN_PAGES = [
-  "main",
-  "map",
-  "support",
-  "team",
-  "guidam-police-1",
-  "guidam-police-2",
-  "missing-color-1",
-  "missing-color-2",
-  "color-jump",
-  "lain",
-  "the-post",
-  "the-coop"
+  "main", "map", "support", "team",
+  "guidam-police-1", "guidam-police-2",
+  "missing-color-1", "missing-color-2",
+  "color-jump", "lain", "the-post", "the-coop",
 ];
 
-const KNOWN_MAPS = [
-  "missing-color-1",
-  "missing-color-2",
-  "color-jump",
-  "lain",
-  "guidam-police-1",
-  "the-coop",
-  "the-post",
-  "guidam-police-2"
-];
-
-// ───────────────────────────────────────────────
-// 방문수 기록
-// 프론트 각 페이지 로드 시 1회 호출하도록 연동합니다.
-// ───────────────────────────────────────────────
+// ══════════════════════════════════════════════
+// 6. 방문수 기록  POST /api/visit/:page
+// ══════════════════════════════════════════════
 app.post("/api/visit/:page", (req, res) => {
   const { page } = req.params;
-
-  if (!KNOWN_PAGES.includes(page)) {
-    // 모르는 페이지여도 일단 기록은 받아주되, pageVisits 객체에 새로 추가
-    const db = readDb();
-    db.pageVisits[page] = (db.pageVisits[page] || 0) + 1;
-    db.totalVisits += 1;
-    writeDb(db);
-    return res.json({
-      ok: true,
-      page,
-      pageVisits: db.pageVisits[page],
-      totalVisits: db.totalVisits,
-      note: "등록되지 않은 page id 였지만 새로 추가했습니다."
-    });
-  }
-
   const db = readDb();
   db.pageVisits[page] = (db.pageVisits[page] || 0) + 1;
   db.totalVisits += 1;
   writeDb(db);
-
-  res.json({
-    ok: true,
-    page,
-    pageVisits: db.pageVisits[page],
-    totalVisits: db.totalVisits
-  });
+  res.json({ ok: true, page, pageVisits: db.pageVisits[page], totalVisits: db.totalVisits });
 });
 
-// ───────────────────────────────────────────────
-// 다운로드수 기록
-// "맵 다운로드" 버튼 클릭 시 호출하도록 연동합니다.
-// ───────────────────────────────────────────────
+// ══════════════════════════════════════════════
+// 7. 다운로드수 기록  POST /api/download/:mapId
+// ══════════════════════════════════════════════
 app.post("/api/download/:mapId", (req, res) => {
   const { mapId } = req.params;
   const db = readDb();
-
   db.mapDownloads[mapId] = (db.mapDownloads[mapId] || 0) + 1;
   writeDb(db);
-
-  res.json({
-    ok: true,
-    mapId,
-    downloads: db.mapDownloads[mapId]
-  });
+  res.json({ ok: true, mapId, downloads: db.mapDownloads[mapId] });
 });
 
-// ───────────────────────────────────────────────
-// 전체 통계 조회
-// map.html 상단 통계 바, support.html 등에서 사용
-// ───────────────────────────────────────────────
+// ══════════════════════════════════════════════
+// 8. 통계 조회
+// ══════════════════════════════════════════════
 app.get("/api/stats", (req, res) => {
   const db = readDb();
-  const totalDownloads = Object.values(db.mapDownloads).reduce(
-    (sum, n) => sum + n,
-    0
-  );
-
-  res.json({
-    totalVisits: db.totalVisits,
-    totalDownloads,
-    pageVisits: db.pageVisits,
-    mapDownloads: db.mapDownloads
-  });
+  const totalDownloads = Object.values(db.mapDownloads).reduce((s, n) => s + n, 0);
+  res.json({ totalVisits: db.totalVisits, totalDownloads, pageVisits: db.pageVisits, mapDownloads: db.mapDownloads });
 });
 
-// 특정 맵 다운로드수만 조회 (상세 페이지에서 사용)
 app.get("/api/stats/map/:mapId", (req, res) => {
   const { mapId } = req.params;
   const db = readDb();
-  res.json({
-    mapId,
-    downloads: db.mapDownloads[mapId] || 0
-  });
+  res.json({ mapId, downloads: db.mapDownloads[mapId] || 0 });
 });
 
-// 특정 페이지 방문수만 조회
 app.get("/api/stats/page/:page", (req, res) => {
   const { page } = req.params;
   const db = readDb();
-  res.json({
-    page,
-    visits: db.pageVisits[page] || 0
-  });
+  res.json({ page, visits: db.pageVisits[page] || 0 });
 });
 
-// ───────────────────────────────────────────────
-// 맵 파일 다운로드 + 다운로드 카운트 동시 처리
-// 파일은 backend/uploads/maps/ 폴더에 넣어두면 됩니다.
-// ───────────────────────────────────────────────
-const fs = require("fs");
+// ══════════════════════════════════════════════
+// 9. 맵 파일 다운로드  GET /api/maps/download/:mapId
+// ══════════════════════════════════════════════
 const MAPS_DIR = path.join(__dirname, "uploads", "maps");
 
-// 파일명 매핑 테이블
 const MAP_FILES = {
   "guidam-police-1":       "귀담경찰 시즌 1.zip",
   "guidam-police-2":       "귀담경찰 시즌 2.zip",
@@ -165,25 +131,18 @@ const MAP_FILES = {
   "the-post-extreme-hard": "The Post EXTREME HARD V1.4.zip",
 };
 
-app.get("/api/maps/download/:mapId", (req, res) => {
+app.get("/api/maps/download/:mapId", downloadLimiter, (req, res) => {
   const { mapId } = req.params;
   const { difficulty } = req.query;
 
-  const key = (mapId === "the-post" && difficulty)
-    ? `the-post-${difficulty}`
-    : mapId;
-
+  const key = (mapId === "the-post" && difficulty) ? `the-post-${difficulty}` : mapId;
   const filename = MAP_FILES[key];
-  if (!filename) {
-    return res.status(404).json({ error: `'${key}' 에 해당하는 파일 설정이 없습니다.` });
-  }
+
+  if (!filename) return res.status(404).json({ error: `'${key}' 에 해당하는 파일이 없습니다.` });
 
   const filePath = path.join(MAPS_DIR, filename);
-  if (!fs.existsSync(filePath)) {
-    return res.status(404).json({ error: `파일을 찾을 수 없습니다: ${filename}` });
-  }
+  if (!fs.existsSync(filePath)) return res.status(404).json({ error: `파일을 찾을 수 없습니다: ${filename}` });
 
-  // 다운로드 카운트 (파일이 실제로 전송될 때만 집계)
   const db = readDb();
   db.mapDownloads[mapId] = (db.mapDownloads[mapId] || 0) + 1;
   writeDb(db);
@@ -191,39 +150,35 @@ app.get("/api/maps/download/:mapId", (req, res) => {
   res.download(filePath, filename);
 });
 
-// ───────────────────────────────────────────────
-// 리소스팩 파일 다운로드
-// backend/uploads/resources/ 폴더 안의 파일을 서빙합니다.
-// ───────────────────────────────────────────────
+// ══════════════════════════════════════════════
+// 10. 리소스팩 파일 다운로드  GET /api/resource/download
+// ══════════════════════════════════════════════
 const RESOURCE_DIR = path.join(__dirname, "uploads", "resources");
 
-app.get("/api/resource/download", (req, res) => {
-  const fs = require("fs");
+app.get("/api/resource/download", downloadLimiter, (req, res) => {
   if (!fs.existsSync(RESOURCE_DIR)) {
-    return res.status(404).json({ error: "리소스 폴더가 없습니다. backend/uploads/resources/ 에 파일을 넣어주세요." });
+    return res.status(404).json({ error: "backend/uploads/resources/ 폴더가 없습니다." });
   }
-  const files = fs.readdirSync(RESOURCE_DIR).filter(f => !f.startsWith("."));
-  if (files.length === 0) {
-    return res.status(404).json({ error: "리소스 파일이 없습니다." });
-  }
-  const filePath = path.join(RESOURCE_DIR, files[0]);
-  res.download(filePath, files[0]);
+  const files = fs.readdirSync(RESOURCE_DIR).filter(f => !f.startsWith(".") && f !== "README.txt");
+  if (!files.length) return res.status(404).json({ error: "리소스 파일이 없습니다." });
+  res.download(path.join(RESOURCE_DIR, files[0]), files[0]);
 });
 
-// ───────────────────────────────────────────────
-// 정적 파일(프론트) 서빙 — 선택 사항
-// 백엔드와 프론트를 같은 서버에서 같이 띄우고 싶을 때 사용합니다.
-// /mnt 구조와 동일하게 frontend 폴더를 만들어 html/css/js를 넣으면
-// http://localhost:3000/main.html 로 접속할 수 있습니다.
-// ───────────────────────────────────────────────
+// ══════════════════════════════════════════════
+// 11. 프론트 정적 파일 서빙 (선택)
+//     frontend/ 폴더를 backend 안에 넣으면 같은 서버로 서빙 가능
+// ══════════════════════════════════════════════
 const FRONTEND_DIR = path.join(__dirname, "frontend");
-app.use(express.static(FRONTEND_DIR));
+if (fs.existsSync(FRONTEND_DIR)) {
+  app.use(express.static(FRONTEND_DIR));
+}
 
-// '0.0.0.0'을 명시해서 IPv4로 명확하게 바인딩합니다.
-// (host를 생략하면 환경에 따라 IPv6(::)로만 열려서 localhost 접속이 안 되는 경우가 있습니다)
+// ══════════════════════════════════════════════
+// 12. 서버 시작
+// ══════════════════════════════════════════════
 app.listen(PORT, "0.0.0.0", () => {
-  console.log(`✅ TEAM 아토 백엔드 서버 실행 중: http://localhost:${PORT}`);
-  console.log(`   통계 확인: http://localhost:${PORT}/api/stats`);
+  console.log(`✅ TEAM 아토 백엔드 실행 중: http://localhost:${PORT}`);
+  console.log(`   통계: http://localhost:${PORT}/api/stats`);
 });
 
 process.on("uncaughtException", (err) => {
