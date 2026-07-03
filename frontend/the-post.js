@@ -76,3 +76,32 @@ navLinks.querySelectorAll('a').forEach(a =>
   }
   draw();
 })();
+
+/* ════════ 난이도 선택 → 다운로드 버튼 href 동적 변경 ════════ */
+(function () {
+  const API_BASE = "http://localhost:3000";
+
+  const diffMap = {
+    "normal":       "NORMAL",
+    "hard":         "HARD",
+    "very-hard":    "VERY HARD",
+    "extreme-hard": "EXTREME",
+  };
+
+  function updateDlLinks(diff) {
+    const url = `${API_BASE}/api/maps/download/the-post?difficulty=${diff}`;
+    document.querySelectorAll(".js-map-dl-btn").forEach(el => {
+      el.href = url;
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".diff-btn").forEach(btn => {
+      btn.addEventListener("click", function () {
+        document.querySelectorAll(".diff-btn").forEach(b => b.classList.remove("active"));
+        this.classList.add("active");
+        updateDlLinks(this.dataset.diff);
+      });
+    });
+  });
+})();

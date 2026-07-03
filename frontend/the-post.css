@@ -713,3 +713,39 @@
   .gallery-item.large              { grid-column: span 1; aspect-ratio: 16 / 9; }
   .back-bar                        { display: none; }
 }
+/* ── 난이도 선택 (THE POST 다운로드 카드) ── */
+.diff-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  color: #94a3b8;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+}
+.diff-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.diff-btn {
+  padding: 6px 4px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  border: 1.5px solid rgba(255,255,255,.12);
+  border-radius: 6px;
+  background: transparent;
+  color: #94a3b8;
+  cursor: pointer;
+  transition: background .15s, border-color .15s, color .15s;
+}
+.diff-btn:hover {
+  border-color: var(--tp-accent);
+  color: var(--tp-accent);
+}
+.diff-btn.active {
+  background: var(--tp-accent);
+  border-color: var(--tp-accent);
+  color: #0f172a;
+}

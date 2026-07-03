@@ -68,8 +68,8 @@
           <span class="dtag dtag-genre">점프맵</span>
         </div>
         <div class="detail-hero-btns">
-          <a href="https://did20031.wixsite.com/teamatoofficial/복제-the-post-리옵쉐"
-             target="_blank" class="btn-dl-main js-dl-track" data-map-id="the-post">
+          <a href="http://localhost:3000/api/maps/download/the-post?difficulty=normal"
+             class="btn-dl-main js-map-dl-btn" data-map-id="the-post">
             ↓ 맵 다운로드
           </a>
           <a href="#resources" class="btn-dl-res">
@@ -306,8 +306,18 @@
           <!-- 다운로드 카드 -->
           <div class="sidebar-card">
             <p class="sidebar-dl-title">다운로드</p>
-            <a href="https://did20031.wixsite.com/teamatoofficial/복제-the-post-리옵쉐"
-               target="_blank" class="sidebar-dl-btn primary js-dl-track" data-map-id="the-post">
+
+            <!-- 난이도 선택 -->
+            <p class="diff-label">난이도 선택</p>
+            <div class="diff-group">
+              <button class="diff-btn active" data-diff="normal">NORMAL</button>
+              <button class="diff-btn" data-diff="hard">HARD</button>
+              <button class="diff-btn" data-diff="very-hard">VERY HARD</button>
+              <button class="diff-btn" data-diff="extreme-hard">EXTREME</button>
+            </div>
+
+            <a href="http://localhost:3000/api/maps/download/the-post?difficulty=normal"
+               class="sidebar-dl-btn primary js-map-dl-btn" data-map-id="the-post">
               맵 다운로드
               <span>↗</span>
             </a>

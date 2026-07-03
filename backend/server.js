@@ -144,6 +144,54 @@ app.get("/api/stats/page/:page", (req, res) => {
 });
 
 // ───────────────────────────────────────────────
+// 맵 파일 다운로드 + 다운로드 카운트 동시 처리
+// 파일은 backend/uploads/maps/ 폴더에 넣어두면 됩니다.
+// ───────────────────────────────────────────────
+const fs = require("fs");
+const MAPS_DIR = path.join(__dirname, "uploads", "maps");
+
+// 파일명 매핑 테이블
+const MAP_FILES = {
+  "guidam-police-1":       "귀담경찰 시즌 1.zip",
+  "guidam-police-2":       "귀담경찰 시즌 2.zip",
+  "missing-color-1":       "MISSING COLOR 1.zip",
+  "missing-color-2":       "MISSING COLOR 2.zip",
+  "color-jump":            "C O L O R J U M P.zip",
+  "lain":                  "LAIN.zip",
+  "the-coop":              "THE CO_OP.zip",
+  "the-post-normal":       "The Post NORMAL V1.223.zip",
+  "the-post-hard":         "The Post HARD V1.223.zip",
+  "the-post-very-hard":    "The Post VERY HARD V1.3.zip",
+  "the-post-extreme-hard": "The Post EXTREME HARD V1.4.zip",
+};
+
+app.get("/api/maps/download/:mapId", (req, res) => {
+  const { mapId } = req.params;
+  const { difficulty } = req.query;
+
+  const key = (mapId === "the-post" && difficulty)
+    ? `the-post-${difficulty}`
+    : mapId;
+
+  const filename = MAP_FILES[key];
+  if (!filename) {
+    return res.status(404).json({ error: `'${key}' 에 해당하는 파일 설정이 없습니다.` });
+  }
+
+  const filePath = path.join(MAPS_DIR, filename);
+  if (!fs.existsSync(filePath)) {
+    return res.status(404).json({ error: `파일을 찾을 수 없습니다: ${filename}` });
+  }
+
+  // 다운로드 카운트 (파일이 실제로 전송될 때만 집계)
+  const db = readDb();
+  db.mapDownloads[mapId] = (db.mapDownloads[mapId] || 0) + 1;
+  writeDb(db);
+
+  res.download(filePath, filename);
+});
+
+// ───────────────────────────────────────────────
 // 리소스팩 파일 다운로드
 // backend/uploads/resources/ 폴더 안의 파일을 서빙합니다.
 // ───────────────────────────────────────────────
