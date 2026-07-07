@@ -616,3 +616,52 @@ footer small { font-size: 13px; color: rgba(255,255,255,0.25); }
   color: var(--blue) !important;
   font-weight: 700;
 }
+/* ════════════ 스크린샷 라이트박스 (공통) ════════════ */
+.lightbox {
+  display: none;
+  position: fixed; inset: 0; z-index: 3000;
+  background: rgba(10,11,14,0.94);
+  align-items: center; justify-content: center;
+  backdrop-filter: blur(6px);
+}
+.lightbox.open { display: flex; }
+.lightbox-img {
+  max-width: 88vw; max-height: 84vh;
+  border-radius: 10px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  object-fit: contain;
+  user-select: none;
+}
+.lightbox-close {
+  position: absolute; top: 22px; right: 28px;
+  width: 42px; height: 42px; border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: #fff; font-size: 18px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+}
+.lightbox-close:hover { background: rgba(255,255,255,0.18); }
+.lightbox-nav {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 52px; height: 52px; border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: #fff; font-size: 26px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+}
+.lightbox-nav:hover { background: rgba(255,255,255,0.18); }
+.lightbox-prev { left: 24px; }
+.lightbox-next { right: 24px; }
+.lightbox-count {
+  position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%);
+  font-size: 13px; color: rgba(255,255,255,0.6);
+  letter-spacing: 0.05em;
+}
+@media (max-width: 640px) {
+  .lightbox-nav   { width: 42px; height: 42px; font-size: 20px; }
+  .lightbox-prev  { left: 10px; }
+  .lightbox-next  { right: 10px; }
+  .lightbox-close { top: 14px; right: 14px; width: 36px; height: 36px; font-size: 15px; }
+}

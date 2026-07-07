@@ -81,3 +81,49 @@ navLinks.querySelectorAll('a').forEach(a =>
   }
   draw();
 })();
+/* ── 스크린샷 갤러리 라이트박스 ── */
+(function () {
+  const grid = document.getElementById('galleryGrid');
+  if (!grid) return;
+
+  const items = [...grid.querySelectorAll('.gallery-item')];
+  const imgs  = items.map(el => el.querySelector('img')?.src).filter(Boolean);
+  if (!imgs.length) return;
+
+  const lightbox     = document.getElementById('lightbox');
+  const lightboxImg   = document.getElementById('lightboxImg');
+  const lightboxCount = document.getElementById('lightboxCount');
+  const btnClose = document.getElementById('lightboxClose');
+  const btnPrev  = document.getElementById('lightboxPrev');
+  const btnNext  = document.getElementById('lightboxNext');
+
+  let idx = 0;
+
+  function show(i) {
+    idx = (i + imgs.length) % imgs.length;
+    lightboxImg.src = imgs[idx];
+    lightboxCount.textContent = `${idx + 1} / ${imgs.length}`;
+  }
+  function open(i) {
+    show(i);
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function close() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  items.forEach((el, i) => el.addEventListener('click', () => open(i)));
+  btnClose.addEventListener('click', close);
+  btnPrev.addEventListener('click', () => show(idx - 1));
+  btnNext.addEventListener('click', () => show(idx + 1));
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) close(); });
+
+  document.addEventListener('keydown', e => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape')     close();
+    if (e.key === 'ArrowLeft')  show(idx - 1);
+    if (e.key === 'ArrowRight') show(idx + 1);
+  });
+})();

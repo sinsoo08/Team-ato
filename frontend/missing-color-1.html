@@ -155,23 +155,32 @@
       <!-- 갤러리 -->
       <div class="gallery-section">
         <p class="section-label">SCREENSHOTS</p>
-        <div class="gallery-grid">
-          <div class="gallery-item large">
-            <span class="gallery-placeholder">스크린샷 준비 중</span>
+        <div class="gallery-grid" id="galleryGrid">
+          <div class="gallery-item large" data-idx="0">
+            <img src="img/map/missing-color-1/shot-1.png" alt="MISSING COLOR 1 스크린샷 1" loading="lazy"/>
           </div>
-          <div class="gallery-item">
-            <span class="gallery-placeholder">스크린샷</span>
+          <div class="gallery-item" data-idx="1">
+            <img src="img/map/missing-color-1/shot-2.png" alt="MISSING COLOR 1 스크린샷 2" loading="lazy"/>
           </div>
-          <div class="gallery-item">
-            <span class="gallery-placeholder">스크린샷</span>
+          <div class="gallery-item" data-idx="2">
+            <img src="img/map/missing-color-1/shot-3.png" alt="MISSING COLOR 1 스크린샷 3" loading="lazy"/>
           </div>
-          <div class="gallery-item">
-            <span class="gallery-placeholder">스크린샷</span>
+          <div class="gallery-item" data-idx="3">
+            <img src="img/map/missing-color-1/shot-4.png" alt="MISSING COLOR 1 스크린샷 4" loading="lazy"/>
           </div>
-          <div class="gallery-item">
-            <span class="gallery-placeholder">스크린샷</span>
+          <div class="gallery-item" data-idx="4">
+            <img src="img/map/missing-color-1/shot-5.png" alt="MISSING COLOR 1 스크린샷 5" loading="lazy"/>
           </div>
         </div>
+      </div>
+
+      <!-- 라이트박스 -->
+      <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">✕</button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev">‹</button>
+        <img class="lightbox-img" id="lightboxImg" src="" alt=""/>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext">›</button>
+        <div class="lightbox-count" id="lightboxCount"></div>
       </div>
 
       <!-- 시스템 요구사항 -->
