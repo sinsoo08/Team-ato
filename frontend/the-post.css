@@ -229,6 +229,12 @@
   inset: 0;
   background: linear-gradient(to bottom, transparent 35%, rgba(2,12,16,0.75) 100%);
 }
+/* 타이틀 이미지가 가로가 넓은 스크린샷이라 cover로 자르면
+   글자/구조물이 잘려서 보이므로 이 페이지만 전체가 보이게 처리 */
+.cover-photo {
+  object-fit: contain;
+  background: linear-gradient(160deg, #04222e, #083d52);
+}
 /* 격자 오버레이 */
 .detail-cover-img::before {
   content: '';
