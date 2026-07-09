@@ -665,3 +665,18 @@ footer small { font-size: 13px; color: rgba(255,255,255,0.25); }
   .lightbox-next  { right: 10px; }
   .lightbox-close { top: 14px; right: 14px; width: 36px; height: 36px; font-size: 15px; }
 }
+
+/* ════════════ 맵 상세 히어로 대표 이미지 (공통) ════════════ */
+.detail-cover-img { z-index: 0; }
+.cover-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.detail-cover-img::after { z-index: 1; }
+.cover-badge, .cover-version, .cover-dl-count, .cover-duo, .cover-colors {
+  z-index: 2;
+}
