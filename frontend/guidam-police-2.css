@@ -233,6 +233,14 @@
   font-family: var(--mono);
   z-index: 1;
 }
+.cover-dl-count {
+  position: absolute;
+  bottom: 16px; right: 16px;
+  font-size: 11px; font-weight: 600;
+  color: rgba(255,255,255,0.6);
+  font-family: var(--mono);
+  z-index: 1;
+}
 
 /* ── 정보 바 ── */
 .info-bar {
