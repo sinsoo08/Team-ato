@@ -7,7 +7,7 @@
 :root {
   --gp-accent:   #e85555;
   --gp-deep:     #b91c1c;
-  --gp-glow:     rgba(232,85,85,0.16);
+  --gp-glow:     rgba(232,85,85,0.22);
   --gp-border:   rgba(232,85,85,0.25);
   --gp-tag-c:    rgba(232,85,85,0.9);
   --gp-tag-bg:   rgba(232,85,85,0.08);
@@ -17,8 +17,11 @@
 /* ── 히어로 ── */
 .detail-hero {
   position: relative;
-  background: linear-gradient(160deg, #110404 0%, #2d0a0a 55%, #1a0505 100%);
-  padding: calc(var(--nav-h) + 80px) 0 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(160deg, #110404 0%, #350b0b 55%, #1a0505 100%);
+  padding: calc(var(--nav-h) + 60px) 0 60px;
   overflow: hidden;
 }
 
@@ -32,10 +35,10 @@
 .detail-hero::before {
   content: '';
   position: absolute;
-  width: 600px; height: 600px;
+  width: 900px; height: 900px;
   border-radius: 50%;
   background: radial-gradient(circle, var(--gp-glow) 0%, transparent 70%);
-  top: 10%; left: 50%; transform: translateX(-50%);
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
   pointer-events: none;
 }
 
@@ -46,12 +49,12 @@
   padding: 0 20px;
   display: grid;
   grid-template-columns: 1fr 420px;
-  gap: 64px;
-  align-items: end;
+  gap: 140px;
+  align-items: center;
   padding-bottom: 0;
 }
 
-.detail-hero-left { padding-bottom: 64px; }
+.detail-hero-left { padding-bottom: 0; max-width: 500px; }
 
 .detail-eyebrow {
   display: inline-flex;

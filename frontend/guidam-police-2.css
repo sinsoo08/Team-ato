@@ -7,7 +7,7 @@
 :root {
   --gp2-accent:  #f0a030;
   --gp2-deep:    #b45309;
-  --gp2-glow:    rgba(240,160,48,0.15);
+  --gp2-glow:    rgba(240,160,48,0.21);
   --gp2-border:  rgba(240,160,48,0.25);
   --gp2-tag-c:   rgba(240,160,48,0.95);
   --gp2-tag-bg:  rgba(240,160,48,0.08);
@@ -17,8 +17,11 @@
 /* ── 히어로 ── */
 .detail-hero {
   position: relative;
-  background: linear-gradient(160deg, #140e00 0%, #302000 55%, #1c1200 100%);
-  padding: calc(var(--nav-h) + 80px) 0 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(160deg, #140e00 0%, #382500 55%, #1c1200 100%);
+  padding: calc(var(--nav-h) + 60px) 0 60px;
   overflow: hidden;
 }
 
@@ -32,10 +35,10 @@
 .detail-hero::before {
   content: '';
   position: absolute;
-  width: 600px; height: 600px;
+  width: 900px; height: 900px;
   border-radius: 50%;
   background: radial-gradient(circle, var(--gp2-glow) 0%, transparent 70%);
-  top: 10%; left: 50%; transform: translateX(-50%);
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
   pointer-events: none;
 }
 
@@ -46,12 +49,12 @@
   padding: 0 20px;
   display: grid;
   grid-template-columns: 1fr 420px;
-  gap: 64px;
-  align-items: end;
+  gap: 140px;
+  align-items: center;
   padding-bottom: 0;
 }
 
-.detail-hero-left { padding-bottom: 64px; }
+.detail-hero-left { padding-bottom: 0; max-width: 500px; }
 
 .detail-eyebrow {
   display: inline-flex;
@@ -409,7 +412,7 @@
   aspect-ratio: 16 / 9;
   border-radius: 8px;
   background: linear-gradient(135deg, #302000, #5c3800);
-  border: 1px solid rgba(240,160,48,0.15);
+  border: 1px solid rgba(240,160,48,0.21);
   display: flex;
   align-items: center;
   justify-content: center;
