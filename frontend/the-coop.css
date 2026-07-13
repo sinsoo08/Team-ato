@@ -8,7 +8,7 @@
   --co-accent:  #5ac86e;
   --co-deep:    #16a34a;
   --co-darker:  #15803d;
-  --co-glow:    rgba(90,200,110,0.15);
+  --co-glow:    rgba(90,200,110,0.21);
   --co-border:  rgba(90,200,110,0.25);
   --co-tag-c:   rgba(134,239,172,0.95);
   --co-tag-bg:  rgba(90,200,110,0.08);
@@ -18,8 +18,11 @@
 /* ── 히어로 ── */
 .detail-hero {
   position: relative;
-  background: linear-gradient(160deg, #040e04 0%, #102010 55%, #061a08 100%);
-  padding: calc(var(--nav-h) + 80px) 0 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(160deg, #040e04 0%, #122512 55%, #061a08 100%);
+  padding: calc(var(--nav-h) + 60px) 0 60px;
   overflow: hidden;
 }
 
@@ -33,10 +36,10 @@
 .detail-hero::before {
   content: '';
   position: absolute;
-  width: 700px; height: 700px;
+  width: 1000px; height: 1000px;
   border-radius: 50%;
   background: radial-gradient(circle, var(--co-glow) 0%, transparent 65%);
-  top: 0%; left: 50%; transform: translateX(-50%);
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
   pointer-events: none;
 }
 
@@ -47,12 +50,12 @@
   padding: 0 20px;
   display: grid;
   grid-template-columns: 1fr 420px;
-  gap: 64px;
+  gap: 140px;
   align-items: end;
   padding-bottom: 0;
 }
 
-.detail-hero-left { padding-bottom: 64px; }
+.detail-hero-left { padding-bottom: 0; max-width: 500px; }
 
 .detail-eyebrow {
   display: inline-flex;
@@ -401,7 +404,7 @@
   aspect-ratio: 16 / 9;
   border-radius: 8px;
   background: linear-gradient(135deg, #102010, #1f3a1f);
-  border: 1px solid rgba(90,200,110,0.15);
+  border: 1px solid rgba(90,200,110,0.21);
   display: flex;
   align-items: center;
   justify-content: center;

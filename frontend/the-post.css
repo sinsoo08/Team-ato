@@ -8,7 +8,7 @@
   --tp-accent:  #22d3ee;
   --tp-deep:    #0891b2;
   --tp-darker:  #0e7490;
-  --tp-glow:    rgba(34,211,238,0.14);
+  --tp-glow:    rgba(34,211,238,0.2);
   --tp-border:  rgba(34,211,238,0.22);
   --tp-tag-c:   rgba(103,232,249,0.95);
   --tp-tag-bg:  rgba(34,211,238,0.08);
@@ -18,8 +18,11 @@
 /* ── 히어로 ── */
 .detail-hero {
   position: relative;
-  background: linear-gradient(160deg, #020c10 0%, #04222e 55%, #051820 100%);
-  padding: calc(var(--nav-h) + 80px) 0 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(160deg, #020c10 0%, #042836 55%, #051820 100%);
+  padding: calc(var(--nav-h) + 60px) 0 60px;
   overflow: hidden;
 }
 
@@ -45,10 +48,10 @@
 .detail-hero::before {
   content: '';
   position: absolute;
-  width: 700px; height: 700px;
+  width: 1000px; height: 1000px;
   border-radius: 50%;
   background: radial-gradient(circle, var(--tp-glow) 0%, transparent 65%);
-  top: -5%; left: 50%; transform: translateX(-50%);
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
   pointer-events: none;
 }
 
@@ -59,12 +62,12 @@
   padding: 0 20px;
   display: grid;
   grid-template-columns: 1fr 420px;
-  gap: 64px;
+  gap: 140px;
   align-items: end;
   padding-bottom: 0;
 }
 
-.detail-hero-left { padding-bottom: 64px; }
+.detail-hero-left { padding-bottom: 0; max-width: 500px; }
 
 .detail-eyebrow {
   display: inline-flex;
@@ -415,7 +418,7 @@
   aspect-ratio: 16 / 9;
   border-radius: 8px;
   background: linear-gradient(135deg, #04222e, #083d52);
-  border: 1px solid rgba(34,211,238,0.14);
+  border: 1px solid rgba(34,211,238,0.2);
   display: flex;
   align-items: center;
   justify-content: center;

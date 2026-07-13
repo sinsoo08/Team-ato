@@ -6,8 +6,11 @@
 /* ── 히어로 ── */
 .detail-hero {
   position: relative;
-  background: linear-gradient(160deg, #040e1a 0%, #0d2a40 55%, #061830 100%);
-  padding: calc(var(--nav-h) + 80px) 0 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(160deg, #040e1a 0%, #0f314b 55%, #061830 100%);
+  padding: calc(var(--nav-h) + 60px) 0 60px;
   overflow: hidden;
 }
 
@@ -21,10 +24,10 @@
 .detail-hero::before {
   content: '';
   position: absolute;
-  width: 600px; height: 600px;
+  width: 900px; height: 900px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(58,157,232,0.18) 0%, transparent 70%);
-  top: 10%; left: 50%; transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(58,157,232,0.24) 0%, transparent 70%);
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
   pointer-events: none;
 }
 
@@ -35,14 +38,12 @@
   padding: 0 20px;
   display: grid;
   grid-template-columns: 1fr 420px;
-  gap: 64px;
+  gap: 140px;
   align-items: end;
   padding-bottom: 0;
 }
 
-.detail-hero-left {
-  padding-bottom: 64px;
-}
+.detail-hero-left { padding-bottom: 0; max-width: 500px; }
 
 .detail-eyebrow {
   display: inline-flex;
