@@ -15,7 +15,7 @@
   --nav-h:    80px;
   /* Full HD 기준 최대 너비 */
   --max-w:    100vw;
-  --min-w:    60rem;
+  --min-w:    320px;
   --content-w:min(1200px, 90vw);
   --font:     'Pretendard', -apple-system, sans-serif;
   --pixel:    'Press Start 2P', monospace;
