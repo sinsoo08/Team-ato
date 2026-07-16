@@ -763,3 +763,10 @@ footer small { font-size: 13px; color: rgba(255,255,255,0.25); }
   .gv-arrow { width: 36px; height: 36px; font-size: 16px; }
   .gv-thumb { width: 76px; }
 }
+
+/* ════════════ 브레드크럼+히어로+정보바 묶음 - 첫 화면에 딱 맞게 채움 ════════════ */
+.detail-top-wrap {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}

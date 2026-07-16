@@ -17,7 +17,7 @@
 /* ── 히어로 ── */
 .detail-hero {
   position: relative;
-  min-height: 100vh;
+  flex: 1;
   display: flex;
   align-items: center;
   background: linear-gradient(160deg, #110404 0%, #350b0b 55%, #1a0505 100%);
