@@ -77,49 +77,69 @@ navLinks.querySelectorAll('a').forEach(a =>
   }
   draw();
 })();
-/* ── 스크린샷 갤러리 라이트박스 ── */
+/* ── 갤러리 뷰어 + 라이트박스 ── */
 (function () {
-  const grid = document.getElementById('galleryGrid');
-  if (!grid) return;
+  const thumbs = [...document.querySelectorAll('.gv-thumb')];
+  if (!thumbs.length) return;
+  const images = thumbs.map(t => t.querySelector('img')?.src).filter(Boolean);
+  if (!images.length) return;
 
-  const items = [...grid.querySelectorAll('.gallery-item')];
-  const imgs  = items.map(el => el.querySelector('img')?.src).filter(Boolean);
-  if (!imgs.length) return;
+  const mainImg  = document.getElementById('gvMainImg');
+  const counter  = document.getElementById('gvCounter');
+  const mainWrap = document.getElementById('gvMain');
+  const prevBtn  = document.getElementById('gvPrev');
+  const nextBtn  = document.getElementById('gvNext');
 
-  const lightbox     = document.getElementById('lightbox');
-  const lightboxImg   = document.getElementById('lightboxImg');
-  const lightboxCount = document.getElementById('lightboxCount');
-  const btnClose = document.getElementById('lightboxClose');
-  const btnPrev  = document.getElementById('lightboxPrev');
-  const btnNext  = document.getElementById('lightboxNext');
+  const lightbox      = document.getElementById('lightbox');
+  const lightboxImg    = document.getElementById('lightboxImg');
+  const lightboxCount  = document.getElementById('lightboxCount');
+  const lbClose = document.getElementById('lightboxClose');
+  const lbPrev  = document.getElementById('lightboxPrev');
+  const lbNext  = document.getElementById('lightboxNext');
 
   let idx = 0;
 
+  function render() {
+    mainImg.src = images[idx];
+    counter.textContent = `${idx + 1} / ${images.length}`;
+    thumbs.forEach((t, i) => t.classList.toggle('active', i === idx));
+    if (lightbox && lightbox.classList.contains('open')) {
+      lightboxImg.src = images[idx];
+      lightboxCount.textContent = `${idx + 1} / ${images.length}`;
+    }
+  }
   function show(i) {
-    idx = (i + imgs.length) % imgs.length;
-    lightboxImg.src = imgs[idx];
-    lightboxCount.textContent = `${idx + 1} / ${imgs.length}`;
-  }
-  function open(i) {
-    show(i);
-    lightbox.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function close() {
-    lightbox.classList.remove('open');
-    document.body.style.overflow = '';
+    idx = (i + images.length) % images.length;
+    render();
   }
 
-  items.forEach((el, i) => el.addEventListener('click', () => open(i)));
-  btnClose.addEventListener('click', close);
-  btnPrev.addEventListener('click', () => show(idx - 1));
-  btnNext.addEventListener('click', () => show(idx + 1));
-  lightbox.addEventListener('click', e => { if (e.target === lightbox) close(); });
+  thumbs.forEach((t, i) => t.addEventListener('click', () => show(i)));
+  prevBtn.addEventListener('click', () => show(idx - 1));
+  nextBtn.addEventListener('click', () => show(idx + 1));
 
-  document.addEventListener('keydown', e => {
-    if (!lightbox.classList.contains('open')) return;
-    if (e.key === 'Escape')     close();
-    if (e.key === 'ArrowLeft')  show(idx - 1);
-    if (e.key === 'ArrowRight') show(idx + 1);
-  });
+  if (lightbox) {
+    function openLightbox() {
+      lightboxImg.src = images[idx];
+      lightboxCount.textContent = `${idx + 1} / ${images.length}`;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    mainWrap.addEventListener('click', openLightbox);
+    lbClose.addEventListener('click', closeLightbox);
+    lbPrev.addEventListener('click', () => show(idx - 1));
+    lbNext.addEventListener('click', () => show(idx + 1));
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape')     closeLightbox();
+      if (e.key === 'ArrowLeft')  show(idx - 1);
+      if (e.key === 'ArrowRight') show(idx + 1);
+    });
+  }
+
+  render();
 })();
