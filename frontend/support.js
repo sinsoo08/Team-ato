@@ -312,9 +312,11 @@ ZIP 압축을 해제하면 <code>server/</code> 폴더 안에 <code>start.bat</c
 
   // 실제로 항목이 있는 카테고리만 표시
   const activeCats = CATEGORIES.filter(c => countByCat[c.id] > 0);
+  // 상단 버튼 그리드에는 '기타 문의'는 제외 (사이드 목차/FAQ에는 그대로 유지)
+  const gridCats = activeCats.filter(c => c.id !== 'etc');
 
   // 1. 카테고리 카드 렌더링
-  catGrid.innerHTML = activeCats.map(c => `
+  catGrid.innerHTML = gridCats.map(c => `
     <button class="sp-cat" data-cat="${c.id}">
       <span class="sp-cat-icon">${c.icon}</span>
       <span class="sp-cat-name">${c.name}</span>
