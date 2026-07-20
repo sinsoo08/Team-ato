@@ -112,34 +112,25 @@
 /* ════════ 카드 스크롤 reveal ════════ */
 (function () {
   const cards = document.querySelectorAll('.mc');
+  if (!cards.length) return;
 
   const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-
-      // 같은 행의 카드들을 함께 stagger
-      const siblings = [...document.querySelectorAll('.mc:not(.visible):not(.hidden)')];
-      const visible  = siblings.filter(s => {
-        const r = s.getBoundingClientRect();
-        return r.top < window.innerHeight + 20;
-      });
-
-      visible.forEach((el, i) => {
+    const entering = entries.filter(e => e.isIntersecting);
+    entering.forEach((e, i) => {
+      const el = e.target;
+      obs.unobserve(el);
+      setTimeout(() => {
+        el.classList.add('visible');
+        // 다운로드 바 애니메이션 — 카드 보인 뒤 딜레이
         setTimeout(() => {
-          el.classList.add('visible');
-          // 다운로드 바 애니메이션 — 카드 보인 뒤 딜레이
-          setTimeout(() => {
-            const bar = el.querySelector('.mc-dl-bar');
-            if (bar) bar.style.width = bar.style.getPropertyValue('--pct') || getComputedStyle(bar).getPropertyValue('--pct');
-          }, 200);
-        }, i * 70);
-      });
-
-      obs.disconnect();
+          const bar = el.querySelector('.mc-dl-bar');
+          if (bar) bar.style.width = bar.style.getPropertyValue('--pct') || getComputedStyle(bar).getPropertyValue('--pct');
+        }, 200);
+      }, i * 70);
     });
   }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
 
-  if (cards.length) obs.observe(cards[0]);
+  cards.forEach(c => obs.observe(c));
 })();
 
 
