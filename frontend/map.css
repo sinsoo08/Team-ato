@@ -235,6 +235,23 @@
   overflow: hidden;
 }
 
+.mc-thumb-img {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  transition: transform 0.35s ease;
+}
+.mc:hover .mc-thumb-img { transform: scale(1.05); }
+.mc-top:has(.mc-thumb-img)::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
 /* 배경 glow 이펙트 */
 .mc-top::after {
   content: '';
@@ -265,6 +282,7 @@
   color: rgba(255,255,255,0.5);
   text-transform: uppercase;
   position: relative;
+  z-index: 2;
   z-index: 1;
 }
 
@@ -272,7 +290,7 @@
   display: flex;
   gap: 5px;
   position: relative;
-  z-index: 1;
+  z-index: 2;
   min-height: 20px;
 }
 
