@@ -385,6 +385,7 @@ a { text-decoration: none; color: inherit; }
   flex-direction: column;
   padding: 6px 22px;
 }
+.notice-item-wrap { display: block; }
 .notice-item {
   display: flex;
   align-items: center;
@@ -392,10 +393,11 @@ a { text-decoration: none; color: inherit; }
   padding: 16px 4px;
   border-bottom: 1px solid var(--border);
   transition: background 0.14s;
+  cursor: pointer;
 }
-.notice-item:last-child { border-bottom: none; }
+.notice-item-wrap:last-child .notice-item { border-bottom: none; }
 .notice-item:hover { background: var(--gray); }
-.notice-item:first-child .notice-title { font-weight: 700; }
+.notice-item-wrap:first-child .notice-title { font-weight: 700; }
 .notice-tag {
   flex-shrink: 0;
   font-size: 11px;

@@ -66,7 +66,7 @@
 
 /* ════════════ 목록 ════════════ */
 .nt-board .notice-list { padding: 6px 22px; }
-.notice-item[hidden] { display: none; }
+.notice-item-wrap[hidden] { display: none; }
 
 .nt-empty {
   display: none;

@@ -1,0 +1,151 @@
+/* ══════════════════════════════════
+   TEAM 아토 — notice-detail.css
+══════════════════════════════════ */
+
+.nd-section {
+  background: var(--white);
+  padding: calc(var(--nav-h) + 40px) 0 90px;
+}
+
+.nd-back {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 22px;
+  transition: color 0.14s;
+}
+.nd-back:hover { color: var(--blue); }
+
+/* ════════ 이전글/현재글/다음글/최신글 목록 ════════ */
+.nd-nav-list {
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 18px;
+  background: var(--white);
+}
+.nd-nav-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13.5px;
+}
+.nd-nav-row:last-child { border-bottom: none; }
+
+.nd-nav-label {
+  flex-shrink: 0;
+  width: 56px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.nd-nav-title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text);
+}
+a.nd-nav-title:hover { color: var(--blue); }
+.nd-nav-title em {
+  font-style: normal;
+  font-size: 11px;
+  color: var(--blue);
+  margin-left: 4px;
+}
+
+.nd-nav-date {
+  flex-shrink: 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.nd-nav-empty .nd-nav-title { color: var(--muted); }
+
+.nd-nav-current {
+  background: var(--gray);
+}
+.nd-nav-current .nd-nav-label { color: var(--blue); }
+.nd-nav-current .nd-nav-title { font-weight: 700; }
+
+@media (max-width: 560px) {
+  .nd-nav-date { display: none; }
+  .nd-nav-row { padding: 11px 14px; font-size: 13px; }
+  .nd-nav-label { width: 48px; }
+}
+
+.nd-article {
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+
+.nd-head {
+  padding: 30px 32px 26px;
+  border-bottom: 1px solid var(--border);
+  background: var(--gray);
+}
+.nd-head-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.nd-date { font-size: 12px; color: var(--muted); }
+
+.nd-title {
+  font-size: clamp(19px, 2.6vw, 26px);
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  line-height: 1.4;
+}
+
+.nd-body {
+  padding: 32px;
+}
+.nd-body p {
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+.nd-body p:last-child { margin-bottom: 0; }
+
+/* ════════ 못 찾은 경우 ════════ */
+.nd-notfound {
+  padding: 70px 32px;
+  text-align: center;
+}
+.nd-notfound-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.nd-notfound-desc {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 26px;
+}
+.nd-notfound-btn {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--blue);
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: background 0.14s;
+}
+.nd-notfound-btn:hover { background: var(--blue-d); }
+
+@media (max-width: 680px) {
+  .nd-head { padding: 24px 20px 20px; }
+  .nd-body { padding: 24px 20px; }
+}

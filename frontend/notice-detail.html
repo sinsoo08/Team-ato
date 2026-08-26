@@ -13,6 +13,7 @@
   <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet"/>
   <link rel="stylesheet" href="main.css"/>
   <link rel="stylesheet" href="notice.css"/>
+  <link rel="stylesheet" href="notice-detail.css"/>
 </head>
 <body>
 
@@ -41,15 +42,6 @@
     <button class="burger" id="burger">☰</button>
   </nav>
 
-  <!-- ── 히어로 ── -->
-  <header class="nt-hero">
-    <div class="nt-hero-inner">
-      <p class="nt-eyebrow">NOTICE</p>
-      <h1 class="nt-title">공지사항</h1>
-      <p class="nt-desc">맵 업데이트, 팀원 모집, 서버 점검 등 TEAM 아토의 새로운 소식을 확인하세요.</p>
-    </div>
-  </header>
-
   <div class="site-layout">
     <aside class="ad-sidebar ad-left">
       <div class="ad-sticky">
@@ -61,25 +53,15 @@
     </aside>
 
     <main class="site-main">
-      <section class="nt-section">
+      <section class="nd-section">
         <div class="wrap">
+          <a href="notice.html" class="nd-back">← 공지사항 목록</a>
 
-          <!-- ── 카테고리 필터 ── -->
-          <div class="nt-tabs" id="ntTabs">
-            <button class="nt-tab active" data-cat="all">전체</button>
-            <button class="nt-tab" data-cat="update">맵 업데이트</button>
-            <button class="nt-tab" data-cat="recruit">팀원 모집</button>
-            <button class="nt-tab" data-cat="notice">공지</button>
-            <button class="nt-tab" data-cat="check">점검</button>
-            <button class="nt-tab" data-cat="event">이벤트</button>
-          </div>
+          <article class="nd-article" id="ndArticle">
+            <!-- notice-detail.js 가 이 안에 제목/본문을 채워넣습니다 -->
+          </article>
 
-          <div class="notice-board nt-board">
-            <div class="notice-board-bar"></div>
-            <ul class="notice-list" id="noticeList"></ul>
-            <p class="nt-empty" id="ntEmpty">해당 카테고리의 공지사항이 없습니다.</p>
-          </div>
-
+          <div class="nd-related" id="ndRelated"></div>
         </div>
       </section>
     </main>
@@ -117,7 +99,7 @@
 
   <script src="main.js"></script>
   <script src="notice-data.js"></script>
-  <script src="notice.js"></script>
-  <script src="analytics.js" data-page="notice"></script>
+  <script src="notice-detail.js"></script>
+  <script src="analytics.js" data-page="notice-detail"></script>
 </body>
 </html>
