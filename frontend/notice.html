@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>공지사항 — TEAM 아토 OFFICIAL</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png"/>
+  <link rel="icon" type="image/png" sizes="48x48" href="img/favicon-48.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="main.css"/>
+  <link rel="stylesheet" href="notice.css"/>
+</head>
+<body>
+
+  <nav id="nav">
+    <a href="main.html" class="logo"><img src="img/logo.png" alt="TEAM 아토 로고" class="logo-img"/> TEAM <b>아토</b></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="main.html">메인</a></li>
+      <li class="has-drop">
+        <a href="map.html">맵 <span class="arr">▾</span></a>
+        <ul class="dropdown">
+          <li><a href="guidam-police-1.html">귀담경찰 1</a></li>
+          <li><a href="guidam-police-2.html">귀담경찰 2</a></li>
+          <li><a href="missing-color-1.html">MISSING COLOR 1</a></li>
+          <li><a href="missing-color-2.html">MISSING COLOR 2</a></li>
+          <li><a href="color-jump.html">COLOR JUMP</a></li>
+          <li><a href="lain.html">LAIN</a></li>
+          <li><a href="the-post.html">THE POST</a></li>
+          <li><a href="the-coop.html">THE CO-OP</a></li>
+        </ul>
+      </li>
+      <li><a href="notice.html" class="nav-current">공지사항</a></li>
+      <li><a href="support.html">고객 지원</a></li>
+      <li><a href="team.html">팀원 소개</a></li>
+      <li><a href="https://www.patreon.com/c/teamato" target="_blank" class="nav-donate">후원하기</a></li>
+    </ul>
+    <button class="burger" id="burger">☰</button>
+  </nav>
+
+  <!-- ── 히어로 ── -->
+  <header class="nt-hero">
+    <div class="nt-hero-inner">
+      <p class="nt-eyebrow">NOTICE</p>
+      <h1 class="nt-title">공지사항</h1>
+      <p class="nt-desc">맵 업데이트, 팀원 모집, 서버 점검 등 TEAM 아토의 새로운 소식을 확인하세요.</p>
+    </div>
+  </header>
+
+  <div class="site-layout">
+    <aside class="ad-sidebar ad-left">
+      <div class="ad-sticky">
+        <div class="ad-label">AD</div>
+        <div class="ad-slot ad-160x600">
+          <div class="ad-placeholder"><span>160×600</span></div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="site-main">
+      <section class="nt-section">
+        <div class="wrap">
+
+          <!-- ── 카테고리 필터 ── -->
+          <div class="nt-tabs" id="ntTabs">
+            <button class="nt-tab active" data-cat="all">전체</button>
+            <button class="nt-tab" data-cat="update">맵 업데이트</button>
+            <button class="nt-tab" data-cat="recruit">팀원 모집</button>
+            <button class="nt-tab" data-cat="notice">공지</button>
+            <button class="nt-tab" data-cat="check">점검</button>
+            <button class="nt-tab" data-cat="event">이벤트</button>
+          </div>
+
+          <div class="notice-board nt-board">
+            <div class="notice-board-bar"></div>
+            <ul class="notice-list" id="noticeList">
+
+              <li class="notice-item notice-item-important" data-cat="check">
+                <span class="notice-pin">📌 중요</span>
+                <span class="notice-tag notice-tag-check">점검</span>
+                <span class="notice-title">서버 정기 점검 안내 (매주 화요일 새벽 2시~4시)</span>
+                <span class="notice-date">2025.03.20</span>
+              </li>
+
+              <li class="notice-item notice-item-important" data-cat="notice">
+                <span class="notice-pin">📌 중요</span>
+                <span class="notice-tag notice-tag-notice">공지</span>
+                <span class="notice-title">커뮤니티 이용 규칙 개정 안내 (필독)</span>
+                <span class="notice-date">2025.03.15</span>
+              </li>
+
+              <li class="notice-item" data-cat="recruit">
+                <span class="notice-tag notice-tag-recruit">모집</span>
+                <span class="notice-title">빌더 · 레드스톤 팀원을 모집합니다</span>
+                <span class="notice-date">2025.03.05</span>
+              </li>
+
+              <li class="notice-item" data-cat="event">
+                <span class="notice-tag notice-tag-event">이벤트</span>
+                <span class="notice-title">5주년 기념 접속 이벤트 안내</span>
+                <span class="notice-date">2025.02.18</span>
+              </li>
+
+              <li class="notice-item" data-cat="update">
+                <span class="notice-tag notice-tag-update">업데이트</span>
+                <span class="notice-title">귀담경찰 2 맵이 새롭게 추가되었습니다</span>
+                <span class="notice-date">2024.03.10</span>
+              </li>
+
+              <li class="notice-item" data-cat="recruit">
+                <span class="notice-tag notice-tag-recruit">모집</span>
+                <span class="notice-title">TEAM 아토와 함께할 시나리오 팀원을 모집합니다</span>
+                <span class="notice-date">2024.02.20</span>
+              </li>
+
+              <li class="notice-item" data-cat="notice">
+                <span class="notice-tag notice-tag-notice">공지</span>
+                <span class="notice-title">맵 재배포 및 상업적 이용 금지 안내</span>
+                <span class="notice-date">2023.12.05</span>
+              </li>
+
+              <li class="notice-item" data-cat="update">
+                <span class="notice-tag notice-tag-update">업데이트</span>
+                <span class="notice-title">MISSING COLOR 2 맵이 새롭게 추가되었습니다</span>
+                <span class="notice-date">2023.11.02</span>
+              </li>
+
+              <li class="notice-item" data-cat="event">
+                <span class="notice-tag notice-tag-event">이벤트</span>
+                <span class="notice-title">디스코드 서버 오픈 기념 이벤트</span>
+                <span class="notice-date">2023.09.14</span>
+              </li>
+
+              <li class="notice-item" data-cat="update">
+                <span class="notice-tag notice-tag-update">업데이트</span>
+                <span class="notice-title">COLOR JUMP 맵 정식 출시</span>
+                <span class="notice-date">2023.08.01</span>
+              </li>
+
+            </ul>
+            <p class="nt-empty" id="ntEmpty">해당 카테고리의 공지사항이 없습니다.</p>
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <aside class="ad-sidebar ad-right">
+      <div class="ad-sticky">
+        <div class="ad-label">AD</div>
+        <div class="ad-slot ad-160x600">
+          <div class="ad-placeholder"><span>160×600</span></div>
+        </div>
+      </div>
+    </aside>
+  </div><!-- /site-layout -->
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap foot-wrap">
+      <div>
+        <div class="foot-logo">TEAM 아토</div>
+        <small>©2020 - 2025 TEAM 아토 OFFICIAL</small>
+      </div>
+      <div class="foot-nav">
+        <a href="main.html">메인</a>
+        <a href="map.html">맵 목록</a>
+        <a href="notice.html">공지사항</a>
+        <a href="support.html">고객 지원</a>
+        <a href="team.html">팀원 소개</a>
+      </div>
+      <div class="foot-nav">
+        <a href="https://discord.gg/2zyZtytDbK" target="_blank">디스코드</a>
+        <a href="https://www.patreon.com/c/teamato" target="_blank">Patreon</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="notice.js"></script>
+  <script src="analytics.js" data-page="notice"></script>
+</body>
+</html>

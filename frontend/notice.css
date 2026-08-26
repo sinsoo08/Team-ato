@@ -1,0 +1,83 @@
+/* ══════════════════════════════════
+   TEAM 아토 — notice.css
+══════════════════════════════════ */
+
+.nav-current {
+  color: var(--blue) !important;
+  font-weight: 700 !important;
+}
+
+/* ════════════ 히어로 ════════════ */
+.nt-hero {
+  background: var(--dark);
+  padding: calc(var(--nav-h) + 56px) 24px 56px;
+  text-align: center;
+}
+
+.nt-eyebrow {
+  font-family: var(--pixel);
+  font-size: 10px;
+  color: var(--blue-l);
+  letter-spacing: 0.2em;
+  margin-bottom: 18px;
+}
+
+.nt-title {
+  font-size: clamp(26px, 4vw, 40px);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+}
+
+.nt-desc {
+  font-size: 14px;
+  color: rgba(255,255,255,0.45);
+}
+
+/* ════════════ 섹션 ════════════ */
+.nt-section { background: var(--white); padding: 48px 0 80px; }
+
+/* ════════════ 카테고리 탭 ════════════ */
+.nt-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+.nt-tab {
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background 0.14s, color 0.14s, border-color 0.14s;
+}
+.nt-tab:hover { background: var(--gray); color: var(--text); }
+.nt-tab.active {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
+}
+
+/* ════════════ 목록 ════════════ */
+.nt-board .notice-list { padding: 6px 22px; }
+.notice-item[hidden] { display: none; }
+
+.nt-empty {
+  display: none;
+  text-align: center;
+  padding: 40px 4px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.nt-empty.show { display: block; }
+
+@media (max-width: 680px) {
+  .nt-tabs { gap: 6px; }
+  .nt-tab { font-size: 12px; padding: 7px 13px; }
+}
