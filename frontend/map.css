@@ -184,6 +184,29 @@
 }
 .map-sort select:hover { border-color: var(--blue); }
 
+.map-toolbar-right { display: flex; align-items: center; gap: 10px; }
+
+.view-toggle {
+  display: flex;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.vt-btn {
+  display: flex; align-items: center; justify-content: center;
+  width: 34px; height: 32px;
+  background: #fff;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.vt-btn + .vt-btn { border-left: 1.5px solid #e5e7eb; }
+.vt-btn svg { width: 16px; height: 16px; }
+.vt-btn:hover { background: #f5f6f8; color: var(--text); }
+.vt-btn.active { background: var(--blue); color: #fff; }
+
 /* ════════════ 카드 그리드 ════════════ */
 .map-grid {
   display: grid;
@@ -247,7 +270,7 @@
 .mc-top:has(.mc-thumb-img)::before {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 100%);
+  background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.3) 100%);
   pointer-events: none;
   z-index: 1;
 }
@@ -374,7 +397,7 @@
 .mc-dl-bar {
   height: 100%;
   width: 0;                /* JS로 애니메이션 */
-  background: linear-gradient(90deg, var(--bc, var(--blue)), color-mix(in srgb, var(--bc, var(--blue)) 60%, white));
+  background: var(--bc, var(--blue));
   border-radius: 2px;
   transition: width 1s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -453,4 +476,69 @@
   max-width: var(--content-w);
   width: 100%;
   min-width: 0;
+}
+
+/* ════════════ 목록형(리스트) 보기 ════════════ */
+.map-grid.list-view {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.map-grid.list-view .mc {
+  flex-direction: row;
+  align-items: stretch;
+}
+.map-grid.list-view .mc-top {
+  width: 220px;
+  height: auto;
+  flex-shrink: 0;
+  padding: 0;
+}
+.map-grid.list-view .mc-tag { display: none; }
+.map-grid.list-view .mc-badges {
+  position: absolute; top: 8px; right: 8px;
+}
+.map-grid.list-view .mc-body {
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+  padding: 14px 20px;
+}
+.map-grid.list-view .mc-title-row {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  margin-bottom: 0;
+  flex-shrink: 0;
+  width: 190px;
+}
+.map-grid.list-view .mc-body p {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.map-grid.list-view .mc-meta {
+  margin-top: 0;
+  width: 150px;
+  flex-shrink: 0;
+}
+.map-grid.list-view .mc-actions {
+  margin-top: 0;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+}
+
+@media (max-width: 760px) {
+  .map-grid.list-view .mc { flex-direction: column; }
+  .map-grid.list-view .mc-top { width: 100%; height: 170px; }
+  .map-grid.list-view .mc-tag { display: block; }
+  .map-grid.list-view .mc-badges { position: relative; top: auto; right: auto; }
+  .map-grid.list-view .mc-body { flex-direction: column; align-items: stretch; gap: 5px; }
+  .map-grid.list-view .mc-title-row,
+  .map-grid.list-view .mc-meta { width: auto; }
+  .map-grid.list-view .mc-body p { -webkit-line-clamp: unset; }
 }

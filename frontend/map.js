@@ -250,3 +250,27 @@ function dlFeedback(btn) {
     btn.style.borderColor = '';
   }, 2000);
 }
+
+/* ════════ 나열형 / 목록형 보기 전환 ════════ */
+(function () {
+  const grid    = document.getElementById('mapGrid');
+  const toggle  = document.getElementById('viewToggle');
+  if (!grid || !toggle) return;
+
+  const btns = [...toggle.querySelectorAll('.vt-btn')];
+  const STORAGE_KEY = 'mapViewMode';
+
+  function setView(view) {
+    grid.classList.toggle('list-view', view === 'list');
+    btns.forEach(b => b.classList.toggle('active', b.dataset.view === view));
+    try { localStorage.setItem(STORAGE_KEY, view); } catch (e) {}
+  }
+
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => setView(btn.dataset.view));
+  });
+
+  let saved = null;
+  try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+  if (saved === 'list' || saved === 'grid') setView(saved);
+})();
