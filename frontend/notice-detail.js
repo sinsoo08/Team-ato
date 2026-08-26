@@ -67,10 +67,10 @@
 
   relatedEl.innerHTML = `
     <ul class="nd-nav-list">
+      ${row('최신글', latestPost, { tag: isLatest ? '(현재 글)' : '' })}
+      ${row('다음글', nextPost, { emptyText: '다음글이 없습니다' })}
       ${row('현재글', notice, { current: true })}
       ${row('이전글', prevPost, { emptyText: '이전글이 없습니다' })}
-      ${row('다음글', nextPost, { emptyText: '다음글이 없습니다' })}
-      ${row('최신글', latestPost, { tag: isLatest ? '(현재 글)' : '' })}
     </ul>
   `;
 
