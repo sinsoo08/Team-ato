@@ -1,21 +1,23 @@
 {
-  "totalVisits": 97,
+  "totalVisits": 176,
   "pageVisits": {
-    "main": 63,
-    "map": 11,
+    "main": 98,
+    "map": 34,
     "support": 2,
     "team": 0,
     "guidam-police-1": 2,
     "guidam-police-2": 1,
-    "missing-color-1": 6,
+    "missing-color-1": 20,
     "missing-color-2": 3,
     "color-jump": 5,
     "lain": 2,
     "the-post": 1,
-    "the-coop": 1
+    "the-coop": 1,
+    "notice-detail": 3,
+    "notice": 4
   },
   "mapDownloads": {
-    "missing-color-1": 4106,
+    "missing-color-1": 4107,
     "missing-color-2": 3561,
     "color-jump": 3243,
     "lain": 2888,
