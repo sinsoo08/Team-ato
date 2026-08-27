@@ -5,6 +5,15 @@
    객체를 하나 추가하면 목록/상세 페이지에 모두 반영됩니다.
 ══════════════════════════════════ */
 
+/* 공지 정렬 규칙: 중요 공지 우선, 그 다음 최신순
+   (notice.html, main.html 모두 이 규칙으로 정렬해서 사용합니다) */
+function sortNotices(list) {
+  return [...list].sort((a, b) => {
+    if (a.important !== b.important) return a.important ? -1 : 1;
+    return new Date(b.date.replace(/\./g, '-')) - new Date(a.date.replace(/\./g, '-'));
+  });
+}
+
 const NOTICE_DATA = [
   {
     id: "2025-0320-check",

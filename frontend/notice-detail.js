@@ -57,7 +57,7 @@
       `;
     }
     return `
-      <li class="nd-nav-row">
+      <li class="nd-nav-row${opts.highlight ? ' nd-nav-highlight' : ''}">
         <span class="nd-nav-label">${label}</span>
         <a class="nd-nav-title" href="notice-detail.html?id=${encodeURIComponent(post.id)}">${post.title}${opts.tag ? ` <em>${opts.tag}</em>` : ''}</a>
         <span class="nd-nav-date">${post.date}</span>
@@ -67,7 +67,7 @@
 
   relatedEl.innerHTML = `
     <ul class="nd-nav-list">
-      ${row('최신글', latestPost, { tag: isLatest ? '(현재 글)' : '' })}
+      ${row('최신글', latestPost, { tag: isLatest ? '(현재 글)' : '', highlight: true })}
       ${row('다음글', nextPost, { emptyText: '다음글이 없습니다' })}
       ${row('현재글', notice, { current: true })}
       ${row('이전글', prevPost, { emptyText: '이전글이 없습니다' })}

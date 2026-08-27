@@ -72,6 +72,12 @@ a.nd-nav-title:hover { color: var(--blue); }
 .nd-nav-current .nd-nav-label { color: var(--blue); }
 .nd-nav-current .nd-nav-title { font-weight: 700; }
 
+.nd-nav-highlight {
+  background: #fffbea;
+}
+.nd-nav-highlight:hover { background: #fff6d6; }
+.nd-nav-highlight .nd-nav-label { color: #d97706; }
+
 @media (max-width: 560px) {
   .nd-nav-date { display: none; }
   .nd-nav-row { padding: 11px 14px; font-size: 13px; }
