@@ -300,7 +300,6 @@ ZIP 압축을 해제하면 <code>server/</code> 폴더 안에 <code>start.bat</c
 /* ════════ FAQ 자동 렌더링 ════════ */
 (function () {
   const catGrid    = document.getElementById('catGrid');
-  const tocList    = document.getElementById('tocList');
   const faqGroups  = document.getElementById('faqGroups');
   if (!catGrid || !faqGroups) return;
 
@@ -324,12 +323,7 @@ ZIP 압축을 해제하면 <code>server/</code> 폴더 안에 <code>start.bat</c
     </button>
   `).join('');
 
-  // 2. 사이드 목차 렌더링
-  tocList.innerHTML = activeCats.map((c, i) => `
-    <li><a href="#cat-${c.id}" class="sp-toc-link${i === 0 ? ' active' : ''}">${c.name}</a></li>
-  `).join('');
-
-  // 3. FAQ 그룹 렌더링
+  // 2. FAQ 그룹 렌더링
   faqGroups.innerHTML = activeCats.map(c => {
     const items = FAQ_DATA.filter(item => item.cat === c.id);
     const itemsHtml = items.map(item => `
@@ -569,25 +563,24 @@ ZIP 압축을 해제하면 <code>server/</code> 폴더 안에 <code>start.bat</c
 })();
 
 
-/* ════════ 카테고리 카드 클릭 → 스크롤 ════════ */
+/* ════════ 카테고리 카드 클릭 → 해당 카테고리 질문만 필터링 ════════ */
 document.querySelectorAll('.sp-cat').forEach(btn => {
   btn.addEventListener('click', () => {
     const cat = btn.dataset.cat;
-    const target = document.getElementById('cat-' + cat);
-    if (!target) return;
+    const isAlreadyActive = btn.classList.contains('active');
 
-    // 활성 표시
+    // 다시 누르면 필터 해제(전체 보기), 아니면 해당 카테고리만 표시
     document.querySelectorAll('.sp-cat').forEach(b => b.classList.remove('active'));
+
+    if (isAlreadyActive) {
+      document.querySelectorAll('.sp-group').forEach(g => { g.style.display = ''; });
+      return;
+    }
+
     btn.classList.add('active');
-
-    // 스크롤
-    const y = target.getBoundingClientRect().top + window.scrollY
-            - parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h') || '80') - 24;
-    window.scrollTo({ top: y, behavior: 'smooth' });
-
-    // 첫 번째 항목 자동으로 열기
-    const first = target.querySelector('.sp-item');
-    if (first && !first.classList.contains('open')) first.classList.add('open');
+    document.querySelectorAll('.sp-group').forEach(g => {
+      g.style.display = (g.dataset.cat === cat) ? '' : 'none';
+    });
   });
 });
 
@@ -597,38 +590,10 @@ document.querySelectorAll('.sp-q').forEach(btn => {
   btn.addEventListener('click', () => {
     const item   = btn.closest('.sp-item');
     const isOpen = item.classList.contains('open');
-    // 같은 그룹 내 다른 항목 닫기
-    const group = item.closest('.sp-items');
-    group.querySelectorAll('.sp-item.open').forEach(i => {
-      if (i !== item) i.classList.remove('open');
-    });
+    // 다른 항목은 그대로 두고 클릭한 항목만 열고/닫기
     item.classList.toggle('open', !isOpen);
   });
 });
-
-
-/* ════════ 사이드 TOC 스크롤 스파이 ════════ */
-(function () {
-  const links  = document.querySelectorAll('.sp-toc-link');
-  const groups = document.querySelectorAll('.sp-group');
-  if (!links.length || !groups.length) return;
-
-  const navH = parseInt(getComputedStyle(document.documentElement)
-    .getPropertyValue('--nav-h') || '80') + 32;
-
-  function onScroll() {
-    let current = '';
-    groups.forEach(g => {
-      if (g.getBoundingClientRect().top <= navH) current = g.id;
-    });
-    links.forEach(l => {
-      l.classList.toggle('active', l.getAttribute('href') === '#' + current);
-    });
-  }
-
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-})();
 
 
 /* ════════ 카드 스크롤 reveal ════════ */

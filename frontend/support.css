@@ -192,46 +192,7 @@
 }
 
 .sp-faq-layout {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 48px;
-  align-items: start;
-}
-
-/* 사이드 목차 */
-.sp-toc {
-  position: sticky;
-  top: calc(var(--nav-h) + 20px);
-}
-
-.sp-toc-title {
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--muted);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--border);
-}
-
-.sp-toc ul { list-style: none; display: flex; flex-direction: column; gap: 2px; }
-
-.sp-toc-link {
   display: block;
-  font-size: 14px;
-  color: var(--muted);
-  padding: 7px 10px;
-  border-radius: 6px;
-  border-left: 2px solid transparent;
-  transition: color 0.14s, background 0.14s, border-color 0.14s;
-}
-.sp-toc-link:hover { color: var(--text); background: var(--gray); }
-.sp-toc-link.active {
-  color: var(--blue);
-  background: #eff6ff;
-  border-left-color: var(--blue);
-  font-weight: 600;
 }
 
 /* ── 검색 결과 ── */
@@ -411,8 +372,6 @@
 /* ════════════ 반응형 ════════════ */
 @media (max-width: 1000px) {
   .sp-cat-grid { grid-template-columns: repeat(3, 1fr); }
-  .sp-faq-layout { grid-template-columns: 1fr; }
-  .sp-toc { display: none; }
 }
 
 @media (max-width: 680px) {
