@@ -185,14 +185,12 @@
   font-size: 88px;
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(58,157,232,0.25);
-  border-bottom: none;
 }
 .detail-cover-img::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, transparent 40%, rgba(4,14,26,0.6) 100%);
+  background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.35) 100%);
 }
 .cover-badge {
   position: absolute;

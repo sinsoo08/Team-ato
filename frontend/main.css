@@ -247,8 +247,25 @@ a { text-decoration: none; color: inherit; }
 .sec-title {
   font-size: 20px; font-weight: 700; letter-spacing: -0.02em;
   color: var(--text); margin-bottom: 24px;
+  display: flex; align-items: center; gap: 12px;
 }
 .sec-title.light { color: #fff; }
+
+/* 맵 목록 전체 보기 버튼 */
+.sec-map-link {
+  margin-left: auto;
+  font-size: 12px; font-weight: 600;
+  color: var(--blue);
+  background: rgba(37,99,235,0.08);
+  border: 1px solid rgba(37,99,235,0.2);
+  border-radius: 20px;
+  padding: 5px 14px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.15s, border-color 0.15s;
+  flex-shrink: 0;
+}
+.sec-map-link:hover { background: rgba(37,99,235,0.15); border-color: rgba(37,99,235,0.4); }
 
 /* ════════════ MAPS ════════════ */
 .sec-maps { background: var(--white); padding: 64px 0; }
@@ -328,17 +345,8 @@ a { text-decoration: none; color: inherit; }
   background: #059669; color: #fff;
 }
 
-.mcard-actions {
-  display: flex; gap: 6px; align-items: center; margin-top: 8px; flex-wrap: wrap;
-}
-.btn-map {
-  font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 4px;
-  background: transparent; color: #6b7280;
-  border: 1px solid #e5e7eb; cursor: pointer;
-  transition: background 0.13s, color 0.13s, border-color 0.13s;
-  font-family: var(--font); text-decoration: none;
-}
-.btn-map:hover { background: #f3f4f6; color: var(--text); border-color: #d1d5db; }
+.mcard:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.18); transition: transform 0.18s, box-shadow 0.18s; }
+.mcard { transition: transform 0.18s, box-shadow 0.18s; }
 
 .mcard-body { padding: 12px 14px 14px; flex: 1; display: flex; flex-direction: column; gap: 4px; }
 .mcard-body h3 { font-size: 15px; font-weight: 700; color: var(--text); }
@@ -348,15 +356,6 @@ a { text-decoration: none; color: inherit; }
 .mcard-dl {
   font-size: 12px; font-weight: 500; color: #9ca3af;
 }
-
-.btn-dl {
-  font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 4px;
-  background: transparent; color: var(--blue);
-  border: 1px solid #bfdbfe; cursor: pointer;
-  transition: background 0.13s, color 0.13s, border-color 0.13s;
-  font-family: var(--font);
-}
-.btn-dl:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
 
 /* ════════════ 공지사항 ════════════ */
 .sec-notice {

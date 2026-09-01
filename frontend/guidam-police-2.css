@@ -205,8 +205,6 @@
   font-size: 88px;
   position: relative;
   overflow: hidden;
-  border: 1px solid var(--gp2-border);
-  border-bottom: none;
 }
 .detail-cover-img::after {
   content: '';
