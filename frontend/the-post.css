@@ -63,7 +63,7 @@
   display: grid;
   grid-template-columns: 1fr 420px;
   gap: 140px;
-  align-items: end;
+  align-items: center;
   padding-bottom: 0;
 }
 
@@ -126,10 +126,9 @@
   display: block;
   font-style: normal;
   color: rgba(103,232,249,0.55);
-  font-size: 14px;
+  font-size: 16px;
   margin-bottom: 5px;
-  padding-left: 14px;
-  border-left: 2px solid rgba(34,211,238,0.35);
+  text-align: left;
   line-height: 1.8;
 }
 
@@ -208,7 +207,7 @@
 
 /* ── 커버 이미지 ── */
 .detail-hero-cover {
-  align-self: end;
+  align-self: center;
   opacity: 0;
   animation: up 0.7s 0.3s ease forwards;
 }

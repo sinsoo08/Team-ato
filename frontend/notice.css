@@ -91,3 +91,20 @@
   .nt-tabs { gap: 6px; }
   .nt-tab { font-size: 12px; padding: 7px 13px; }
 }
+
+/* ════════ 공지사항 페이지: 본문(.nd-body) 외 드래그/선택 방지 ════════ */
+/* (notice.css는 notice.html / notice-detail.html 에서만 로드됩니다) */
+body {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.nd-body,
+.nd-body * {
+  user-select: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+}

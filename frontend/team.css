@@ -118,21 +118,21 @@
   display: inline-flex; align-items: center; gap: 7px;
   font-size: 13px; font-weight: 700;
   padding: 9px 16px; border-radius: 7px;
-  background: #5865f2; color: #fff;
-  transition: opacity 0.14s, transform 0.12s;
-}
-.tm-lnk-dc:hover { opacity: 0.85; transform: translateY(-1px); }
-
-.tm-lnk-pt {
-  display: inline-flex; align-items: center; gap: 7px;
-  font-size: 13px; font-weight: 700;
-  padding: 9px 16px; border-radius: 7px;
   background: rgba(255,255,255,0.07);
   color: rgba(255,255,255,0.65);
   border: 1px solid rgba(255,255,255,0.12);
   transition: background 0.14s;
 }
-.tm-lnk-pt:hover { background: rgba(255,255,255,0.13); }
+.tm-lnk-dc:hover { background: rgba(255,255,255,0.13); }
+
+.tm-lnk-pt {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 13px; font-weight: 700;
+  padding: 9px 16px; border-radius: 7px;
+  background: #f96854; color: #fff;
+  transition: opacity 0.14s, transform 0.12s;
+}
+.tm-lnk-pt:hover { opacity: 0.85; transform: translateY(-1px); }
 
 /* ════════ 메인 그리드 영역 ════════ */
 .tm-main {

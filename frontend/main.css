@@ -35,8 +35,11 @@ body {
   margin: 0 auto;
 }
 a { text-decoration: none; color: inherit; }
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 2px; }
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: #b8bec7; }
+html { scrollbar-width: auto; scrollbar-color: #d1d5db transparent; }
 
 /* ════════════ NAV ════════════ */
 #nav {
@@ -51,7 +54,7 @@ a { text-decoration: none; color: inherit; }
 }
 #nav.scrolled { box-shadow: 0 1px 10px rgba(0,0,0,0.06); }
 
-.logo { font-size: 20px; font-weight: 800; color: var(--black); letter-spacing: -0.02em; display: flex; align-items: center; gap: 7px; }
+.logo { font-size: 20px; font-weight: 800; color: var(--black); letter-spacing: -0.02em; display: flex; align-items: center; gap: 14px; }
 .logo-img { height: 34px; width: auto; display: block; }
 .logo b { color: var(--blue); }
 

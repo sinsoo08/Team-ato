@@ -51,7 +51,7 @@
   display: grid;
   grid-template-columns: 1fr 420px;
   gap: 140px;
-  align-items: end;
+  align-items: center;
   padding-bottom: 0;
 }
 
@@ -183,7 +183,7 @@
 
 /* ── 커버 이미지 ── */
 .detail-hero-cover {
-  align-self: end;
+  align-self: center;
   opacity: 0;
   animation: up 0.7s 0.3s ease forwards;
 }

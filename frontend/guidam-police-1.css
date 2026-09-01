@@ -111,10 +111,9 @@
   display: block;
   font-style: normal;
   color: rgba(255,255,255,0.4);
-  font-size: 14px;
+  font-size: 16px;
   margin-bottom: 4px;
-  padding-left: 12px;
-  border-left: 2px solid rgba(232,85,85,0.4);
+  text-align: left;
 }
 
 .detail-tags {
@@ -192,7 +191,7 @@
 
 /* ── 커버 이미지 ── */
 .detail-hero-cover {
-  align-self: end;
+  align-self: center;
   opacity: 0;
   animation: up 0.7s 0.3s ease forwards;
 }
