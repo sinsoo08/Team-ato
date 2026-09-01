@@ -41,7 +41,7 @@
     <button class="burger" id="burger">☰</button>
   </nav>
 
-  <!-- ── 히어로 ── -->
+  <!-- 히어로 -->
   <header class="tm-hero">
     <canvas id="tmCanvas"></canvas>
     <div class="tm-hero-inner">
@@ -49,7 +49,7 @@
       <h1 class="tm-title">팀원 소개</h1>
       <p class="tm-desc">마인크래프트에 이야기를 담는 사람들, TEAM 아토를 소개합니다.</p>
       <div class="tm-hero-stats">
-        <div class="tm-hstat"><span class="tm-hnum">15</span><span class="tm-hlbl">팀원</span></div>
+        <div class="tm-hstat"><span class="tm-hnum">9</span><span class="tm-hlbl">팀원</span></div>
         <div class="tm-hstat-div"></div>
         <div class="tm-hstat"><span class="tm-hnum">4</span><span class="tm-hlbl">팀</span></div>
         <div class="tm-hstat-div"></div>
@@ -58,7 +58,7 @@
     </div>
   </header>
 
-  <!-- ── 팀 소개 배너 ── -->
+  <!-- 소개 배너 -->
   <div class="tm-about-bar">
     <div class="tm-wrap tm-about-inner">
       <p class="tm-about-txt">
@@ -74,9 +74,8 @@
       </div>
     </div>
   </div>
-</div>
 
-  <!-- ── 팀원 그리드 ── -->
+  <!-- 팀원 그리드 -->
   <div class="site-layout tm-layout">
 
     <aside class="ad-sidebar ad-left">
@@ -86,204 +85,123 @@
       </div>
     </aside>
 
-  <main class="tm-main site-main">
-    <div class="tm-wrap">
+    <main class="tm-main site-main">
+      <div class="tm-wrap">
 
-      <!-- 팀장 -->
-      <div class="tm-section" id="sec-팀장">
-<div class="tm-grid tm-grid-leader">
-
-          <div class="tm-card tm-card-leader" data-team="팀장">
-            <div class="tm-card-top">
-              <div class="tm-avatar tm-avatar-leader">이</div>
-            </div>
-            <div class="tm-card-body">
-              <h3 class="tm-name">이즈냥</h3>
-              <span class="tm-mbti">INFJ-A</span>
-              <p class="tm-quote">"귀담 2 언제 다 만들어요?"</p>
+        <!-- ── 팀장 ── -->
+        <div class="tm-section tm-section-leader" id="sec-팀장">
+          <div class="tm-leader-wrap">
+            <div class="tm-card-leader">
+              <div class="tm-card-top">
+                <div class="tm-avatar tm-avatar-leader">이</div>
+              </div>
+              <div class="tm-card-body">
+                <span class="tm-role-badge tm-badge-leader">팀장</span>
+                <h3 class="tm-name">이즈냥</h3>
+                <span class="tm-mbti">INFJ-A</span>
+                <p class="tm-quote">"귀담 2 언제 다 만들어요?"</p>
+              </div>
             </div>
           </div>
-
         </div>
-      </div>
 
-      <!-- 건축팀 -->
-      <div class="tm-section" id="sec-건축팀">
-<div class="tm-grid">
+        <!-- ── 팀원 (8명, 단일 그리드) ── -->
+        <div class="tm-section" id="sec-members">
+          <div class="tm-members-grid">
 
-          <div class="tm-card" data-team="건축팀">
-            <div class="tm-card-top">
-              <div class="tm-avatar">하</div>
+            <div class="tm-card">
+              <div class="tm-card-top">
+                <div class="tm-avatar">하</div>
+              </div>
+              <div class="tm-card-body">
+                <h3 class="tm-name">하이구 두야</h3>
+                <span class="tm-mbti">INFP</span>
+                <p class="tm-quote">"내가 바로 노동이다"</p>
+              </div>
             </div>
-            <div class="tm-card-body">
-              <h3 class="tm-name">하이구 두야</h3>
-              <span class="tm-mbti">INFP</span>
-              <p class="tm-quote">"내가 바로 노동이다"</p>
+
+            <div class="tm-card">
+              <div class="tm-card-top">
+                <div class="tm-avatar">린</div>
+              </div>
+              <div class="tm-card-body">
+                <h3 class="tm-name">린도</h3>
+                <span class="tm-mbti">INTJ-T</span>
+                <p class="tm-quote">"피곤하다"</p>
+              </div>
             </div>
+
+            <div class="tm-card">
+              <div class="tm-card-top">
+                <div class="tm-avatar">가</div>
+              </div>
+              <div class="tm-card-body">
+                <h3 class="tm-name">가방새</h3>
+                <span class="tm-mbti">ISFP-?</span>
+                <p class="tm-quote">"팀 아토 막내임."</p>
+              </div>
+            </div>
+
+            <div class="tm-card">
+              <div class="tm-card-top">
+                <div class="tm-avatar">레</div>
+              </div>
+              <div class="tm-card-body">
+                <h3 class="tm-name">레우</h3>
+                <span class="tm-mbti">a?f</span>
+                <p class="tm-quote">"게임 개발자로 전직 중"</p>
+              </div>
+            </div>
+
+            <div class="tm-card">
+              <div class="tm-card-top">
+                <div class="tm-avatar">김</div>
+              </div>
+              <div class="tm-card-body">
+                <h3 class="tm-name">김은세</h3>
+                <span class="tm-mbti">INTP</span>
+                <p class="tm-quote">"2025년 5월 5일 전역"</p>
+              </div>
+            </div>
+
+            <div class="tm-card">
+              <div class="tm-card-top">
+                <div class="tm-avatar">이</div>
+              </div>
+              <div class="tm-card-body">
+                <h3 class="tm-name">이유랑</h3>
+                <span class="tm-mbti">INTJ-T</span>
+                <p class="tm-quote">"다디달고 다디단 연양갱"</p>
+              </div>
+            </div>
+
+            <div class="tm-card">
+              <div class="tm-card-top">
+                <div class="tm-avatar">에</div>
+              </div>
+              <div class="tm-card-body">
+                <h3 class="tm-name">에이오우</h3>
+                <span class="tm-mbti">ENTJ</span>
+                <p class="tm-quote">"퇴근시켜주세요"</p>
+              </div>
+            </div>
+
+            <div class="tm-card">
+              <div class="tm-card-top">
+                <div class="tm-avatar">롤</div>
+              </div>
+              <div class="tm-card-body">
+                <h3 class="tm-name">롤라드</h3>
+                <span class="tm-mbti">ISFP</span>
+                <p class="tm-quote">"My Profile : litt.ly/music_"</p>
+              </div>
+            </div>
+
           </div>
-
-          <div class="tm-card" data-team="건축팀">
-            <div class="tm-card-top">
-              <div class="tm-avatar">노</div>
-            </div>
-            <div class="tm-card-body">
-              <h3 class="tm-name">노네임</h3>
-              <span class="tm-mbti">INFP-?</span>
-              <p class="tm-quote">"죽어가는 건축가.."</p>
-            </div>
-          </div>
-
-          <div class="tm-card" data-team="건축팀">
-            <div class="tm-card-top">
-              <div class="tm-avatar">헤</div>
-            </div>
-            <div class="tm-card-body">
-              <h3 class="tm-name">헤테</h3>
-              <span class="tm-mbti">ISTP-T</span>
-              <p class="tm-quote">"그냥 평범하게 건축 좀 하는 사람"</p>
-            </div>
-          </div>
-
         </div>
-      </div>
 
-      <!-- 프로그래밍팀 -->
-      <div class="tm-section" id="sec-프로그래밍팀">
-<div class="tm-grid">
-
-          <div class="tm-card" data-team="프로그래밍팀">
-            <div class="tm-card-top">
-              <div class="tm-avatar">린</div>
-            </div>
-            <div class="tm-card-body">
-              <h3 class="tm-name">린도</h3>
-              <span class="tm-mbti">INTJ-T</span>
-              <p class="tm-quote">"피곤하다"</p>
-            </div>
-          </div>
-
-          <div class="tm-card" data-team="프로그래밍팀">
-            <div class="tm-card-top">
-              <div class="tm-avatar">하</div>
-            </div>
-            <div class="tm-card-body">
-              <h3 class="tm-name">하늘바람</h3>
-              <span class="tm-mbti">NO DATA</span>
-              <p class="tm-quote">"변경 예정"</p>
-            </div>
-          </div>
-
-          <div class="tm-card" data-team="프로그래밍팀">
-            <div class="tm-card-top">
-              <div class="tm-avatar">가</div>
-            </div>
-            <div class="tm-card-body">
-              <h3 class="tm-name">가방새</h3>
-              <span class="tm-mbti">ISFP-?</span>
-              <p class="tm-quote">"팀 아토 막내임."</p>
-            </div>
-          </div>
-
-          <div class="tm-card" data-team="프로그래밍팀">
-            <div class="tm-card-top">
-              <div class="tm-avatar">레</div>
-            </div>
-            <div class="tm-card-body">
-              <h3 class="tm-name">레우</h3>
-              <span class="tm-mbti">a?f</span>
-              <p class="tm-quote">"게임 개발자로 전직 중"</p>
-            </div>
-          </div>
-
-          <div class="tm-card" data-team="프로그래밍팀">
-            <div class="tm-card-top">
-              <div class="tm-avatar">디</div>
-            </div>
-            <div class="tm-card-body">
-              <h3 class="tm-name">디그</h3>
-              <span class="tm-mbti">INFJ</span>
-              <p class="tm-quote">"No_data"</p>
-            </div>
-          </div>
-
-          <div class="tm-card" data-team="프로그래밍팀">
-            <div class="tm-card-top">
-              <div class="tm-avatar">소</div>
-            </div>
-            <div class="tm-card-body">
-              <h3 class="tm-name">소울나이</h3>
-              <span class="tm-mbti">INFP-T</span>
-              <p class="tm-quote">"평범하게 리제로만을 파는 영혼"</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- 아트팀 -->
-      <div class="tm-section" id="sec-아트팀">
-<div class="tm-grid">
-
-          <div class="tm-card" data-team="아트팀">
-            <div class="tm-card-top">
-              <div class="tm-avatar">김</div>
-            </div>
-            <div class="tm-card-body">
-              <h3 class="tm-name">김은세</h3>
-              <span class="tm-mbti">INTP</span>
-              <p class="tm-quote">"2025년 5월 5일 전역"</p>
-            </div>
-          </div>
-
-          <div class="tm-card" data-team="아트팀">
-            <div class="tm-card-top">
-              <div class="tm-avatar">이</div>
-            </div>
-            <div class="tm-card-body">
-              <h3 class="tm-name">이유랑</h3>
-              <span class="tm-mbti">INTJ-T</span>
-              <p class="tm-quote">"다디달고 다디단 연양갱"</p>
-            </div>
-          </div>
-
-          <div class="tm-card" data-team="아트팀">
-            <div class="tm-card-top">
-              <div class="tm-avatar">에</div>
-            </div>
-            <div class="tm-card-body">
-              <h3 class="tm-name">에이오우</h3>
-              <span class="tm-mbti">ENTJ</span>
-              <p class="tm-quote">"퇴근시켜주세요 퇴근시켜주세요"</p>
-            </div>
-          </div>
-
-          <div class="tm-card" data-team="아트팀">
-            <div class="tm-card-top">
-              <div class="tm-avatar">윈</div>
-            </div>
-            <div class="tm-card-body">
-              <h3 class="tm-name">윈도</h3>
-              <span class="tm-mbti">ENFP-?</span>
-              <p class="tm-quote">"귀찮다"</p>
-            </div>
-          </div>
-
-          <div class="tm-card" data-team="아트팀">
-            <div class="tm-card-top">
-              <div class="tm-avatar">롤</div>
-            </div>
-            <div class="tm-card-body">
-              <h3 class="tm-name">롤라드</h3>
-              <span class="tm-mbti">ISFP</span>
-              <p class="tm-quote">"My Profile : litt.ly/music_"</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </div><!-- /tm-wrap -->
-  </main>
+      </div><!-- /tm-wrap -->
+    </main>
 
     <aside class="ad-sidebar ad-right">
       <div class="ad-sticky">
@@ -292,9 +210,9 @@
       </div>
     </aside>
 
-  </div><!-- /site-layout -->
+  </div>
 
-  <!-- ── 하단 CTA ── -->
+  <!-- 하단 CTA -->
   <section class="tm-cta">
     <div class="tm-wrap tm-cta-inner">
       <div class="tm-cta-text">
@@ -316,7 +234,7 @@
         <small>©2020 - 2025 TEAM 아토 OFFICIAL</small>
       </div>
       <div class="foot-nav">
-        <a href="index.html">메인</a>
+        <a href="main.html">메인</a>
         <a href="map.html">맵 목록</a>
         <a href="notice.html">공지사항</a>
         <a href="support.html">고객 지원</a>
