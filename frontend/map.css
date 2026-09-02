@@ -225,6 +225,7 @@
   flex-direction: column;
   box-shadow: 0 2px 12px rgba(0,0,0,0.08);
   transition: box-shadow 0.22s, transform 0.2s, border-color 0.2s;
+  cursor: pointer;
 
   /* 진입 애니메이션 초기값 */
   opacity: 0;
@@ -438,18 +439,6 @@
   cursor: not-allowed !important;
 }
 .mc-btn-soon:hover { background: transparent !important; transform: none !important; }
-
-.mc-btn-detail {
-  font-size: 12px; font-weight: 600;
-  padding: 6px 14px; border-radius: 5px;
-  background: transparent; color: #6b7280;
-  border: 1.5px solid #e5e7eb;
-  transition: background 0.13s, color 0.13s, border-color 0.13s;
-  font-family: var(--font);
-}
-.mc-btn-detail:hover {
-  background: #f3f4f6; color: var(--text); border-color: #d1d5db;
-}
 
 /* 빈 결과 */
 .map-empty {

@@ -54,6 +54,11 @@ html { scrollbar-width: auto; scrollbar-color: #d1d5db transparent; }
 }
 #nav.scrolled { box-shadow: 0 1px 10px rgba(0,0,0,0.06); }
 
+.nav-current {
+  color: var(--blue) !important;
+  font-weight: 700 !important;
+}
+
 .logo { font-size: 20px; font-weight: 800; color: var(--black); letter-spacing: -0.02em; display: flex; align-items: center; gap: 14px; }
 .logo-img { height: 34px; width: auto; display: block; }
 .logo b { color: var(--blue); }
@@ -65,6 +70,7 @@ html { scrollbar-width: auto; scrollbar-color: #d1d5db transparent; }
   transition: color 0.14s, background 0.14s;
 }
 .nav-links > li > a:hover { color: var(--text); background: var(--gray); }
+.nav-links > li > a:active { background: #e2e4e8; }
 
 .has-drop { position: relative; }
 .dropdown {
@@ -81,6 +87,7 @@ html { scrollbar-width: auto; scrollbar-color: #d1d5db transparent; }
   transition: background 0.1s, color 0.1s;
 }
 .dropdown li a:hover { background: var(--gray); color: var(--text); }
+.dropdown li a:active { background: #e2e4e8; }
 .arr { font-size: 9px; opacity: 0.45; }
 
 .nav-donate {
@@ -92,6 +99,7 @@ html { scrollbar-width: auto; scrollbar-color: #d1d5db transparent; }
   margin-left: 6px !important;
 }
 .nav-donate:hover { background: var(--blue-d) !important; transform: translateY(-1px) !important; }
+.nav-donate:active { background: #1e40af !important; transform: translateY(0) !important; }
 
 .burger {
   display: none; background: none; border: 1px solid var(--border);
@@ -634,12 +642,14 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.05);
 .foot-wrap {
   max-width: var(--content-w);
   margin: 0 auto;
-  display: flex; justify-content: space-between; align-items: flex-start;
-  padding: 44px 0; gap: 40px; flex-wrap: wrap;
+  display: flex; align-items: flex-start;
+  padding: 44px 0; gap: 100px; flex-wrap: wrap;
 }
+.foot-wrap > div:first-child { margin-right: auto; text-align: left; }
+.foot-wrap > div { text-align: right; }
 .foot-logo { font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 7px; }
 footer small { font-size: 13px; color: rgba(255,255,255,0.25); }
-.foot-nav { display: flex; flex-direction: column; gap: 9px; }
+.foot-nav { display: flex; flex-direction: column; align-items: flex-end; gap: 9px; }
 .foot-nav a { font-size: 14px; color: rgba(255,255,255,0.4); transition: color 0.13s; }
 .foot-nav a:hover { color: rgba(255,255,255,0.7); }
 

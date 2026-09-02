@@ -212,8 +212,7 @@ window.addEventListener('DOMContentLoaded', () => {
       if (val === 'dl-desc') return parseInt(b.dataset.dl) - parseInt(a.dataset.dl);
       if (val === 'dl-asc')  return parseInt(a.dataset.dl) - parseInt(b.dataset.dl);
       if (val === 'new')     return parseInt(b.dataset.year) - parseInt(a.dataset.year);
-      // default: DOM 원래 순서 (data-order 기준)
-      return parseInt(a.dataset.order || 0) - parseInt(b.dataset.order || 0);
+      return 0;
     });
 
     // 재배치 + 애니메이션
@@ -273,4 +272,21 @@ function dlFeedback(btn) {
   let saved = null;
   try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
   if (saved === 'list' || saved === 'grid') setView(saved);
+})();
+
+
+/* ════════ 카드 클릭 → 상세페이지 이동 ════════ */
+(function () {
+  document.querySelectorAll('.mc[data-map-id]').forEach(card => {
+    const url = card.dataset.mapId + '.html';
+    card.setAttribute('role', 'link');
+    card.setAttribute('tabindex', '0');
+    card.addEventListener('click', () => { window.location.href = url; });
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        window.location.href = url;
+      }
+    });
+  });
 })();
