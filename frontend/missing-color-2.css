@@ -502,6 +502,35 @@
   text-decoration: underline;
 }
 
+/* ── 맵 정보 요약 카드 ── */
+.info-summary-card {
+  background: linear-gradient(135deg, #04100e, #0f3828);
+  border: 1px solid rgba(52,201,154,0.2);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-bottom: 16px;
+  color: #fff;
+}
+.info-summary-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #34c99a;
+  margin-bottom: 14px;
+}
+.info-summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  font-size: 13px;
+}
+.info-summary-row:last-child { border-bottom: none; }
+.info-summary-key { color: rgba(255,255,255,0.45); font-weight: 500; }
+.info-summary-val { font-weight: 700; color: rgba(255,255,255,0.9); }
+
 /* ── 관련 맵 카드 ── */
 .rel-card {
   display: flex;
