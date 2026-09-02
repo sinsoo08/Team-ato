@@ -95,14 +95,18 @@
     // 전체 다운로드 수
     document.querySelectorAll(".js-stat-total-dl").forEach((el) => {
       // map.html의 #stat-dl 은 처음 화면에 보일 때 0→목표값으로 한 번 카운트업하는
-      // 기존 애니메이션(main.js)을 갖고 있으므로, 그 애니메이션이 쓸 목표값(data-to)을
-      // 실제 값으로 갱신해주고, 이미 애니메이션이 끝난 뒤(텍스트에 숫자가 보이는 상태)라면
-      // 새 값으로 부드럽게 갱신한다.
+      // 애니메이션(map.js)을 갖고 있으므로, 그 애니메이션이 쓸 목표값(data-to)만 먼저
+      // 실제 값으로 갱신해준다.
       el.dataset.to = stats.totalDownloads;
-      if (el.dataset.animated === "1" || /\d/.test(el.textContent)) {
+      // 주의: map.js가 스크롤 진입 시 0 → 목표값으로 카운트업 애니메이션을 재생하는데,
+      // 그 애니메이션이 끝나기 전에 여기서 같은 요소의 textContent를 건드리면
+      // 두 개의 requestAnimationFrame 루프가 동시에 값을 덮어써서 숫자가
+      // 0으로 리셋되거나 이상하게 튀는 버그가 생긴다.
+      // 그래서 map.js가 애니메이션을 끝내고 dataset.animated = '1'을 찍어준 뒤에만
+      // 여기서 실시간 값으로 부드럽게 갱신한다.
+      if (el.dataset.animated === "1") {
         animateNumber(el, stats.totalDownloads, 900);
       }
-      el.dataset.animated = "1";
     });
 
     // 전체 방문 수

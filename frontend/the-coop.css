@@ -493,7 +493,6 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 0;
 }
 .notice-item {
   display: flex;
@@ -569,15 +568,7 @@
   border-color: var(--co-accent);
   color: var(--co-darker);
 }
-.sidebar-dl-btn span {
-  opacity: 0.55;
-  font-size: 11px;
-  font-weight: 500;
-  display: inline-flex;
-  align-items: center;
-  line-height: 1;
-}
-.sidebar-dl-btn span.rel-arrow { opacity: 1; font-weight: 400; transform: translateX(4px); }
+.sidebar-dl-btn span { opacity: 0.55; font-size: 11px; font-weight: 500; }
 
 .sidebar-note {
   font-size: 12px;
@@ -616,35 +607,6 @@
 }
 .version-date { font-size: 11px; color: #b0b7c3; font-weight: 400; font-family: var(--font); }
 
-/* ── 맵 정보 요약 카드 ── */
-.info-summary-card {
-  background: linear-gradient(135deg, #040e04, #122512);
-  border: 1px solid rgba(90,200,110,0.2);
-  border-radius: 12px;
-  padding: 22px 24px;
-  margin-bottom: 16px;
-  color: #fff;
-}
-.info-summary-title {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #5ac86e;
-  margin-bottom: 14px;
-}
-.info-summary-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  padding: 7px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-  font-size: 13px;
-}
-.info-summary-row:last-child { border-bottom: none; }
-.info-summary-key { color: rgba(255,255,255,0.45); font-weight: 500; }
-.info-summary-val { font-weight: 700; color: rgba(255,255,255,0.9); }
-
 /* ── 관련 맵 카드 ── */
 .rel-card {
   display: flex;
@@ -676,17 +638,7 @@
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .rel-meta { font-size: 11px; color: var(--muted); }
-.rel-arrow {
-  margin-left: auto;
-  color: #d1d5db;
-  flex-shrink: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 14px;
-  height: 14px;
-}
-.rel-arrow svg { display: block; width: 100%; height: 100%; }
+.rel-arrow { margin-left: auto; color: #d1d5db; font-size: 12px; flex-shrink: 0; }
 
 /* ── 후원 카드 ── */
 .patron-card {

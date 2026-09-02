@@ -102,8 +102,6 @@ navLinks.querySelectorAll('a').forEach(a =>
   const lbNext  = document.getElementById('lightboxNext');
 
   let idx = 0;
-  const AUTOPLAY_MS = 5000;
-  let autoplayTimer = null;
 
   function render() {
     mainImg.src = images[idx];
@@ -118,25 +116,10 @@ navLinks.querySelectorAll('a').forEach(a =>
     idx = (i + images.length) % images.length;
     render();
   }
-  function startAutoplay() {
-    if (images.length < 2) return;
-    stopAutoplay();
-    autoplayTimer = setInterval(() => show(idx + 1), AUTOPLAY_MS);
-  }
-  function stopAutoplay() {
-    if (autoplayTimer) {
-      clearInterval(autoplayTimer);
-      autoplayTimer = null;
-    }
-  }
-  function showManual(i) {
-    show(i);
-    startAutoplay();
-  }
 
-  thumbs.forEach((t, i) => t.addEventListener('click', () => showManual(i)));
-  prevBtn.addEventListener('click', () => showManual(idx - 1));
-  nextBtn.addEventListener('click', () => showManual(idx + 1));
+  thumbs.forEach((t, i) => t.addEventListener('click', () => show(i)));
+  prevBtn.addEventListener('click', () => show(idx - 1));
+  nextBtn.addEventListener('click', () => show(idx + 1));
 
   if (lightbox) {
     function openLightbox() {
@@ -144,12 +127,10 @@ navLinks.querySelectorAll('a').forEach(a =>
       lightboxCount.textContent = `${idx + 1} / ${images.length}`;
       lightbox.classList.add('open');
       document.body.style.overflow = 'hidden';
-      stopAutoplay();
     }
     function closeLightbox() {
       lightbox.classList.remove('open');
       document.body.style.overflow = '';
-      startAutoplay();
     }
     mainWrap.addEventListener('click', openLightbox);
     lbClose.addEventListener('click', closeLightbox);
@@ -165,5 +146,4 @@ navLinks.querySelectorAll('a').forEach(a =>
   }
 
   render();
-  startAutoplay();
 })();

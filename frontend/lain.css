@@ -534,15 +534,7 @@
   border-color: var(--ln-accent);
   color: var(--ln-deep);
 }
-.sidebar-dl-btn span {
-  opacity: 0.55;
-  font-size: 11px;
-  font-weight: 500;
-  display: inline-flex;
-  align-items: center;
-  line-height: 1;
-}
-.sidebar-dl-btn span.rel-arrow { opacity: 1; font-weight: 400; transform: translateX(4px); }
+.sidebar-dl-btn span { opacity: 0.55; font-size: 11px; font-weight: 500; }
 
 .sidebar-note {
   font-size: 12px;
@@ -615,17 +607,7 @@
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .rel-meta { font-size: 11px; color: var(--muted); }
-.rel-arrow {
-  margin-left: auto;
-  color: #d1d5db;
-  flex-shrink: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 14px;
-  height: 14px;
-}
-.rel-arrow svg { display: block; width: 100%; height: 100%; }
+.rel-arrow { margin-left: auto; color: #d1d5db; font-size: 12px; flex-shrink: 0; }
 
 /* ── 후원 카드 ── */
 .patron-card {

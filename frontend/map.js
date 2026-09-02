@@ -86,14 +86,22 @@
       const val  = Math.floor(ease * target);
 
       if (isDl) {
-        el.textContent = val.toLocaleString('ko-KR') + (p >= 1 ? '+' : '');
+        el.textContent = val.toLocaleString('ko-KR');
       } else if (isPct) {
         el.textContent = val;   // % 는 CSS ::after 로
       } else {
         el.textContent = val + (p >= 1 && el.dataset.suffix ? el.dataset.suffix : '');
       }
 
-      if (p < 1) requestAnimationFrame(tick);
+      if (p < 1) {
+        requestAnimationFrame(tick);
+      } else if (isDl) {
+        // analytics.js가 실시간 폴링으로 이 숫자를 갱신하기 시작해도 되는 시점을 표시.
+        // 이 플래그가 없으면 analytics.js가 아직 이 애니메이션이 끝나기도 전에
+        // 같은 요소의 textContent를 건드려서 두 애니메이션이 동시에 충돌하며
+        // 숫자가 0으로 리셋되거나 값이 튀는 버그가 발생함.
+        el.dataset.animated = '1';
+      }
     })(start);
   }
 
