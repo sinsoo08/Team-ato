@@ -249,6 +249,9 @@
 /* 카드 상단 이미지 영역 */
 .mc-top {
   height: 170px;
+  min-height: 170px;
+  max-height: 170px;
+  flex-shrink: 0;
   background: var(--bg);
   display: flex;
   flex-direction: column;

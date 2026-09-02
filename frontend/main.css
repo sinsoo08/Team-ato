@@ -69,8 +69,8 @@ html { scrollbar-width: auto; scrollbar-color: #d1d5db transparent; }
   padding: 9px 16px; border-radius: 6px;
   transition: color 0.14s, background 0.14s;
 }
-.nav-links > li > a:hover { color: var(--text); background: var(--gray); }
-.nav-links > li > a:active { background: #e2e4e8; }
+.nav-links > li > a:hover { color: var(--text); background: rgba(0,0,0,0.055); }
+.nav-links > li > a:active { background: rgba(0,0,0,0.09); }
 
 .has-drop { position: relative; }
 .dropdown {
